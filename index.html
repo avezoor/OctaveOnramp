@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modul Pemrograman Dasar Octave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <script async src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Navigasi modul">
+      <div class="sidebar-head">
+        <div>
+          <div class="brand">Daftar Materi</div>
+          <p class="subtitle">Modul Belajar Interaktif</p>
+        </div>
+        <button id="closeSidebarBtn" class="icon-btn" type="button" aria-label="Tutup menu">×</button>
+      </div>
+      <nav id="moduleList" class="module-list"></nav>
+    </aside>
+    <button id="sidebarOverlay" class="sidebar-overlay" type="button" aria-label="Tutup menu"></button>
+    <button id="tocOverlay" class="toc-overlay" type="button" aria-label="Tutup daftar isi"></button>
+    <button id="tocToggleBtn" class="toc-toggle-btn" type="button" aria-label="Buka daftar isi" aria-expanded="false">
+      <span class="list-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <button id="scrollTopBtn" class="scroll-top-btn" type="button" aria-label="Kembali ke atas">
+      <span aria-hidden="true">↑</span>
+    </button>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="menu-btn" type="button" aria-label="Buka menu modul" aria-expanded="false">☰</button>
+        <h1 id="pageTitle">Modul Pemrograman Dasar Octave</h1>
+        <div id="currentDateInfo" class="topbar-date" aria-label="Tanggal hari ini">Memuat tanggal...</div>
+      </header>
+
+      <div class="content-layout">
+        <article id="content" class="content">
+          <p>Memuat materi...</p>
+        </article>
+
+        <aside id="tocBox" class="toc-box" role="dialog" aria-modal="true" aria-label="Daftar isi modul">
+          <div class="toc-head">
+            <h2>Daftar Isi</h2>
+            <button id="closeTocBtn" class="icon-btn toc-close-btn" type="button" aria-label="Tutup daftar isi">×</button>
+          </div>
+          <nav id="toc"></nav>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="./content-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

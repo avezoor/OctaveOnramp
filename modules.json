@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "01-pengenalan",
+    "title": "Pertemuan 1 - Pengenalan Octave",
+    "file": "01-pengenalan.md"
+  },
+  {
+    "slug": "02-variabel-dan-ekspresi",
+    "title": "Pertemuan 2 - Variabel dan Ekspresi",
+    "file": "02-variabel-dan-ekspresi.md"
+  },
+  {
+    "slug": "03-vektor-dan-matriks",
+    "title": "Pertemuan 3 - Vektor dan Matriks",
+    "file": "03-vektor-dan-matriks.md"
+  }
+]
