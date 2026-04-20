@@ -1,13 +1,5 @@
 # Visualisasi 2D Lanjut, Subplot, Histogram, dan Interaksi
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Visualisasi 2D Lanjut, Subplot, Histogram, dan Interaksi
-- **Perangkat lunak**: GNU Octave
-- **Bentuk bahan ajar**: Modul praktikum berbasis markdown
-
----
-
 ## 1. Deskripsi Singkat
 
 Pada pertemuan ini, mahasiswa mempelajari teknik visualisasi 2D yang lebih lanjut di GNU Octave. Jika pada materi sebelumnya fokus masih pada plot dasar, pada modul ini pembahasan diperluas ke pengaturan beberapa grafik dalam satu jendela menggunakan `subplot`, pembuatan histogram untuk melihat distribusi data menggunakan `hist`, serta interaksi dengan grafik menggunakan fasilitas seperti `ginput`, `gtext`, `zoom`, dan `pan`.
@@ -16,39 +8,15 @@ Materi ini penting karena pada praktik komputasi numerik, mahasiswa tidak hanya 
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah menyelesaikan praktikum ini, mahasiswa diharapkan mampu:
-
-1. menjelaskan konsep visualisasi 2D lanjut pada Octave,
-2. menggunakan `subplot` untuk menampilkan beberapa grafik dalam satu figure,
-3. membuat histogram untuk menganalisis sebaran data,
-4. menambahkan elemen pendukung visualisasi seperti judul, label, legend, grid, dan anotasi,
-5. menggunakan fitur interaksi grafik seperti `ginput`, `gtext`, `zoom`, dan `pan`,
-6. menyusun skrip visualisasi yang rapi, informatif, dan mudah dibaca.
-
----
-
-## 3. Prasyarat
-
-Mahasiswa sebaiknya telah memahami:
-
-- variabel, vektor, dan matriks,
-- operasi dasar vektor dan matriks,
-- penggunaan fungsi bawaan Octave,
-- visualisasi 2D dasar seperti `plot`, `xlabel`, `ylabel`, `title`, `legend`, `grid`, dan `axis`.
-
----
-
-## 4. Dasar Teori
-
-## 4.1 Visualisasi 2D Lanjut
+### 2.1 Visualisasi 2D Lanjut
 
 Octave menyediakan fungsi plotting tingkat tinggi untuk membuat berbagai grafik 2D. Grafik tidak hanya berfungsi sebagai tampilan hasil, tetapi juga sebagai alat eksplorasi data. Dalam praktik yang lebih lanjut, visualisasi perlu diatur agar bisa membandingkan beberapa data sekaligus, memberi informasi statistik dasar, serta memberi ruang interaksi pengguna terhadap grafik.
 
 Visualisasi 2D di Octave berada dalam sistem objek grafik yang berbasis `figure`, `axes`, dan objek-objek turunan seperti `line`, `patch`, dan `text`. Banyak fungsi plotting tingkat tinggi akan membuat objek-objek ini secara otomatis, tetapi pengguna tetap dapat mengatur propertinya untuk memperoleh tampilan yang lebih baik.
 
-## 4.2 Subplot
+### 2.2 Subplot
 
 Fungsi `subplot` digunakan untuk membagi satu jendela figure menjadi beberapa area axes. Bentuk umum pemakaiannya adalah:
 
@@ -65,7 +33,7 @@ Beberapa variasi pemakaian `subplot` juga mendukung:
 - opsi `"align"` untuk penyelarasan tampilan,
 - opsi `"replace"` untuk mengganti axes yang sudah ada.
 
-## 4.3 Histogram
+### 2.3 Histogram
 
 Histogram digunakan untuk menampilkan distribusi frekuensi data numerik. Pada Octave, histogram dasar dapat dibuat menggunakan fungsi `hist`. Fungsi ini dapat dipanggil dalam beberapa bentuk, misalnya:
 
@@ -84,7 +52,7 @@ Histogram membantu mahasiswa memahami bentuk sebaran data, seperti:
 - data menyebar lebar atau sempit,
 - data memiliki kelompok tertentu.
 
-## 4.4 Interaksi dengan Plot
+### 2.4 Interaksi dengan Plot
 
 Octave menyediakan beberapa fungsi untuk berinteraksi dengan plot, antara lain:
 
@@ -100,7 +68,7 @@ Interaksi ini berguna saat pengguna ingin:
 - meninjau bagian grafik yang detail,
 - menggeser tampilan saat data terlalu rapat.
 
-## 4.5 Anotasi dan Tata Letak
+### 2.5 Anotasi dan Tata Letak
 
 Dalam visualisasi lanjut, tata letak menjadi sangat penting. Elemen yang sering dipakai meliputi:
 
@@ -114,11 +82,11 @@ Kombinasi tata letak yang baik akan membuat visualisasi lebih komunikatif dan mu
 
 ---
 
-## 5. Sintaks Penting
+## 3. Sintaks Penting
 
 Berikut beberapa fungsi utama yang digunakan pada praktikum ini.
 
-### 5.1 Subplot
+### 3.1 Subplot
 
 ```octave
 subplot (2, 2, 1)
@@ -127,7 +95,7 @@ subplot (2, 2, 3)
 subplot (2, 2, 4)
 ```
 
-### 5.2 Histogram
+### 3.2 Histogram
 
 ```octave
 hist (data)
@@ -135,7 +103,7 @@ hist (data, 10)
 [n, x] = hist (data, 10)
 ```
 
-### 5.3 Interaksi Plot
+### 3.3 Interaksi Plot
 
 ```octave
 [x, y] = ginput (1)
@@ -144,7 +112,7 @@ zoom on
 pan on
 ```
 
-### 5.4 Anotasi Tambahan
+### 3.4 Anotasi Tambahan
 
 ```octave
 title ("Judul Grafik")
@@ -157,9 +125,9 @@ grid on
 
 ---
 
-## 6. Contoh Kode dan Penjelasan
+## 4. Contoh Kode dan Penjelasan
 
-## Contoh 1 — Membandingkan Beberapa Kurva dengan Subplot
+## 5. Contoh 1 — Membandingkan Beberapa Kurva dengan Subplot
 
 ```octave
 clc;
@@ -198,7 +166,7 @@ ylabel ("hasil");
 grid on;
 ```
 
-### Penjelasan
+### 5.1 Penjelasan
 
 - `subplot (2, 2, 1)` membagi figure menjadi 4 bagian dan memilih posisi pertama.
 - Setiap bagian diisi dengan grafik yang berbeda.
@@ -209,7 +177,7 @@ Contoh ini menunjukkan bagaimana beberapa fungsi dapat dibandingkan secara langs
 
 ---
 
-## Contoh 2 — Subplot untuk Data Eksperimen
+## 6. Contoh 2 — Subplot untuk Data Eksperimen
 
 ```octave
 clc;
@@ -243,13 +211,13 @@ title ("Logaritma");
 grid on;
 ```
 
-### Penjelasan
+### 6.1 Penjelasan
 
 Contoh ini memperlihatkan bahwa `subplot` sangat berguna untuk membandingkan karakter pertumbuhan beberapa fungsi matematis pada domain yang sama.
 
 ---
 
-## Contoh 3 — Histogram Distribusi Data Acak
+## 7. Contoh 3 — Histogram Distribusi Data Acak
 
 ```octave
 clc;
@@ -264,7 +232,7 @@ ylabel ("Frekuensi");
 grid on;
 ```
 
-### Penjelasan
+### 7.1 Penjelasan
 
 - `randn (1, 1000)` menghasilkan 1000 data acak berdistribusi normal.
 - `hist (data, 20)` menampilkan histogram dengan 20 bin.
@@ -272,7 +240,7 @@ grid on;
 
 ---
 
-## Contoh 4 — Mengambil Nilai Histogram Tanpa Langsung Menggambar
+## 8. Contoh 4 — Mengambil Nilai Histogram Tanpa Langsung Menggambar
 
 ```octave
 clc;
@@ -295,7 +263,7 @@ ylabel ("Frekuensi");
 grid on;
 ```
 
-### Penjelasan
+### 8.1 Penjelasan
 
 - Dengan `[n, pusat] = hist (...)`, histogram tidak langsung digambar, tetapi frekuensinya dihitung.
 - `bar (pusat, n)` kemudian digunakan untuk menampilkan hasil perhitungan dalam bentuk diagram batang.
@@ -303,7 +271,7 @@ grid on;
 
 ---
 
-## Contoh 5 — Menentukan Titik pada Grafik dengan `ginput`
+## 9. Contoh 5 — Menentukan Titik pada Grafik dengan `ginput`
 
 ```octave
 clc;
@@ -325,7 +293,7 @@ plot (xp, yp, "ro", "markersize", 8, "markerfacecolor", "r");
 text (xp, yp, sprintf ("(%.2f, %.2f)", xp, yp));
 ```
 
-### Penjelasan
+### 9.1 Penjelasan
 
 - `ginput (1)` menunggu satu klik dari pengguna pada figure.
 - Nilai koordinat titik hasil klik disimpan ke `xp` dan `yp`.
@@ -333,7 +301,7 @@ text (xp, yp, sprintf ("(%.2f, %.2f)", xp, yp));
 
 ---
 
-## Contoh 6 — Menempatkan Teks Interaktif dengan `gtext`
+## 10. Contoh 6 — Menempatkan Teks Interaktif dengan `gtext`
 
 ```octave
 clc;
@@ -349,14 +317,14 @@ legend ("sin(x)");
 gtext ("puncak lokal");
 ```
 
-### Penjelasan
+### 10.1 Penjelasan
 
 - `gtext` memungkinkan pengguna menempatkan teks dengan memilih posisi pada grafik menggunakan mouse.
 - Fitur ini cocok untuk anotasi manual.
 
 ---
 
-## Contoh 7 — Mengaktifkan Zoom dan Pan
+## 11. Contoh 7 — Mengaktifkan Zoom dan Pan
 
 ```octave
 clc;
@@ -381,7 +349,7 @@ Untuk mencoba pergeseran tampilan, jalankan versi berikut:
 pan on;
 ```
 
-### Penjelasan
+### 11.1 Penjelasan
 
 - `zoom on` mengaktifkan mode pembesaran pada GUI figure.
 - `pan on` mengaktifkan mode penggeseran tampilan.
@@ -389,25 +357,25 @@ pan on;
 
 ---
 
-## 7. Langkah Praktikum
+## 12. Langkah Praktikum
 
 Ikuti langkah berikut secara berurutan.
 
-### Bagian A — Eksplorasi Subplot
+### 12.1 Bagian A — Eksplorasi Subplot
 
 1. Buat satu skrip baru.
 2. Tampilkan empat fungsi berbeda dalam satu figure dengan `subplot (2, 2, index)`.
 3. Tambahkan judul, label sumbu, dan grid pada masing-masing subplot.
 4. Simpan hasil dan amati perbedaan bentuk grafik.
 
-### Bagian B — Eksplorasi Histogram
+### 12.2 Bagian B — Eksplorasi Histogram
 
 1. Buat data acak menggunakan `rand`, `randn`, atau data manual.
 2. Tampilkan histogram dengan jumlah bin berbeda, misalnya 5, 10, dan 20.
 3. Bandingkan bentuk histogram yang dihasilkan.
 4. Ambil keluaran `[n, x] = hist (...)` lalu tampilkan lagi dengan `bar`.
 
-### Bagian C — Interaksi Plot
+### 12.3 Bagian C — Interaksi Plot
 
 1. Buat grafik garis sederhana.
 2. Gunakan `ginput (1)` untuk memilih titik tertentu.
@@ -417,11 +385,11 @@ Ikuti langkah berikut secara berurutan.
 
 ---
 
-## 8. Tugas Latihan
+## 13. Tugas Latihan
 
 Kerjakan soal berikut di Octave.
 
-### Latihan 1
+### 13.1 Latihan 1
 Buat empat subplot dalam satu figure yang masing-masing menampilkan:
 
 - `y = x`
@@ -431,29 +399,29 @@ Buat empat subplot dalam satu figure yang masing-masing menampilkan:
 
 Gunakan domain `x = 0:0.1:10`.
 
-### Latihan 2
+### 13.2 Latihan 2
 Buat histogram dari 500 data acak uniform dengan 10 bin. Tambahkan judul dan label sumbu.
 
-### Latihan 3
+### 13.3 Latihan 3
 Buat histogram dari 500 data acak normal dengan 10 bin, lalu bandingkan dengan histogram 20 bin. Tuliskan pengamatan singkat tentang perbedaannya.
 
-### Latihan 4
+### 13.4 Latihan 4
 Buat grafik `y = sin(x)` untuk `x = 0:0.1:2*pi`, lalu pilih dua titik menggunakan `ginput (2)`. Tampilkan koordinat kedua titik tersebut di Command Window.
 
-### Latihan 5
+### 13.5 Latihan 5
 Buat satu grafik dan beri anotasi teks pada dua posisi berbeda menggunakan `text` atau `gtext`.
 
 ---
 
-## 9. Tugas Praktikum
+## 14. Tugas Praktikum
 
-## Judul Tugas
+## 15. Judul Tugas
 **Membuat Dashboard Grafik Sederhana di GNU Octave**
 
-### Tujuan
+### 15.1 Tujuan
 Mahasiswa mampu menyusun satu figure yang berisi beberapa jenis visualisasi 2D dan interaksi sederhana.
 
-### Instruksi
+### 15.2 Instruksi
 Buat file skrip bernama:
 
 ```text
@@ -462,7 +430,7 @@ praktikum_visualisasi2d_lanjut.m
 
 Isi skrip harus memenuhi ketentuan berikut.
 
-### Bagian 1 — Figure dengan 4 Subplot
+### 15.3 Bagian 1 — Figure dengan 4 Subplot
 Buat satu figure dengan 4 subplot:
 
 1. grafik fungsi `sin(x)`
@@ -476,13 +444,13 @@ Ketentuan:
 - beri label sumbu jika relevan,
 - aktifkan `grid on`.
 
-### Bagian 2 — Interaksi Titik
+### 15.4 Bagian 2 — Interaksi Titik
 Pada subplot fungsi `sin(x) + cos(x)`:
 - mintalah pengguna memilih satu titik dengan `ginput (1)`,
 - tandai titik tersebut dengan marker merah,
 - tampilkan koordinat titik di dekat marker.
 
-### Bagian 3 — Ringkasan Statistik Histogram
+### 15.5 Bagian 3 — Ringkasan Statistik Histogram
 Dari data histogram, hitung:
 - nilai minimum,
 - nilai maksimum,
@@ -491,7 +459,7 @@ Dari data histogram, hitung:
 
 Tampilkan ringkasan tersebut di Command Window.
 
-### Bagian 4 — Penyimpanan Gambar
+### 15.6 Bagian 4 — Penyimpanan Gambar
 Simpan figure hasil akhir ke file gambar bernama:
 
 ```text
@@ -506,7 +474,7 @@ print ("hasil_visualisasi2d_lanjut.png", "-dpng")
 
 ---
 
-## 10. Format Laporan Singkat
+## 16. Format Laporan Singkat
 
 Mahasiswa diminta menyusun laporan ringkas yang memuat:
 
@@ -518,58 +486,7 @@ Mahasiswa diminta menyusun laporan ringkas yang memuat:
 
 ---
 
-## 11. Rubrik Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Kebenaran penggunaan `subplot` | 20% |
-| Kebenaran pembuatan histogram | 20% |
-| Kebenaran penggunaan interaksi plot | 20% |
-| Kerapian tampilan grafik | 20% |
-| Kesesuaian laporan/kesimpulan | 20% |
-
----
-
-## 12. Kesalahan Umum yang Perlu Dihindari
-
-### 1. Posisi subplot tertukar
-Penyebab:
-- salah menentukan nilai `index` pada `subplot`.
-
-Solusi:
-- periksa urutan pengisian subplot dari kiri ke kanan, atas ke bawah.
-
-### 2. Histogram tidak muncul sesuai harapan
-Penyebab:
-- fungsi `hist` dipanggil dengan output, sehingga tidak langsung menggambar plot.
-
-Solusi:
-- jika ingin langsung menggambar, panggil `hist (data, jumlah_bin)` tanpa variabel output.
-
-### 3. Titik hasil `ginput` tidak terlihat
-Penyebab:
-- titik belum ditandai kembali setelah koordinat diperoleh.
-
-Solusi:
-- gunakan `hold on` lalu gambar marker dengan `plot (xp, yp, "ro")`.
-
-### 4. Zoom atau pan tidak terasa bekerja
-Penyebab:
-- figure belum aktif atau mode interaksi belum sesuai toolkit/GUI.
-
-Solusi:
-- pastikan figure terbuka di GUI dan perintah dijalankan setelah grafik tampil.
-
-### 5. Grafik terlalu padat
-Penyebab:
-- domain terlalu besar atau jumlah data terlalu banyak.
-
-Solusi:
-- gunakan `axis`, `xlim`, `ylim`, `zoom`, atau kurangi kepadatan data tampilan.
-
----
-
-## 13. Ringkasan
+## 17. Ringkasan
 
 Pada modul ini mahasiswa telah mempelajari:
 
@@ -583,7 +500,7 @@ Kemampuan ini penting sebagai fondasi untuk analisis data numerik, visualisasi h
 
 ---
 
-## 14. Referensi
+## 18. Referensi
 
 1. GNU Octave Manual 11.1.0, bagian **Plotting**.  
    https://docs.octave.org/latest/Plotting.html

@@ -1,14 +1,5 @@
 # Pengantar Octave dan Lingkungan Kerja
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Pengantar Octave dan Lingkungan Kerja
-- **Durasi**: 1 pertemuan praktikum (100–150 menit)
-- **Perangkat lunak**: GNU Octave
-- **Acuan utama**: Dokumentasi resmi GNU Octave 11.1.0
-
----
-
 ## 1. Deskripsi Singkat
 
 GNU Octave adalah perangkat lunak komputasi numerik yang menyediakan bahasa pemrograman tingkat tinggi, terutama cocok untuk komputasi ilmiah, aljabar linear, eksperimen numerik, dan pembelajaran dasar pemrograman numerik. Pada versi dokumentasi terbaru, Octave tersedia dalam GUI dan CLI. GUI-nya memuat IDE yang mencakup editor kode dengan syntax highlighting, debugger bawaan, browser dokumentasi, dan interpreter Octave itu sendiri.
@@ -17,46 +8,13 @@ Pada praktikum ini, mahasiswa akan mengenal antarmuka Octave, memahami cara menj
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, mahasiswa mampu:
-
-1. Menjelaskan fungsi GNU Octave sebagai lingkungan komputasi numerik.
-2. Membedakan penggunaan GUI dan CLI pada Octave.
-3. Mengenali komponen utama lingkungan kerja Octave.
-4. Menjalankan perintah dasar di Command Window.
-5. Mengelola direktori kerja dan berkas skrip.
-6. Menggunakan dokumentasi bawaan Octave dengan `help`, `doc`, dan `lookfor`.
-7. Membuat serta menjalankan skrip Octave sederhana.
-
----
-
-## 3. Prasyarat
-
-Mahasiswa diharapkan sudah:
-- memahami dasar penggunaan komputer dan manajemen file/folder,
-- mengenal konsep variabel dan operasi aritmetika sederhana,
-- mampu membuat file teks sederhana.
-
----
-
-## 4. Alat dan Bahan
-
-- 1 komputer/laptop
-- GNU Octave terpasang
-- Folder kerja praktikum, misalnya: `praktikum_octave/pertemuan1`
-
-Octave dapat dijalankan dari ikon GUI/CLI hasil instalasi atau dengan mengetik `octave` di command shell jika executable-nya sudah masuk ke path sistem.
-
----
-
-## 5. Dasar Teori
-
-### 5.1 Apa itu GNU Octave?
+### 2.1 Apa itu GNU Octave?
 
 GNU Octave adalah bahasa dan lingkungan komputasi numerik bebas yang digunakan untuk menjalankan, menggunakan, dan mengembangkan program numerik.
 
-### 5.2 Cara Menjalankan Octave
+### 2.2 Cara Menjalankan Octave
 
 Secara umum Octave dapat dijalankan dengan:
 - membuka GUI Octave dari menu aplikasi,
@@ -65,7 +23,7 @@ Secara umum Octave dapat dijalankan dengan:
 
 Saat siap menerima input, Octave menampilkan prompt seperti `>>` atau `octave:1>`.
 
-### 5.3 Komponen Lingkungan Kerja Octave
+### 2.3 Komponen Lingkungan Kerja Octave
 
 GUI Octave menyediakan IDE yang memuat:
 - **Command Window** untuk menjalankan perintah secara interaktif,
@@ -76,7 +34,7 @@ GUI Octave menyediakan IDE yang memuat:
 - **File Browser** untuk menelusuri file,
 - **Workspace** untuk memantau variabel yang aktif.
 
-### 5.4 Bantuan dan Dokumentasi
+### 2.4 Bantuan dan Dokumentasi
 
 Octave memiliki fasilitas bantuan yang kuat:
 - `help nama_fungsi` menampilkan bantuan singkat suatu fungsi,
@@ -85,7 +43,7 @@ Octave memiliki fasilitas bantuan yang kuat:
 - `lookfor kata_kunci` mencari fungsi berdasarkan teks dokumentasinya,
 - `news` menampilkan ringkasan hal baru pada rilis saat ini.
 
-### 5.5 Direktori Kerja
+### 2.5 Direktori Kerja
 
 Octave bekerja berdasarkan **current working directory**:
 - `pwd` mengembalikan direktori kerja aktif,
@@ -93,23 +51,23 @@ Octave bekerja berdasarkan **current working directory**:
 - `dir` menampilkan isi direktori,
 - `ls` juga menampilkan isi direktori.
 
-### 5.6 Variabel dan Workspace
+### 2.6 Variabel dan Workspace
 
 Di Octave, nama variabel harus terdiri atas huruf, digit, dan underscore, tetapi tidak boleh diawali digit. Untuk melihat variabel yang sedang ada di memori dapat digunakan `who` dan `whos`.
 
-### 5.7 Riwayat Perintah dan Editing
+### 2.7 Riwayat Perintah dan Editing
 
 Octave menggunakan GNU Readline untuk pengeditan command line dan riwayat perintah. Riwayat perintah terakhir dapat dipanggil kembali. Tab completion tersedia untuk melengkapi nama perintah dan variabel.
 
-### 5.8 Skrip dan Fungsi Sederhana
+### 2.8 Skrip dan Fungsi Sederhana
 
 Program Octave bisa ditulis langsung di Command Window untuk eksperimen cepat, atau disimpan pada file eksternal `.m`. Fungsi dapat didefinisikan langsung pada sesi interaktif maupun pada file eksternal, lalu dipanggil seperti fungsi bawaan.
 
 ---
 
-## 6. Pengenalan Perintah Dasar Lingkungan Kerja
+## 3. Pengenalan Perintah Dasar Lingkungan Kerja
 
-### 6.1 Perintah yang Sering Dipakai
+### 3.1 Perintah yang Sering Dipakai
 
 - `pwd` : menampilkan direktori kerja aktif.
 - `cd nama_folder` : berpindah ke folder lain.
@@ -124,7 +82,7 @@ Program Octave bisa ditulis langsung di Command Window untuk eksperimen cepat, a
 - `clc` : membersihkan layar terminal/command window.
 - `diary on`, `diary off`, `diary nama_file` : merekam sesi interaktif ke file.
 
-### 6.2 Perintah Menjalankan Octave dari Terminal
+### 3.2 Perintah Menjalankan Octave dari Terminal
 
 - `octave` : membuka sesi interaktif Octave.
 - `octave nama_file.m` : menjalankan file skrip dan keluar setelah selesai.
@@ -132,9 +90,9 @@ Program Octave bisa ditulis langsung di Command Window untuk eksperimen cepat, a
 
 ---
 
-## 7. Langkah Praktikum
+## 4. Langkah Praktikum
 
-### 7.1 Menjalankan Octave
+### 4.1 Menjalankan Octave
 
 1. Buka Octave dari menu aplikasi atau jalankan `octave` dari terminal.
 2. Amati prompt `>>`.
@@ -145,7 +103,7 @@ Program Octave bisa ditulis langsung di Command Window untuk eksperimen cepat, a
    - File Browser / Current Directory
    - Workspace
 
-### 7.2 Mengenali Lingkungan Kerja
+### 4.2 Mengenali Lingkungan Kerja
 
 Di Command Window, jalankan:
 
@@ -160,7 +118,7 @@ clc
 - `who` menampilkan variabel yang sedang tersimpan di sesi.
 - `clc` membersihkan layar agar tampilan lebih rapi.
 
-### 7.3 Mencoba Bantuan Dokumentasi
+### 4.3 Mencoba Bantuan Dokumentasi
 
 Jalankan:
 
@@ -177,7 +135,7 @@ lookfor matrix
 - `doc rand` membuka manual pada entri `rand`.
 - `lookfor matrix` mencari fungsi yang dokumentasinya berkaitan dengan kata `matrix`.
 
-### 7.4 Mengelola Folder Kerja
+### 4.4 Mengelola Folder Kerja
 
 Buat satu folder untuk praktikum, lalu pindah ke folder tersebut.
 
@@ -196,9 +154,9 @@ dir
 
 ---
 
-## 8. Contoh Kode dan Penjelasan
+## 5. Contoh Kode dan Penjelasan
 
-### Contoh 1 — Operasi Dasar di Command Window
+### 5.1 Contoh 1 — Operasi Dasar di Command Window
 
 ```octave
 2 + 3
@@ -219,7 +177,7 @@ Kode ini dijalankan langsung pada Command Window dan cocok untuk membiasakan mah
 
 ---
 
-### Contoh 2 — Menggunakan Variabel
+### 5.2 Contoh 2 — Menggunakan Variabel
 
 ```octave
 a = 10;
@@ -238,7 +196,7 @@ hasil_bagi = a / b
 
 ---
 
-### Contoh 3 — Mengecek Workspace
+### 5.3 Contoh 3 — Mengecek Workspace
 
 ```octave
 x = 12;
@@ -255,7 +213,7 @@ whos
 
 ---
 
-### Contoh 4 — Membuat Skrip Sederhana
+### 5.4 Contoh 4 — Membuat Skrip Sederhana
 
 Buat file bernama `halo_octave.m`, lalu isi dengan:
 
@@ -277,7 +235,7 @@ disp(["Kode     : ", kode]);
 
 ---
 
-### Contoh 5 — Fungsi Sederhana dengan Dokumentasi Bantuan
+### 5.5 Contoh 5 — Fungsi Sederhana dengan Dokumentasi Bantuan
 
 Buat file `luas_persegi_panjang.m`:
 
@@ -305,7 +263,7 @@ luas_persegi_panjang(8, 5)
 
 ---
 
-## 9. Praktik Mandiri Terarah
+## 6. Praktik Mandiri Terarah
 
 Ikuti langkah berikut:
 
@@ -335,9 +293,9 @@ Ikuti langkah berikut:
 
 ---
 
-## 10. Tugas Latihan
+## 7. Tugas Latihan
 
-### A. Latihan Pemahaman
+### 7.1 A. Latihan Pemahaman
 Jawab pertanyaan berikut:
 
 1. Apa perbedaan utama GUI dan CLI pada Octave?
@@ -346,7 +304,7 @@ Jawab pertanyaan berikut:
 4. Mengapa `help` dan `doc` sama-sama penting?
 5. Apa kegunaan `diary` dalam praktikum?
 
-### B. Latihan Perintah
+### 7.2 B. Latihan Perintah
 Kerjakan di Octave:
 
 1. Tampilkan direktori kerja aktif.
@@ -366,12 +324,12 @@ rata_rata = (a + b + c) / 3
 
 ---
 
-## 11. Tugas Praktikum
+## 8. Tugas Praktikum
 
-### Judul
+### 8.1 Judul
 **Eksplorasi Lingkungan Kerja GNU Octave dan Pembuatan Skrip Dasar**
 
-### Tujuan
+### 8.2 Tujuan
 Mahasiswa mampu:
 - menggunakan lingkungan kerja Octave dengan benar,
 - mengelola direktori kerja,
@@ -379,7 +337,7 @@ Mahasiswa mampu:
 - membuat satu fungsi sederhana,
 - menggunakan dokumentasi bawaan.
 
-### Instruksi Tugas
+### 8.3 Instruksi Tugas
 Buat folder dengan nama:
 
 ```text
@@ -481,7 +439,7 @@ Jalankan pengujian, lalu akhiri dengan:
 diary off
 ```
 
-### Luaran yang Dikumpulkan
+### 8.4 Luaran yang Dikumpulkan
 Mahasiswa mengumpulkan:
 1. file `identitas_praktikum.m`
 2. file `hitung_lingkaran.m`
@@ -491,9 +449,7 @@ Mahasiswa mengumpulkan:
 
 ---
 
-## 12. Kriteria Penilaian
-
-### A. Aspek Penilaian
+### 8.5 A. Aspek Penilaian
 1. **Kebenaran struktur folder dan file** — 15%
 2. **Kebenaran sintaks skrip** — 20%
 3. **Kebenaran fungsi yang dibuat** — 20%
@@ -501,7 +457,7 @@ Mahasiswa mengumpulkan:
 5. **Pemanfaatan dokumentasi/help dan diary** — 10%
 6. **Kerapian output dan dokumentasi komentar** — 15%
 
-### B. Rubrik Ringkas
+### 8.6 B. Rubrik Ringkas
 - **Sangat baik**: semua file benar, fungsi berjalan, log tersedia, komentar rapi.
 - **Baik**: ada kekurangan kecil tetapi program berjalan.
 - **Cukup**: program sebagian berjalan, masih ada kesalahan sintaks/logika.
@@ -509,9 +465,7 @@ Mahasiswa mengumpulkan:
 
 ---
 
-## 13. Kesalahan Umum yang Sering Terjadi
-
-### 1. File tidak ditemukan
+### 8.7 1. File tidak ditemukan
 Penyebab:
 - direktori kerja belum benar.
 
@@ -523,25 +477,25 @@ dir
 cd nama_folder
 ```
 
-### 2. Fungsi tidak dikenali
+### 8.8 2. Fungsi tidak dikenali
 Penyebab:
 - file fungsi belum berada di folder aktif atau belum ada di path pencarian fungsi.
 
-### 3. `help nama_fungsi` tidak menampilkan deskripsi yang baik
+### 8.9 3. `help nama_fungsi` tidak menampilkan deskripsi yang baik
 Penyebab:
 - komentar awal fungsi belum ditulis dengan rapi.
 
 Solusi:
 - tulis blok komentar pertama tepat di bawah deklarasi fungsi.
 
-### 4. Output terlalu penuh di layar
+### 8.10 4. Output terlalu penuh di layar
 Solusi:
 - gunakan `;` untuk menahan output,
 - gunakan `clc` untuk membersihkan layar.
 
 ---
 
-## 14. Ringkasan
+## 9. Ringkasan
 
 Pada praktikum ini mahasiswa telah mempelajari:
 - pengertian GNU Octave,
@@ -556,7 +510,7 @@ Fondasi ini penting karena hampir semua praktik pemrograman dasar di Octave bert
 
 ---
 
-## 15. Referensi
+## 10. Referensi
 
 1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
 2. Introduction — https://docs.octave.org/latest/Introduction.html

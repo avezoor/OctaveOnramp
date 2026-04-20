@@ -1,14 +1,5 @@
 # Percabangan `if`, `switch`, dan Operator Logika
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Percabangan `if`, `switch`, dan Operator Logika
-- **Durasi**: 1 pertemuan praktikum (100–150 menit)
-- **Perangkat lunak**: GNU Octave
-- **Acuan utama**: Dokumentasi resmi GNU Octave
-
----
-
 ## 1. Deskripsi Singkat
 
 Pada praktikum ini mahasiswa mempelajari cara membuat keputusan di dalam program menggunakan struktur percabangan `if`, `elseif`, `else`, dan `switch`. Selain itu, mahasiswa juga mempelajari operator logika yang digunakan untuk menyusun kondisi, baik operator logika element-wise seperti `&`, `|`, `!` maupun operator short-circuit seperti `&&` dan `||`.
@@ -17,42 +8,9 @@ Materi ini penting karena hampir semua program membutuhkan proses pengambilan ke
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, mahasiswa mampu:
-
-1. Menjelaskan fungsi percabangan dalam program Octave.
-2. Menggunakan struktur `if`, `elseif`, dan `else` dengan benar.
-3. Menggunakan struktur `switch`, `case`, dan `otherwise` dengan benar.
-4. Membedakan fungsi operator logika `&`, `|`, `!`, `&&`, dan `||`.
-5. Menyusun program sederhana yang menggunakan percabangan dan operator logika.
-6. Menulis skrip Octave untuk menyelesaikan kasus keputusan sederhana.
-
----
-
-## 3. Prasyarat
-
-Mahasiswa diharapkan sudah memahami:
-- variabel dan skalar,
-- operator aritmetika,
-- operator perbandingan,
-- input/output dasar,
-- cara membuat dan menjalankan file skrip `.m`.
-
----
-
-## 4. Alat dan Bahan
-
-- 1 komputer/laptop
-- GNU Octave
-- Folder kerja praktikum
-- Editor bawaan Octave atau editor teks lain
-
----
-
-## 5. Dasar Teori
-
-### 5.1 Konsep Percabangan
+### 2.1 Konsep Percabangan
 
 Percabangan adalah struktur kontrol yang memungkinkan program memilih aksi yang berbeda berdasarkan hasil evaluasi kondisi tertentu. Dalam Octave, percabangan utama yang umum digunakan adalah:
 
@@ -73,7 +31,7 @@ Contoh kebutuhan percabangan:
 
 ---
 
-### 5.2 Struktur `if`
+### 2.2 Struktur `if`
 
 Struktur `if` digunakan ketika program harus mengevaluasi sebuah kondisi logis. Jika kondisi bernilai benar, maka blok perintah dijalankan.
 
@@ -101,7 +59,7 @@ endif
 
 ---
 
-### 5.3 Struktur `switch`
+### 2.3 Struktur `switch`
 
 Struktur `switch` digunakan saat program harus memilih aksi berdasarkan nilai suatu ekspresi. Struktur ini lebih rapi dibanding `if` bertingkat jika pilihan bergantung pada satu variabel yang sama.
 
@@ -124,7 +82,7 @@ Pada Octave, `switch` juga mendukung label string dan kumpulan label menggunakan
 
 ---
 
-### 5.4 Operator Perbandingan
+### 2.4 Operator Perbandingan
 
 Sebelum menggunakan percabangan, program biasanya memakai operator perbandingan untuk menghasilkan nilai logika.
 
@@ -149,7 +107,7 @@ Contoh:
 
 ---
 
-### 5.5 Operator Logika
+### 2.5 Operator Logika
 
 Operator logika digunakan untuk menggabungkan dua atau lebih kondisi.
 
@@ -189,7 +147,7 @@ Contoh:
 
 ---
 
-### 5.6 Perbedaan `&` dengan `&&`, serta `|` dengan `||`
+### 2.6 Perbedaan `&` dengan `&&`, serta `|` dengan `||`
 
 Perbedaan utamanya:
 
@@ -211,7 +169,7 @@ Pada contoh di atas, bagian kedua tidak perlu dievaluasi jika bagian pertama sud
 
 ---
 
-### 5.7 Catatan Penting Sintaks Octave
+### 2.7 Catatan Penting Sintaks Octave
 
 1. Gunakan `elseif`, bukan `else if`.
 2. Gunakan penutup yang sesuai seperti `endif` dan `endswitch` agar kode lebih jelas.
@@ -220,9 +178,9 @@ Pada contoh di atas, bagian kedua tidak perlu dievaluasi jika bagian pertama sud
 
 ---
 
-## 6. Sintaks Dasar dan Contoh Singkat
+## 3. Sintaks Dasar dan Contoh Singkat
 
-### 6.1 `if` tunggal
+### 3.1 `if` tunggal
 
 ```octave
 nilai = 80;
@@ -232,7 +190,7 @@ if (nilai >= 75)
 endif
 ```
 
-### 6.2 `if - else`
+### 3.2 `if - else`
 
 ```octave
 nilai = 65;
@@ -244,7 +202,7 @@ else
 endif
 ```
 
-### 6.3 `if - elseif - else`
+### 3.3 `if - elseif - else`
 
 ```octave
 nilai = 88;
@@ -260,7 +218,7 @@ else
 endif
 ```
 
-### 6.4 `switch`
+### 3.4 `switch`
 
 ```octave
 menu = 2;
@@ -277,7 +235,7 @@ switch (menu)
 endswitch
 ```
 
-### 6.5 `switch` dengan string
+### 3.5 `switch` dengan string
 
 ```octave
 hari = "senin";
@@ -294,9 +252,9 @@ endswitch
 
 ---
 
-## 7. Contoh Kode dan Penjelasan
+## 4. Contoh Kode dan Penjelasan
 
-### Contoh 1 — Menentukan Bilangan Positif, Negatif, atau Nol
+### 4.1 Contoh 1 — Menentukan Bilangan Positif, Negatif, atau Nol
 
 ```octave
 bilangan = -4;
@@ -317,7 +275,7 @@ endif
 
 ---
 
-### Contoh 2 — Menentukan Status Kelulusan dengan Operator Logika
+### 4.2 Contoh 2 — Menentukan Status Kelulusan dengan Operator Logika
 
 ```octave
 nilai_akhir = 78;
@@ -336,7 +294,7 @@ endif
 
 ---
 
-### Contoh 3 — Menentukan Kategori Usia
+### 4.3 Contoh 3 — Menentukan Kategori Usia
 
 ```octave
 usia = 19;
@@ -358,7 +316,7 @@ endif
 
 ---
 
-### Contoh 4 — Penggunaan `switch` untuk Menu
+### 4.4 Contoh 4 — Penggunaan `switch` untuk Menu
 
 ```octave
 pilihan = 3;
@@ -382,7 +340,7 @@ endswitch
 
 ---
 
-### Contoh 5 — `switch` dengan Banyak Label
+### 4.5 Contoh 5 — `switch` dengan Banyak Label
 
 ```octave
 kode = 7;
@@ -403,7 +361,7 @@ endswitch
 
 ---
 
-### Contoh 6 — Operator `&` dan `|`
+### 4.6 Contoh 6 — Operator `&` dan `|`
 
 ```octave
 a = 8;
@@ -419,7 +377,7 @@ hasil2 = (a < 2) | (b == 5)
 
 ---
 
-### Contoh 7 — Operator `!`
+### 4.7 Contoh 7 — Operator `!`
 
 ```octave
 status = (10 > 3);
@@ -432,9 +390,9 @@ hasil = !status
 
 ---
 
-## 8. Langkah Praktikum
+## 5. Langkah Praktikum
 
-### Praktik 1 — Menguji Operator Perbandingan
+### 5.1 Praktik 1 — Menguji Operator Perbandingan
 
 Jalankan perintah berikut di Command Window:
 
@@ -449,7 +407,7 @@ Amati hasil yang ditampilkan.
 
 ---
 
-### Praktik 2 — Membuat Percabangan `if`
+### 5.2 Praktik 2 — Membuat Percabangan `if`
 
 Ketik dan jalankan skrip berikut:
 
@@ -467,7 +425,7 @@ Ubah nilai variabel `nilai` beberapa kali, lalu amati hasilnya.
 
 ---
 
-### Praktik 3 — Membuat Percabangan Bertingkat
+### 5.3 Praktik 3 — Membuat Percabangan Bertingkat
 
 ```octave
 nilai = 91;
@@ -485,7 +443,7 @@ endif
 
 ---
 
-### Praktik 4 — Menggunakan `switch`
+### 5.4 Praktik 4 — Menggunakan `switch`
 
 ```octave
 pilihan = 2;
@@ -506,7 +464,7 @@ Ganti nilai `pilihan` menjadi 1, 2, 3, dan 4.
 
 ---
 
-### Praktik 5 — Menggunakan Operator Logika
+### 5.5 Praktik 5 — Menggunakan Operator Logika
 
 ```octave
 nilai_tugas = 80;
@@ -523,9 +481,9 @@ endif
 
 ---
 
-## 9. Tugas Latihan
+## 6. Tugas Latihan
 
-### A. Latihan Konsep
+### 6.1 A. Latihan Konsep
 
 Jawab pertanyaan berikut:
 
@@ -537,7 +495,7 @@ Jawab pertanyaan berikut:
 
 ---
 
-### B. Latihan Kode
+### 6.2 B. Latihan Kode
 
 Kerjakan menggunakan Octave.
 
@@ -575,19 +533,19 @@ Buat program untuk mengecek apakah sebuah bilangan berada di antara 10 dan 100.
 
 ---
 
-## 10. Tugas Praktikum
+## 7. Tugas Praktikum
 
-### Judul
+### 7.1 Judul
 **Pembuatan Program Percabangan Dasar pada Octave**
 
-### Tujuan
+### 7.2 Tujuan
 Mahasiswa mampu membuat skrip yang menggunakan:
 - `if`, `elseif`, `else`,
 - `switch`,
 - operator logika,
 - dan menampilkan output yang informatif.
 
-### Instruksi Tugas
+### 7.3 Instruksi Tugas
 
 Buat folder kerja dengan nama:
 
@@ -599,7 +557,7 @@ Di dalam folder tersebut, buat file berikut.
 
 ---
 
-### 1. File `cek_nilai.m`
+### 7.4 1. File `cek_nilai.m`
 
 Buat program yang menerima nilai angka melalui variabel, lalu menampilkan:
 - "Nilai A"
@@ -628,7 +586,7 @@ endif
 
 ---
 
-### 2. File `cek_kategori.m`
+### 7.5 2. File `cek_kategori.m`
 
 Buat program menggunakan `switch` untuk memilih kategori berdasarkan kode berikut:
 - 1 = Makanan
@@ -659,7 +617,7 @@ endswitch
 
 ---
 
-### 3. File `cek_kelayakan.m`
+### 7.6 3. File `cek_kelayakan.m`
 
 Buat program untuk menentukan kelayakan mengikuti praktikum lanjutan dengan syarat:
 - nilai teori minimal 70,
@@ -683,7 +641,7 @@ endif
 
 ---
 
-### 4. File `cek_diskon.m`
+### 7.7 4. File `cek_diskon.m`
 
 Buat program untuk menentukan diskon belanja dengan aturan:
 - total belanja >= 500000 dan member → diskon 20%
@@ -694,7 +652,7 @@ Gunakan `if` bertingkat atau kombinasi operator logika.
 
 ---
 
-### 5. Dokumentasi Hasil
+### 7.8 5. Dokumentasi Hasil
 
 Setiap file harus:
 - dapat dijalankan tanpa error,
@@ -709,7 +667,7 @@ Mahasiswa juga diminta membuat satu file laporan singkat berisi:
 
 ---
 
-## 11. Format Pengumpulan
+## 8. Format Pengumpulan
 
 Mahasiswa mengumpulkan:
 
@@ -722,21 +680,7 @@ Mahasiswa mengumpulkan:
 
 ---
 
-## 12. Kriteria Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Ketepatan penggunaan `if`, `elseif`, `else` | 25% |
-| Ketepatan penggunaan `switch` | 20% |
-| Ketepatan penggunaan operator logika | 20% |
-| Kebenaran output program | 20% |
-| Kerapian penulisan kode dan komentar | 15% |
-
----
-
-## 13. Kesalahan Umum yang Sering Terjadi
-
-### 1. Menulis `else if` alih-alih `elseif`
+### 8.1 1. Menulis `else if` alih-alih `elseif`
 Salah:
 
 ```octave
@@ -759,27 +703,27 @@ endif
 
 ---
 
-### 2. Lupa menutup blok dengan `endif` atau `endswitch`
+### 8.2 2. Lupa menutup blok dengan `endif` atau `endswitch`
 
 Setiap blok percabangan harus memiliki penutup yang benar.
 
 ---
 
-### 3. Salah memilih antara `switch` dan `if`
+### 8.3 3. Salah memilih antara `switch` dan `if`
 
 - Gunakan `if` jika kondisi berupa ekspresi logika yang bervariasi.
 - Gunakan `switch` jika pilihan didasarkan pada satu variabel yang dibandingkan terhadap beberapa nilai tertentu.
 
 ---
 
-### 4. Menggunakan operator logika yang tidak sesuai
+### 8.4 4. Menggunakan operator logika yang tidak sesuai
 
 - `&&` dan `||` lebih cocok untuk kondisi skalar.
 - `&` dan `|` digunakan untuk operasi element-wise.
 
 ---
 
-## 14. Ringkasan
+## 9. Ringkasan
 
 Pada praktikum ini mahasiswa telah mempelajari:
 - percabangan `if`, `elseif`, dan `else`,
@@ -792,9 +736,10 @@ Kemampuan membuat keputusan di dalam program merupakan dasar penting sebelum mem
 
 ---
 
-## 15. Referensi
+## 10. Referensi
 
-1. Dokumentasi resmi GNU Octave.
-2. Bagian tentang `if` statement pada manual Octave.
-3. Bagian tentang `switch` statement pada manual Octave.
-4. Bagian tentang boolean expressions dan short-circuit operators pada manual Octave.
+1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
+2. The if Statement — https://docs.octave.org/latest/The-if-Statement.html
+3. The switch Statement — https://docs.octave.org/latest/The-switch-Statement.html
+4. Boolean Expressions — https://docs.octave.org/latest/Boolean-Expressions.html
+5. Short-circuit Boolean Operators — https://docs.octave.org/latest/Short_002dcircuit-Boolean-Operators.html

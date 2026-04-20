@@ -1,14 +1,5 @@
 # Variabel, Skalar, Operator, dan Format Output
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Variabel, Skalar, Operator, dan Format Output
-- **Durasi**: 1 pertemuan praktikum (100–150 menit)
-- **Perangkat lunak**: GNU Octave
-- **Acuan utama**: Dokumentasi resmi GNU Octave 11.1.0
-
----
-
 ## 1. Deskripsi Singkat
 
 Pada pertemuan ini, praktikan mempelajari konsep dasar penyimpanan data pada GNU Octave melalui **variabel** dan **skalar**, penggunaan **operator** untuk melakukan perhitungan dan perbandingan, serta teknik menampilkan hasil dengan **format output** yang rapi.
@@ -17,31 +8,9 @@ Berdasarkan dokumentasi resmi GNU Octave 11.1.0, nama variabel bersifat **case-s
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, praktikan mampu:
-
-1. menjelaskan pengertian variabel dan skalar dalam Octave,
-2. membuat dan menggunakan variabel dengan penamaan yang benar,
-3. menggunakan operator aritmetika, perbandingan, dan logika dasar,
-4. membedakan operator biasa dan operator elemen-per-elemen,
-5. menampilkan hasil dengan `disp`, `format`, `printf`, `sprintf`, dan `num2str`,
-6. menulis skrip sederhana yang mengolah data numerik dan menampilkan hasil dengan rapi.
-
----
-
-## 3. Prasyarat
-
-Praktikan diharapkan sudah:
-- memahami cara menjalankan Octave,
-- mengetahui cara menggunakan Command Window dan Editor,
-- mampu membuat serta menjalankan file skrip `.m` sederhana.
-
----
-
-## 4. Dasar Teori
-
-### 4.1 Variabel dalam Octave
+### 2.1 Variabel dalam Octave
 
 Variabel adalah nama yang digunakan untuk menyimpan nilai. Di Octave, huruf besar dan huruf kecil dibedakan, sehingga `nilai`, `Nilai`, dan `NILAI` dianggap sebagai variabel yang berbeda.
 
@@ -62,7 +31,7 @@ Aturan umum penamaan variabel:
 
 ---
 
-### 4.2 Skalar
+### 2.2 Skalar
 
 Skalar adalah nilai tunggal, misalnya satu bilangan bulat, desimal, atau logika tunggal.
 
@@ -82,7 +51,7 @@ Dalam praktik pemrograman dasar, skalar adalah bentuk data paling sederhana sebe
 
 ---
 
-### 4.3 Operator Aritmetika
+### 2.3 Operator Aritmetika
 
 Operator aritmetika digunakan untuk perhitungan matematis.
 
@@ -105,7 +74,7 @@ Catatan penting:
 
 ---
 
-### 4.4 Operator Perbandingan
+### 2.4 Operator Perbandingan
 
 Operator perbandingan membandingkan dua nilai. Hasilnya bernilai benar atau salah, yang pada tampilan Octave biasanya muncul sebagai `1` untuk benar dan `0` untuk salah.
 
@@ -120,7 +89,7 @@ Operator perbandingan membandingkan dua nilai. Hasilnya bernilai benar atau sala
 
 ---
 
-### 4.5 Operator Logika
+### 2.5 Operator Logika
 
 Octave mendukung nilai logika `true` dan `false`. Operasi logika dasar yang umum dipakai adalah:
 
@@ -134,7 +103,7 @@ Operator logika sering digunakan untuk pengambilan keputusan pada struktur `if`,
 
 ---
 
-### 4.6 Format Output
+### 2.6 Format Output
 
 Output hasil perhitungan dapat ditampilkan dengan beberapa cara berikut.
 
@@ -219,9 +188,9 @@ num2str(x, "%8.2f")
 
 ---
 
-## 5. Contoh Kode dan Penjelasan
+## 3. Contoh Kode dan Penjelasan
 
-### Contoh 1 — Variabel dan Skalar
+### 3.1 Contoh 1 — Variabel dan Skalar
 
 ```octave
 panjang = 10;
@@ -236,7 +205,7 @@ luas = panjang * lebar
 
 ---
 
-### Contoh 2 — Variabel `ans`
+### 3.2 Contoh 2 — Variabel `ans`
 
 ```octave
 8 + 6
@@ -249,7 +218,7 @@ ans * 2
 
 ---
 
-### Contoh 3 — Case-Sensitive pada Variabel
+### 3.3 Contoh 3 — Case-Sensitive pada Variabel
 
 ```octave
 nilai = 75;
@@ -265,7 +234,7 @@ Nilai
 
 ---
 
-### Contoh 4 — Operator Aritmetika
+### 3.4 Contoh 4 — Operator Aritmetika
 
 ```octave
 a = 12;
@@ -284,7 +253,7 @@ pangkat = a ^ 2
 
 ---
 
-### Contoh 5 — Operator Perbandingan dan Logika
+### 3.5 Contoh 5 — Operator Perbandingan dan Logika
 
 ```octave
 x = 8;
@@ -303,7 +272,7 @@ x == y
 
 ---
 
-### Contoh 6 — Perbedaan `*` dan `.*`
+### 3.6 Contoh 6 — Perbedaan `*` dan `.*`
 
 ```octave
 A = [1 2; 3 4];
@@ -319,7 +288,7 @@ A .* B
 
 ---
 
-### Contoh 7 — Mengatur Format Tampilan
+### 3.7 Contoh 7 — Mengatur Format Tampilan
 
 ```octave
 format short
@@ -342,7 +311,7 @@ format default
 
 ---
 
-### Contoh 8 — `disp`, `printf`, dan `sprintf`
+### 3.8 Contoh 8 — `disp`, `printf`, dan `sprintf`
 
 ```octave
 nilai_tugas = 84.75;
@@ -365,7 +334,7 @@ disp(pesan)
 
 ---
 
-### Contoh 9 — Menggabungkan Teks dan Angka dengan `num2str`
+### 3.9 Contoh 9 — Menggabungkan Teks dan Angka dengan `num2str`
 
 ```octave
 rata_rata = 88.125;
@@ -379,15 +348,15 @@ disp(pesan)
 
 ---
 
-## 6. Langkah Praktikum
+## 4. Langkah Praktikum
 
-### 6.1 Persiapan
+### 4.1 Persiapan
 
 1. Jalankan GNU Octave.
 2. Buka folder kerja praktikum.
 3. Buat file baru bernama `pertemuan2_variabel_operator.m`.
 
-### 6.2 Eksperimen Dasar
+### 4.2 Eksperimen Dasar
 
 Ketik dan jalankan potongan kode berikut satu per satu:
 
@@ -404,7 +373,7 @@ x ^ y
 
 Amati hasil tiap operasi.
 
-### 6.3 Mengamati Perbandingan dan Logika
+### 4.3 Mengamati Perbandingan dan Logika
 
 ```octave
 x > y
@@ -416,7 +385,7 @@ x != y
 
 Catat hasil setiap ekspresi.
 
-### 6.4 Mencoba Format Output
+### 4.4 Mencoba Format Output
 
 ```octave
 format short
@@ -436,7 +405,7 @@ format default
 
 Bandingkan bagaimana tampilan angka berubah walaupun nilainya tetap sama.
 
-### 6.5 Mencoba `disp`, `printf`, dan `sprintf`
+### 4.5 Mencoba `disp`, `printf`, dan `sprintf`
 
 ```octave
 skor = 93.278;
@@ -450,9 +419,9 @@ disp(teks_skor)
 
 ---
 
-## 7. Tugas Latihan
+## 5. Tugas Latihan
 
-### A. Latihan Pemahaman
+### 5.1 A. Latihan Pemahaman
 
 Jawab pertanyaan berikut:
 
@@ -464,7 +433,7 @@ Jawab pertanyaan berikut:
 6. Apa perbedaan `disp`, `printf`, dan `sprintf`?
 7. Kapan `num2str` lebih berguna daripada langsung menampilkan angka?
 
-### B. Latihan Kode
+### 5.2 B. Latihan Kode
 
 Kerjakan di Octave:
 
@@ -491,24 +460,24 @@ Nilai akhir praktikum = 87.5
 
 ---
 
-## 8. Tugas Praktikum
+## 6. Tugas Praktikum
 
-### Judul
+### 6.1 Judul
 **Pengolahan Data Skalar dan Penyajian Output pada GNU Octave**
 
-### Tujuan
+### 6.2 Tujuan
 Praktikan mampu:
 - mendeklarasikan variabel dengan benar,
 - menggunakan operator dasar secara tepat,
 - menyusun output yang informatif dan rapi.
 
-### Instruksi
+### 6.3 Instruksi
 
 Buat tiga file berikut.
 
 ---
 
-### 8.1 File `hitung_data_skalar.m`
+### 6.4 File `hitung_data_skalar.m`
 
 Isi file ini dengan kode untuk:
 - membuat minimal 5 variabel skalar numerik,
@@ -540,7 +509,7 @@ disp(["Minimum     = ", num2str(nilai_min)]);
 
 ---
 
-### 8.2 File `uji_operator.m`
+### 6.5 File `uji_operator.m`
 
 Isi file ini dengan contoh penggunaan:
 - operator aritmetika,
@@ -588,7 +557,7 @@ disp(A .* B);
 
 ---
 
-### 8.3 File `format_output_demo.m`
+### 6.6 File `format_output_demo.m`
 
 Isi file ini dengan demonstrasi:
 - `format short`,
@@ -635,7 +604,7 @@ disp(teks);
 
 ---
 
-### Luaran yang Dikumpulkan
+### 6.7 Luaran yang Dikumpulkan
 
 1. `hitung_data_skalar.m`
 2. `uji_operator.m`
@@ -645,56 +614,7 @@ disp(teks);
 
 ---
 
-## 9. Kriteria Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Ketepatan pembuatan variabel dan skalar | 20% |
-| Ketepatan penggunaan operator | 25% |
-| Kebenaran hasil perhitungan | 20% |
-| Kerapian dan kejelasan format output | 20% |
-| Kerapian penulisan kode dan komentar | 15% |
-
----
-
-## 10. Kesalahan Umum
-
-### 10.1 Salah membedakan huruf besar dan kecil
-
-```octave
-nilai = 10;
-Nilai = 20;
-```
-
-Kedua variabel di atas berbeda.
-
-### 10.2 Mengira `format` mengubah nilai sebenarnya
-
-```octave
-format short
-pi
-format long
-pi
-```
-
-Nilai `pi` tidak berubah. Yang berubah hanya tampilan di layar.
-
-### 10.3 Menggunakan `*` saat yang dibutuhkan `.*`
-
-Pada matriks, `*` berarti perkalian matriks. Jika yang diinginkan adalah perkalian tiap elemen, gunakan `.*`.
-
-### 10.4 Menggabungkan angka dan string tanpa konversi
-
-```octave
-nilai = 80;
-disp(["Nilai = ", num2str(nilai)])
-```
-
-Gunakan `num2str` atau `sprintf` saat perlu menggabungkan angka dengan teks.
-
----
-
-## 11. Ringkasan
+## 7. Ringkasan
 
 Pada praktikum ini, praktikan telah mempelajari:
 - pembuatan variabel dan pemahaman skalar,
@@ -707,7 +627,7 @@ Materi ini menjadi fondasi penting untuk topik berikutnya seperti percabangan, p
 
 ---
 
-## 12. Referensi
+## 8. Referensi
 
 1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
 2. Variables — https://docs.octave.org/latest/Variables.html

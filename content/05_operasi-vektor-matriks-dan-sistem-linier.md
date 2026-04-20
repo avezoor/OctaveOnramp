@@ -1,14 +1,5 @@
 # Operasi Vektor, Matriks, dan Sistem Linier
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Operasi Vektor, Matriks, dan Sistem Linier
-- **Durasi**: 1 pertemuan praktikum (100–150 menit)
-- **Perangkat lunak**: GNU Octave
-- **Acuan utama**: Dokumentasi resmi GNU Octave 11.1.0
-
----
-
 ## 1. Deskripsi Singkat
 
 Pada pertemuan ini praktikan mempelajari operasi dasar pada vektor dan matriks di GNU Octave. Materi meliputi penjumlahan, pengurangan, perkalian skalar, perkalian elemen per elemen, perkalian matriks, transpose, pembagian elemen per elemen, dan penyelesaian sistem linier sederhana. Fokus utama modul ini adalah membedakan operasi **per elemen** dan operasi **aljabar matriks**, karena keduanya menggunakan operator yang berbeda di Octave.
@@ -17,36 +8,17 @@ Dalam dokumentasi resmi GNU Octave, operator aritmetika bekerja pada skalar maup
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, praktikan mampu:
-
-1. Menjelaskan konsep vektor dan matriks di Octave.
-2. Membuat vektor baris, vektor kolom, dan matriks sederhana.
-3. Menggunakan operator aritmetika untuk vektor dan matriks.
-4. Membedakan operasi elemen per elemen dan operasi matriks.
-5. Menggunakan transpose untuk mengubah orientasi vektor atau matriks.
-6. Menyelesaikan sistem linier sederhana dengan operator `\`.
-7. Menulis skrip Octave yang memanfaatkan operasi vektor, matriks, dan sistem linier.
-
----
-
-## 3. Prasyarat
-
-Sebelum mengerjakan modul ini, praktikan sebaiknya sudah memahami:
-
-- variabel dan skalar,
-- operator aritmetika dasar,
-- format penulisan skrip `.m`,
-- cara menjalankan perintah di Command Window dan Editor Octave.
-
----
-
-## 4. Dasar Teori
-
-### 4.1 Vektor dan Matriks di Octave
+### 2.1 Vektor dan Matriks di Octave
 
 Dalam Octave, matriks dibentuk menggunakan tanda kurung siku `[ ]`. Elemen pada baris yang sama dapat dipisahkan dengan spasi atau koma, sedangkan baris yang berbeda dipisahkan dengan titik koma `;`. Ukuran matriks ditentukan otomatis oleh Octave.
+
+Secara matematis, jika sebuah matriks \(A\) memiliki \(m\) baris dan \(n\) kolom, maka dapat ditulis:
+
+$$
+A \in \mathbb{R}^{m \times n}
+$$
 
 Contoh:
 
@@ -69,7 +41,7 @@ v_kolom = [2; 4; 6; 8]
 
 ---
 
-### 4.2 Operasi Elemen per Elemen dan Operasi Matriks
+### 2.2 Operasi Elemen per Elemen dan Operasi Matriks
 
 Octave membedakan dua kelompok operasi:
 
@@ -82,6 +54,12 @@ Operator bertitik digunakan bila setiap elemen diproses satu per satu.
 
 Operasi ini menuntut ukuran yang sama atau ukuran yang saling kompatibel untuk broadcasting.
 
+Jika \(A = [a_{ij}]\) dan \(B = [b_{ij}]\) berukuran sama, maka operasi elemen per elemen dapat dituliskan sebagai:
+
+$$
+(A \odot B)_{ij} = a_{ij} b_{ij}
+$$
+
 #### B. Operasi matriks
 Operator tanpa titik digunakan untuk operasi aljabar matriks.
 
@@ -92,11 +70,30 @@ Operator tanpa titik digunakan untuk operasi aljabar matriks.
 
 Perkalian matriks `A * B` hanya valid jika jumlah kolom `A` sama dengan jumlah baris `B`.
 
+Jika \(A\) berukuran \(m \times n\) dan \(B\) berukuran \(n \times p\), maka:
+
+$$
+AB = C, \qquad C \in \mathbb{R}^{m \times p}
+$$
+
+dengan elemen hasil:
+
+$$
+c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}
+$$
+
 ---
 
-### 4.3 Penjumlahan dan Pengurangan
+### 2.3 Penjumlahan dan Pengurangan
 
 Penjumlahan `A + B` dan pengurangan `A - B` selalu bekerja per elemen. Karena itu, dua matriks harus memiliki ukuran yang sama atau dapat di-broadcast ke ukuran yang sama.
+
+Secara matematis:
+
+$$
+(A + B)_{ij} = a_{ij} + b_{ij}, \qquad
+(A - B)_{ij} = a_{ij} - b_{ij}
+$$
 
 Contoh:
 
@@ -109,9 +106,15 @@ A - B
 
 ---
 
-### 4.4 Perkalian Skalar
+### 2.4 Perkalian Skalar
 
 Suatu skalar dapat dikalikan ke seluruh elemen vektor atau matriks.
+
+Jika \(k\) adalah skalar dan \(A = [a_{ij}]\), maka:
+
+$$
+(kA)_{ij} = k a_{ij}
+$$
 
 ```octave
 A = [1 2; 3 4];
@@ -122,7 +125,7 @@ Hasilnya adalah setiap elemen pada `A` dikalikan 2.
 
 ---
 
-### 4.5 Perkalian Matriks
+### 2.5 Perkalian Matriks
 
 Perkalian matriks berbeda dari perkalian elemen per elemen.
 
@@ -136,9 +139,15 @@ Perhatikan bahwa hasil `A * B` tidak sama dengan `A .* B`.
 
 ---
 
-### 4.6 Transpose
+### 2.6 Transpose
 
 Transpose menukar baris menjadi kolom dan kolom menjadi baris.
+
+Untuk matriks \(A = [a_{ij}]\), transposenya adalah:
+
+$$
+A^T = [a_{ji}]
+$$
 
 - `A.'` → transpose biasa
 - `A'` → conjugate transpose
@@ -154,13 +163,13 @@ v.'
 
 ---
 
-### 4.7 Sistem Linier
+### 2.7 Sistem Linier
 
 Sistem linier dengan bentuk:
 
-```text
+$$
 A x = b
-```
+$$
 
 dapat diselesaikan di Octave menggunakan operator **left division**:
 
@@ -170,9 +179,33 @@ x = A \ b
 
 Cara ini lebih tepat daripada menghitung `inv(A) * b` secara langsung, karena dokumentasi resmi Octave menyatakan bahwa `A \ b` dihitung tanpa membentuk invers matriks secara eksplisit. Jika matriks koefisien singular atau sistem tidak persegi, Octave akan menghitung solusi minimum norm.
 
+Bentuk umum sistem linier dapat ditulis sebagai:
+
+$$
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_n
+\end{bmatrix}
+$$
+
 ---
 
-## 5. Sintaks Dasar yang Digunakan
+## 3. Sintaks Dasar yang Digunakan
 
 | Bentuk | Keterangan |
 |---|---|
@@ -193,9 +226,9 @@ Cara ini lebih tepat daripada menghitung `inv(A) * b` secara langsung, karena do
 
 ---
 
-## 6. Contoh Kode dan Penjelasan
+## 4. Contoh Kode dan Penjelasan
 
-### Contoh 1 — Operasi Dasar pada Vektor
+### 4.1 Contoh 1 — Operasi Dasar pada Vektor
 
 ```octave
 v1 = [2, 4, 6, 8];
@@ -215,7 +248,7 @@ bagi_elemen = v1 ./ v2
 
 ---
 
-### Contoh 2 — Perkalian Skalar pada Vektor dan Matriks
+### 4.2 Contoh 2 — Perkalian Skalar pada Vektor dan Matriks
 
 ```octave
 v = [3, 6, 9];
@@ -231,7 +264,7 @@ hasil_A = 3 * A
 
 ---
 
-### Contoh 3 — Perkalian Matriks dan Perkalian Elemen per Elemen
+### 4.3 Contoh 3 — Perkalian Matriks dan Perkalian Elemen per Elemen
 
 ```octave
 A = [1 2; 3 4];
@@ -246,9 +279,51 @@ hasil_elemen = A .* B
 - `A .* B` hanya mengalikan elemen pada posisi yang sama.
 - Dua hasil tersebut berbeda karena maknanya berbeda.
 
+Secara manual:
+
+$$
+A =
+\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix},
+\qquad
+B =
+\begin{bmatrix}
+5 & 6 \\
+7 & 8
+\end{bmatrix}
+$$
+
+$$
+AB =
+\begin{bmatrix}
+1 \cdot 5 + 2 \cdot 7 & 1 \cdot 6 + 2 \cdot 8 \\
+3 \cdot 5 + 4 \cdot 7 & 3 \cdot 6 + 4 \cdot 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+19 & 22 \\
+43 & 50
+\end{bmatrix}
+$$
+
+$$
+A \odot B =
+\begin{bmatrix}
+1 \cdot 5 & 2 \cdot 6 \\
+3 \cdot 7 & 4 \cdot 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+5 & 12 \\
+21 & 32
+\end{bmatrix}
+$$
+
 ---
 
-### Contoh 4 — Transpose Vektor dan Matriks
+### 4.4 Contoh 4 — Transpose Vektor dan Matriks
 
 ```octave
 v = [1 2 3 4];
@@ -264,21 +339,34 @@ A_transpose = A.'
 
 ---
 
-### Contoh 5 — Sistem Linier 2 Variabel
+### 4.5 Contoh 5 — Sistem Linier 2 Variabel
 
 Misalkan sistem:
 
-```text
-2x + y = 5
-x - y = 1
-```
+$$
+\begin{aligned}
+2x + y &= 5 \\
+x - y &= 1
+\end{aligned}
+$$
 
 Bentuk matriksnya:
 
-```text
-[2 1] [x] = [5]
-[1 -1][y]   [1]
-```
+$$
+\begin{bmatrix}
+2 & 1 \\
+1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+5 \\
+1
+\end{bmatrix}
+$$
 
 Implementasi di Octave:
 
@@ -296,7 +384,7 @@ x = A \ b
 
 ---
 
-### Contoh 6 — Memeriksa Hasil Sistem Linier
+### 4.6 Contoh 6 — Memeriksa Hasil Sistem Linier
 
 ```octave
 A = [2 1; 1 -1];
@@ -312,15 +400,17 @@ cek = A * x
 
 ---
 
-### Contoh 7 — Sistem Linier 3 Variabel
+### 4.7 Contoh 7 — Sistem Linier 3 Variabel
 
 Misalkan sistem:
 
-```text
-x + y + z = 6
-2x - y + z = 3
-x + 2y + 3z = 14
-```
+$$
+\begin{aligned}
+x + y + z &= 6 \\
+2x - y + z &= 3 \\
+x + 2y + 3z &= 14
+\end{aligned}
+$$
 
 Kode Octave:
 
@@ -339,9 +429,9 @@ x = A \ b
 
 ---
 
-## 7. Langkah Praktikum
+## 5. Langkah Praktikum
 
-### 7.1 Menyiapkan Data Vektor
+### 5.1 Menyiapkan Data Vektor
 
 Ketik perintah berikut di Command Window atau buat dalam file skrip:
 
@@ -362,7 +452,7 @@ v_bagi = v1 ./ v2
 
 ---
 
-### 7.2 Menyiapkan Data Matriks
+### 5.2 Menyiapkan Data Matriks
 
 ```octave
 A = [1 2; 3 4];
@@ -378,7 +468,7 @@ A_dot_B = A .* B
 
 ---
 
-### 7.3 Mencoba Transpose
+### 5.3 Mencoba Transpose
 
 ```octave
 C = [1 2 3; 4 5 6];
@@ -389,7 +479,7 @@ Bandingkan ukuran `C` dan `C_t`.
 
 ---
 
-### 7.4 Menyelesaikan Sistem Linier
+### 5.4 Menyelesaikan Sistem Linier
 
 ```octave
 A = [3 2; 1 -1];
@@ -403,9 +493,9 @@ uji = A * x
 
 ---
 
-## 8. Tugas Latihan
+## 6. Tugas Latihan
 
-### A. Latihan Konsep
+### 6.1 A. Latihan Konsep
 
 Jawab pertanyaan berikut:
 
@@ -417,7 +507,7 @@ Jawab pertanyaan berikut:
 
 ---
 
-### B. Latihan Praktik
+### 6.2 B. Latihan Praktik
 
 Kerjakan dengan Octave:
 
@@ -431,10 +521,12 @@ Kerjakan dengan Octave:
 4. Buat sebuah vektor baris 4 elemen lalu ubah menjadi vektor kolom.
 5. Selesaikan sistem berikut:
 
-```text
-4x + y = 9
-2x - 3y = -4
-```
+$$
+\begin{aligned}
+4x + y &= 9 \\
+2x - 3y &= -4
+\end{aligned}
+$$
 
 Petunjuk:
 
@@ -446,19 +538,19 @@ x = A \ b
 
 ---
 
-## 9. Tugas Praktikum
+## 7. Tugas Praktikum
 
-### Judul
+### 7.1 Judul
 **Implementasi Operasi Vektor, Matriks, dan Penyelesaian Sistem Linier pada GNU Octave**
 
-### Tujuan
+### 7.2 Tujuan
 Praktikan mampu membuat skrip yang:
 - melakukan operasi pada vektor,
 - melakukan operasi pada matriks,
 - menyelesaikan sistem linier,
 - menampilkan hasil secara rapi.
 
-### Instruksi
+### 7.3 Instruksi
 
 Buat folder kerja dengan nama:
 
@@ -470,7 +562,7 @@ Kemudian buat file berikut.
 
 ---
 
-### 1. File `operasi_vektor.m`
+### 7.4 1. File `operasi_vektor.m`
 
 Isi file harus:
 - membuat dua vektor baris,
@@ -505,7 +597,7 @@ disp("v1 ./ v2 = "); disp(bagi_elemen);
 
 ---
 
-### 2. File `operasi_matriks.m`
+### 7.5 2. File `operasi_matriks.m`
 
 Isi file harus:
 - membuat dua matriks 2×2,
@@ -543,7 +635,7 @@ disp("A.' = "); disp(transpose_A);
 
 ---
 
-### 3. File `sistem_linier.m`
+### 7.6 3. File `sistem_linier.m`
 
 Isi file harus:
 - mendefinisikan sistem linier 3 variabel,
@@ -551,6 +643,16 @@ Isi file harus:
 - menyusun vektor konstanta `b`,
 - menghitung solusi dengan `A \ b`,
 - memverifikasi hasil menggunakan `A * x`.
+
+Model matematis yang diimplementasikan:
+
+$$
+\begin{aligned}
+2x + y - z &= 8 \\
+x + 3y + 2z &= 13 \\
+x - y + 2z &= 3
+\end{aligned}
+$$
 
 Contoh kerangka:
 
@@ -576,7 +678,7 @@ disp("Verifikasi A * x = "); disp(cek);
 
 ---
 
-### 4. File `laporan_ringkas.txt`
+### 7.7 4. File `laporan_ringkas.txt`
 
 Tuliskan ringkasan singkat berisi:
 - perbedaan `*` dan `.*`,
@@ -586,71 +688,7 @@ Tuliskan ringkasan singkat berisi:
 
 ---
 
-## 10. Kriteria Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Kebenaran sintaks program | 20% |
-| Kebenaran operasi vektor | 20% |
-| Kebenaran operasi matriks | 20% |
-| Kebenaran penyelesaian sistem linier | 20% |
-| Kerapian output dan dokumentasi | 10% |
-| Kelengkapan file tugas | 10% |
-
----
-
-## 11. Kesalahan Umum yang Sering Terjadi
-
-### 1. Salah memakai operator `*` dan `.*`
-
-Kesalahan umum:
-
-```octave
-A * B
-```
-
-padahal yang diinginkan adalah perkalian elemen per elemen.
-
-Solusi:
-- gunakan `.*` jika setiap elemen harus dikalikan dengan elemen yang bersesuaian.
-
----
-
-### 2. Ukuran matriks tidak sesuai untuk perkalian
-
-Jika `A` berukuran 2×3 dan `B` berukuran 2×2, maka `A * B` tidak valid karena jumlah kolom `A` tidak sama dengan jumlah baris `B`.
-
----
-
-### 3. Salah bentuk vektor konstanta pada sistem linier
-
-Kesalahan umum:
-
-```octave
-b = [5, 1]
-```
-
-Padahal untuk sistem `A x = b`, biasanya `b` harus berupa vektor kolom:
-
-```octave
-b = [5; 1]
-```
-
----
-
-### 4. Menggunakan `inv(A) * b` untuk sistem linier sederhana
-
-Walaupun secara konsep mirip, pendekatan yang direkomendasikan di Octave adalah:
-
-```octave
-x = A \ b
-```
-
-karena lebih stabil dan tidak perlu membentuk invers matriks secara langsung.
-
----
-
-## 12. Ringkasan
+## 8. Ringkasan
 
 Pada modul ini praktikan telah mempelajari:
 
@@ -665,10 +703,11 @@ Pemahaman materi ini sangat penting karena hampir semua komputasi numerik di Oct
 
 ---
 
-## 13. Referensi
+## 9. Referensi
 
-1. GNU Octave Manual 11.1.0, bagian **Matrices**.
-2. GNU Octave Manual 11.1.0, bagian **Arithmetic Operators**.
-3. GNU Octave Manual 11.1.0, bagian **Matrix Arithmetic**.
-4. GNU Octave Manual 11.1.0, bagian **Solving Systems of Linear Equations**.
-5. GNU Octave Manual 11.1.0, bagian **Basic Matrix Functions**.
+1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
+2. Matrices — https://docs.octave.org/latest/Matrices.html
+3. Arithmetic Operators — https://docs.octave.org/latest/Arithmetic-Ops.html
+4. Matrix Arithmetic — https://docs.octave.org/latest/Matrix-Arithmetic.html
+5. Solving Systems of Linear Equations — https://docs.octave.org/latest/Solving-Systems-of-Linear-Equations.html
+6. Basic Matrix Functions — https://docs.octave.org/latest/Basic-Matrix-Functions.html

@@ -1,14 +1,5 @@
 # Visualisasi 2D Dasar
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Visualisasi 2D Dasar
-- **Perangkat lunak**: GNU Octave
-- **Format**: Praktikum berbasis skrip dan eksplorasi grafik
-- **Acuan utama**: Dokumentasi resmi GNU Octave
-
----
-
 ## 1. Deskripsi Singkat
 
 Visualisasi data merupakan bagian penting dalam pemrograman numerik karena membantu memahami pola, tren, hubungan antar-variabel, dan hasil komputasi. Pada GNU Octave, pembuatan grafik 2D dilakukan dengan fungsi tingkat tinggi seperti `plot`, `fplot`, `bar`, `stairs`, `stem`, dan `errorbar`. Dokumentasi resmi GNU Octave terbaru saat ini merujuk ke **GNU Octave 11.1.0**.
@@ -17,34 +8,9 @@ Dalam praktikum ini, fokus utama adalah membuat grafik 2D sederhana, memberi jud
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, mahasiswa mampu:
-
-1. Menjelaskan konsep dasar visualisasi 2D di Octave.
-2. Menggunakan fungsi `plot` untuk menampilkan data 2D.
-3. Menggunakan `title`, `xlabel`, `ylabel`, `legend`, dan `grid` untuk memperjelas grafik.
-4. Mengatur tampilan sumbu dengan `axis`.
-5. Menampilkan lebih dari satu grafik dalam satu jendela menggunakan `subplot`.
-6. Membuat plot fungsi dengan `fplot`.
-7. Menyimpan hasil grafik ke file menggunakan `print`.
-
----
-
-## 3. Prasyarat
-
-Mahasiswa diharapkan sudah memahami:
-
-- variabel dan operator dasar,
-- vektor dan range,
-- script sederhana `.m`,
-- penggunaan Command Window dan Editor di Octave.
-
----
-
-## 4. Dasar Teori
-
-### 4.1 Plotting di Octave
+### 2.1 Plotting di Octave
 
 Octave menyediakan fasilitas plotting tingkat tinggi untuk membuat berbagai jenis grafik dua dimensi dan tiga dimensi. Untuk kebutuhan dasar visualisasi 2D, fungsi yang paling umum digunakan adalah `plot`, yang menggambar hubungan antara data sumbu-`x` dan sumbu-`y`.
 
@@ -60,11 +26,11 @@ title ("Simple 2-D Plot");
 
 Pada banyak sistem, perintah tersebut akan membuka jendela figure terpisah untuk menampilkan grafik.
 
-### 4.2 Figure dan Axes
+### 2.2 Figure dan Axes
 
 Setiap grafik biasanya ditampilkan dalam sebuah **figure**. Di dalam figure terdapat **axes**, yaitu area tempat kurva, batang, titik, label sumbu, dan judul ditampilkan.
 
-### 4.3 Anotasi Grafik
+### 2.3 Anotasi Grafik
 
 Agar grafik informatif, Octave menyediakan fungsi anotasi seperti:
 
@@ -78,7 +44,7 @@ Agar grafik informatif, Octave menyediakan fungsi anotasi seperti:
 
 Menurut dokumentasi resmi, secara default grid dalam keadaan **off**, sedangkan border plot dalam keadaan **on**.
 
-### 4.4 Pengaturan Sumbu
+### 2.4 Pengaturan Sumbu
 
 Fungsi `axis()` digunakan untuk mengatur batas sumbu, aspek rasio, serta beberapa properti visual lain pada axes. Jika dipanggil tanpa argumen, `axis` mengaktifkan autoscaling. Beberapa mode yang sering dipakai adalah:
 
@@ -87,7 +53,7 @@ Fungsi `axis()` digunakan untuk mengatur batas sumbu, aspek rasio, serta beberap
 - `axis("square")`
 - `axis("tight")`
 
-### 4.5 Plot Fungsi dengan `fplot`
+### 2.5 Plot Fungsi dengan `fplot`
 
 Octave dapat mem-plot fungsi secara langsung dari **function handle**, string nama fungsi, atau fungsi inline tanpa perlu membuat data `x` dan `y` secara manual. Hal ini dilakukan dengan `fplot`.
 
@@ -97,11 +63,11 @@ Contoh:
 fplot (@sin, [-10, 10], 201)
 ```
 
-### 4.6 Beberapa Grafik dalam Satu Figure
+### 2.6 Beberapa Grafik dalam Satu Figure
 
 Untuk menampilkan lebih dari satu grafik pada satu jendela, Octave menyediakan `subplot(m, n, p)` yang membagi figure menjadi `m` baris dan `n` kolom, lalu memilih panel ke-`p`.
 
-### 4.7 Menyimpan Grafik
+### 2.7 Menyimpan Grafik
 
 Hasil visualisasi dapat disimpan menggunakan fungsi `print`. Dokumentasi resmi menjelaskan bahwa format raster seperti PNG dan JPEG serta format vektor seperti PDF, EPS, dan SVG dapat digunakan untuk menyimpan plot.
 
@@ -113,7 +79,7 @@ print -dpng grafik1.png
 
 ---
 
-## 5. Fungsi-Fungsi Penting pada Visualisasi 2D
+## 3. Fungsi-Fungsi Penting pada Visualisasi 2D
 
 | Fungsi | Kegunaan |
 |---|---|
@@ -135,9 +101,9 @@ print -dpng grafik1.png
 
 ---
 
-## 6. Langkah Praktikum
+## 4. Langkah Praktikum
 
-### 6.1 Grafik Garis Sederhana
+### 4.1 Grafik Garis Sederhana
 
 Ketik atau simpan skrip berikut:
 
@@ -162,7 +128,7 @@ grid on;
 - `title`, `xlabel`, `ylabel` memperjelas informasi grafik.
 - `grid on` membantu pembacaan nilai.
 
-### 6.2 Menampilkan Dua Kurva pada Grafik yang Sama
+### 4.2 Menampilkan Dua Kurva pada Grafik yang Sama
 
 ```octave
 clc;
@@ -186,7 +152,7 @@ grid on;
 - `"r--"` berarti garis merah putus-putus.
 - `legend()` memberi penjelasan kurva.
 
-### 6.3 Menggunakan `hold on`
+### 4.3 Menggunakan `hold on`
 
 ```octave
 clc;
@@ -206,7 +172,7 @@ hold off;
 - `hold on` mempertahankan plot pertama agar plot berikutnya ditambahkan ke axes yang sama.
 - `hold off` mengembalikan perilaku default.
 
-### 6.4 Mengatur Sumbu dengan `axis`
+### 4.4 Mengatur Sumbu dengan `axis`
 
 ```octave
 clc;
@@ -226,7 +192,7 @@ grid on;
 **Penjelasan kode:**
 - `axis([xmin xmax ymin ymax])` mengatur batas tampilan sumbu x dan y.
 
-### 6.5 Plot Fungsi dengan `fplot`
+### 4.5 Plot Fungsi dengan `fplot`
 
 ```octave
 clc;
@@ -244,7 +210,7 @@ grid on;
 - `fplot` memplot fungsi langsung pada interval yang ditentukan.
 - Operator `.^` digunakan agar perpangkatan bekerja elemen demi elemen.
 
-### 6.6 Menampilkan Beberapa Grafik dalam Satu Figure
+### 4.6 Menampilkan Beberapa Grafik dalam Satu Figure
 
 ```octave
 clc;
@@ -267,7 +233,7 @@ grid on;
 - `subplot(2,1,1)` berarti figure dibagi menjadi 2 baris, 1 kolom, lalu aktif pada panel pertama.
 - `subplot(2,1,2)` memilih panel kedua.
 
-### 6.7 Grafik Batang, Tangga, dan Stem
+### 4.7 Grafik Batang, Tangga, dan Stem
 
 ```octave
 clc;
@@ -297,7 +263,7 @@ grid on;
 - `stairs` cocok untuk data bertingkat atau sinyal diskret bertahan.
 - `stem` cocok untuk menampilkan data diskret.
 
-### 6.8 Grafik dengan Error Bar
+### 4.8 Grafik dengan Error Bar
 
 ```octave
 clc;
@@ -318,7 +284,7 @@ grid on;
 - `errorbar` menampilkan titik data beserta rentang error.
 - Berguna untuk data eksperimen atau hasil pengukuran.
 
-### 6.9 Menyimpan Grafik ke File
+### 4.9 Menyimpan Grafik ke File
 
 ```octave
 clc;
@@ -342,9 +308,9 @@ print -dpng grafik_sinus.png
 
 ---
 
-## 7. Tugas Latihan
+## 5. Tugas Latihan
 
-### Latihan 1
+### 5.1 Latihan 1
 Buat grafik fungsi berikut pada interval `0` sampai `2*pi`:
 
 - `y = sin(x)`
@@ -356,7 +322,7 @@ Tampilkan keduanya dalam satu axes dengan warna berbeda, lalu tambahkan:
 - legenda,
 - grid.
 
-### Latihan 2
+### 5.2 Latihan 2
 Buat grafik fungsi:
 
 ```octave
@@ -367,13 +333,13 @@ untuk `x = -5:0.5:5`, lalu atur sumbu agar:
 - sumbu-x dari `-6` sampai `6`
 - sumbu-y dari `0` sampai `30`
 
-### Latihan 3
+### 5.3 Latihan 3
 Gunakan `subplot` untuk menampilkan tiga grafik berikut dalam satu figure:
 - `sin(x)`
 - `cos(x)`
 - `sin(x) + cos(x)`
 
-### Latihan 4
+### 5.4 Latihan 4
 Buat satu data diskret sederhana dan tampilkan dalam bentuk:
 - `bar`
 - `stem`
@@ -381,7 +347,7 @@ Buat satu data diskret sederhana dan tampilkan dalam bentuk:
 
 Bandingkan tampilannya.
 
-### Latihan 5
+### 5.5 Latihan 5
 Buat plot fungsi menggunakan `fplot` untuk:
 
 ```octave
@@ -392,15 +358,15 @@ pada interval `[-3, 3]`.
 
 ---
 
-## 8. Tugas Praktikum
+## 6. Tugas Praktikum
 
-### Judul
+### 6.1 Judul
 **Membuat Dashboard Visualisasi 2D Dasar di GNU Octave**
 
-### Tujuan
+### 6.2 Tujuan
 Mahasiswa mampu membuat beberapa jenis grafik 2D dan menyajikannya secara informatif.
 
-### Instruksi
+### 6.3 Instruksi
 Buat folder kerja bernama:
 
 ```text
@@ -409,7 +375,7 @@ praktikum_visualisasi_2d
 
 Di dalam folder tersebut, buat file berikut.
 
-### 8.1 File `grafik_fungsi_dasar.m`
+### 6.4 File `grafik_fungsi_dasar.m`
 Buat skrip yang:
 1. Membuat vektor `x = 0:0.1:2*pi`
 2. Menghitung:
@@ -424,7 +390,7 @@ Buat skrip yang:
    - grid
 5. Menyimpan grafik sebagai `grafik_fungsi_dasar.png`
 
-### 8.2 File `subplot_fungsi.m`
+### 6.5 File `subplot_fungsi.m`
 Buat skrip yang menampilkan tiga subplot:
 1. `sin(x)`
 2. `cos(x)`
@@ -432,7 +398,7 @@ Buat skrip yang menampilkan tiga subplot:
 
 Setiap subplot harus memiliki judul masing-masing.
 
-### 8.3 File `grafik_diskret.m`
+### 6.6 File `grafik_diskret.m`
 Buat skrip yang menampilkan data diskret yang sama dalam tiga bentuk:
 - `bar`
 - `stem`
@@ -440,14 +406,14 @@ Buat skrip yang menampilkan data diskret yang sama dalam tiga bentuk:
 
 Gunakan `subplot`.
 
-### 8.4 File `plot_fungsi_handle.m`
+### 6.7 File `plot_fungsi_handle.m`
 Buat skrip yang menggunakan `fplot` untuk menampilkan dua fungsi:
 - `f(x) = x.^2`
 - `g(x) = x.^3 - 2*x`
 
 Tampilkan dalam dua subplot berbeda.
 
-### 8.5 Dokumentasi singkat
+### 6.8 Dokumentasi singkat
 Buat file markdown singkat bernama `catatan_visualisasi.md` yang berisi:
 - fungsi-fungsi plotting yang digunakan,
 - perbedaan `plot`, `fplot`, `bar`, `stem`, dan `stairs`,
@@ -455,7 +421,7 @@ Buat file markdown singkat bernama `catatan_visualisasi.md` yang berisi:
 
 ---
 
-## 9. Format Laporan Singkat
+## 7. Format Laporan Singkat
 
 Setiap mahasiswa menuliskan:
 
@@ -467,23 +433,7 @@ Setiap mahasiswa menuliskan:
 
 ---
 
-## 10. Kriteria Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Kebenaran sintaks | 20% |
-| Ketepatan jenis grafik | 20% |
-| Kelengkapan anotasi grafik | 15% |
-| Penggunaan `subplot` dan pengaturan sumbu | 15% |
-| Keberhasilan menyimpan output grafik | 10% |
-| Kerapian kode dan struktur file | 10% |
-| Analisis hasil | 10% |
-
----
-
-## 11. Kesalahan Umum yang Sering Terjadi
-
-### 11.1 Lupa operator elemen-per-elemen
+### 7.1 Lupa operator elemen-per-elemen
 
 Contoh salah:
 
@@ -498,7 +448,7 @@ Untuk vektor, yang benar biasanya:
 y = x.^2;
 ```
 
-### 11.2 Ukuran `x` dan `y` tidak cocok
+### 7.2 Ukuran `x` dan `y` tidak cocok
 
 Contoh salah:
 
@@ -510,21 +460,21 @@ plot(x, y)
 
 Jumlah elemen `x` dan `y` harus sesuai.
 
-### 11.3 Legenda tidak sesuai urutan kurva
+### 7.3 Legenda tidak sesuai urutan kurva
 
 Urutan teks pada `legend()` harus mengikuti urutan plot yang ditampilkan.
 
-### 11.4 Grafik baru menimpa grafik lama
+### 7.4 Grafik baru menimpa grafik lama
 
 Jika ingin menambahkan kurva ke axes yang sama, gunakan `hold on`.
 
-### 11.5 File gambar tidak tersimpan
+### 7.5 File gambar tidak tersimpan
 
 Pastikan perintah `print` dijalankan setelah figure aktif benar-benar dibuat.
 
 ---
 
-## 12. Ringkasan
+## 8. Ringkasan
 
 Pada modul ini mahasiswa mempelajari dasar visualisasi 2D di GNU Octave, meliputi:
 
@@ -541,7 +491,7 @@ Kemampuan ini menjadi dasar untuk materi berikutnya seperti visualisasi data eks
 
 ---
 
-## 13. Referensi Resmi
+## 9. Referensi Resmi
 
 1. GNU Octave Manual (latest): https://docs.octave.org/latest/
 2. Plotting: https://docs.octave.org/latest/Plotting.html

@@ -13,6 +13,8 @@ const tocToggleBtn = document.getElementById("tocToggleBtn");
 const closeTocBtn = document.getElementById("closeTocBtn");
 const tocOverlay = document.getElementById("tocOverlay");
 const scrollTopBtn = document.getElementById("scrollTopBtn");
+const readingProgressEl = document.getElementById("readingProgress");
+const readingProgressFillEl = document.getElementById("readingProgressFill");
 const embeddedModules = window.ALPRO_MODULES || [];
 const embeddedContent = window.ALPRO_CONTENT || {};
 
@@ -22,6 +24,7 @@ const siteTitle = "Praktikum Dasar Octave";
 const SHIKI_THEME = "dark-plus";
 const SHIKI_CDN_URL = "https://esm.sh/shiki@4.0.2";
 let shikiHighlighterPromise = null;
+let readingProgressFrame = 0;
 
 function formatCurrentDate() {
   return new Intl.DateTimeFormat("id-ID", {
@@ -171,6 +174,68 @@ function updateScrollTopButton() {
   scrollTopBtn.classList.toggle("show", scrollTop > 320);
 }
 
+function setReadingProgressState(state, progress = 0) {
+  if (!readingProgressEl || !readingProgressFillEl) {
+    return;
+  }
+
+  const clampedProgress = Math.max(0, Math.min(progress, 100));
+  readingProgressEl.classList.toggle("loading", state === "loading");
+  readingProgressEl.classList.toggle("ready", state === "ready");
+  readingProgressEl.classList.toggle("error", state === "error");
+
+  if (state === "loading") {
+    readingProgressFillEl.style.width = "32%";
+    return;
+  }
+
+  if (state === "error") {
+    readingProgressFillEl.style.width = "100%";
+    return;
+  }
+
+  readingProgressFillEl.style.width = `${clampedProgress}%`;
+}
+
+function getReadingProgressValue() {
+  if (!contentEl) {
+    return 0;
+  }
+
+  const contentRect = contentEl.getBoundingClientRect();
+  const scrollTop = window.scrollY || window.pageYOffset || 0;
+  const contentTop = scrollTop + contentRect.top;
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+  const start = Math.max(contentTop - viewportHeight * 0.2, 0);
+  const maxScrollable = Math.max(contentEl.offsetHeight - viewportHeight * 0.6, 0);
+
+  if (maxScrollable <= 0) {
+    return 100;
+  }
+
+  return ((scrollTop - start) / maxScrollable) * 100;
+}
+
+function updateReadingProgress() {
+  if (!readingProgressEl || readingProgressEl.classList.contains("loading") || readingProgressEl.classList.contains("error")) {
+    return;
+  }
+
+  setReadingProgressState("ready", getReadingProgressValue());
+}
+
+function scheduleReadingProgressUpdate() {
+  if (readingProgressFrame) {
+    return;
+  }
+
+  readingProgressFrame = window.requestAnimationFrame(() => {
+    readingProgressFrame = 0;
+    updateScrollTopButton();
+    updateReadingProgress();
+  });
+}
+
 menuBtn.addEventListener("click", toggleSidebar);
 closeSidebarBtn.addEventListener("click", () => setSidebarOpen(false));
 sidebarOverlay.addEventListener("click", () => setSidebarOpen(false));
@@ -196,7 +261,8 @@ tocEl.addEventListener("click", (event) => {
   }, 120);
 });
 
-window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+window.addEventListener("scroll", scheduleReadingProgressUpdate, { passive: true });
+window.addEventListener("resize", scheduleReadingProgressUpdate, { passive: true });
 enableTouchHover(moduleListEl);
 enableTouchHover(tocEl);
 
@@ -353,6 +419,42 @@ function renderMarkdown(markdown) {
   return renderFallbackMarkdown(markdown);
 }
 
+function condenseExternalLinkLabels() {
+  const externalLinks = contentEl.querySelectorAll('a[href^="http"]');
+
+  externalLinks.forEach((linkEl) => {
+    const href = linkEl.getAttribute("href") || "";
+    const linkText = linkEl.textContent.trim();
+
+    if (!/^https?:\/\//i.test(linkText)) {
+      return;
+    }
+
+    linkEl.textContent = "Buka";
+    linkEl.setAttribute("title", href);
+    linkEl.setAttribute("aria-label", `Buka referensi: ${href}`);
+  });
+}
+
+function typesetMath() {
+  if (typeof window.renderMathInElement !== "function") {
+    return;
+  }
+
+  try {
+    window.renderMathInElement(contentEl, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false },
+      ],
+      throwOnError: false,
+    });
+  } catch (error) {
+    console.warn("Gagal merender persamaan LaTeX.", error);
+  }
+}
+
 async function copyTextToClipboard(text) {
   if (navigator.clipboard?.writeText && window.isSecureContext) {
     await navigator.clipboard.writeText(text);
@@ -501,6 +603,10 @@ async function enhanceCodeBlocks() {
 
       preEl.dataset.enhanced = "true";
       preEl.classList.add("code-block");
+      const codeBlockShellEl = document.createElement("div");
+      codeBlockShellEl.className = "code-block-shell";
+      preEl.parentNode?.insertBefore(codeBlockShellEl, preEl);
+      codeBlockShellEl.appendChild(preEl);
       const language = getCodeLanguage(codeEl);
       const rawCode = codeEl.textContent.replace(/\r\n?/g, "\n");
       const highlightedLines = await getHighlightedLineMarkup(rawCode, language);
@@ -545,7 +651,7 @@ async function enhanceCodeBlocks() {
         }, 1600);
       });
 
-      preEl.prepend(copyButtonEl);
+      codeBlockShellEl.appendChild(copyButtonEl);
     })
   );
 }
@@ -616,8 +722,8 @@ function buildToc() {
 
   tocEl.innerHTML = Array.from(headings)
     .map((h) => {
-      const cls = h.tagName.toLowerCase() === "h3" ? "toc-h3" : "";
-      return `<a class="${cls}" href="#${h.id}">${escapeHtml(h.textContent)}</a>`;
+      const level = h.tagName.toLowerCase();
+      return `<a class="toc-link toc-${level}" href="#${h.id}">${escapeHtml(h.textContent)}</a>`;
     })
     .join("");
   tocEl.scrollTop = 0;
@@ -642,16 +748,21 @@ async function loadCurrentModule() {
   pageTitleEl.textContent = siteTitle;
   contentEl.innerHTML = "<p>Memuat materi...</p>";
   tocEl.innerHTML = "";
+  setReadingProgressState("loading");
 
   try {
     const markdown = await loadMarkdown(current.file);
     contentEl.innerHTML = renderMarkdown(markdown);
+    condenseExternalLinkLabels();
+    typesetMath();
     await enhanceCodeBlocks();
     addHeadingIds();
     buildToc();
+    setReadingProgressState("ready", getReadingProgressValue());
   } catch (err) {
     contentEl.innerHTML = `<p>Gagal memuat file markdown: ${escapeHtml(err.message)}</p>`;
     tocEl.innerHTML = "";
+    setReadingProgressState("error");
   }
 
   setSidebarOpen(false);
@@ -664,12 +775,13 @@ async function init() {
     updateFullscreenButton();
     await loadModules();
     await loadCurrentModule();
-    updateScrollTopButton();
+    scheduleReadingProgressUpdate();
   } catch (err) {
     pageTitleEl.textContent = "Gagal memuat modul";
     moduleListEl.innerHTML = "";
     contentEl.innerHTML = `<p>${escapeHtml(err.message)}</p>`;
     tocEl.innerHTML = "";
+    setReadingProgressState("error");
   }
 }
 

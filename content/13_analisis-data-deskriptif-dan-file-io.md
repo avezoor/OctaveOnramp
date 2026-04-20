@@ -1,14 +1,5 @@
 # Analisis Data Deskriptif dan File I/O
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Analisis Data Deskriptif dan File I/O
-- **Perangkat lunak**: GNU Octave
-- **Bentuk bahan ajar**: Modul praktikum berbasis markdown
-- **Acuan utama**: Dokumentasi resmi GNU Octave 11.1.0
-
----
-
 ## 1. Deskripsi Singkat
 
 Pada pertemuan ini, mahasiswa mempelajari cara melakukan analisis data deskriptif dasar di GNU Octave serta cara membaca dan menulis data ke file. Materi statistik deskriptif berfokus pada ringkasan data menggunakan ukuran pemusatan dan penyebaran seperti `mean`, `median`, `mode`, `bounds`, `range`, `iqr`, `std`, dan `var`.
@@ -19,36 +10,9 @@ Dengan materi ini, mahasiswa diharapkan mampu membaca data numerik, merangkum da
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah menyelesaikan praktikum ini, mahasiswa diharapkan mampu:
-
-1. menjelaskan tujuan analisis data deskriptif,
-2. menghitung ukuran pemusatan data menggunakan `mean`, `median`, dan `mode`,
-3. menghitung ukuran penyebaran data menggunakan `range`, `iqr`, `std`, dan `var`,
-4. memahami analisis data vektor dan matriks di Octave,
-5. menyimpan variabel ke file menggunakan `save`,
-6. memuat kembali data dari file menggunakan `load`,
-7. menulis dan membaca file teks sederhana menggunakan `fopen`, `fprintf`, `fscanf`, dan `fclose`,
-8. membuat skrip analisis data yang rapi dan dapat dijalankan ulang.
-
----
-
-## 3. Prasyarat
-
-Mahasiswa sebaiknya telah memahami:
-
-- variabel, skalar, vektor, dan matriks,
-- operator dasar Octave,
-- script `.m`,
-- string dan output dasar,
-- penggunaan fungsi bawaan Octave.
-
----
-
-## 4. Dasar Teori
-
-## 4.1 Statistik Deskriptif di Octave
+### 2.1 Statistik Deskriptif di Octave
 
 GNU Octave menyediakan dukungan statistik dasar di inti bahasa, dengan penekanan pada statistik deskriptif. Dokumentasi resmi juga menjelaskan bahwa untuk data multi-dimensi, fungsi statistik pada umumnya mengasumsikan **setiap baris adalah observasi** dan **setiap kolom adalah variabel**.
 
@@ -69,11 +33,11 @@ Makna data di atas dapat dibaca sebagai:
 - kolom 2 = nilai variabel kedua,
 - kolom 3 = nilai variabel ketiga.
 
-## 4.2 Ukuran Pemusatan
+### 2.2 Ukuran Pemusatan
 
 Ukuran pemusatan digunakan untuk merangkum nilai pusat dari suatu kumpulan data.
 
-### a. Mean
+### 2.3 a. Mean
 
 `mean` menghitung rata-rata aritmetika data.
 
@@ -83,7 +47,7 @@ m = mean (x)
 
 Untuk vektor, hasilnya satu nilai. Untuk matriks, hasil default adalah rata-rata setiap kolom.
 
-### b. Median
+### 2.4 b. Median
 
 `median` menghitung nilai tengah dari data yang sudah diurutkan.
 
@@ -93,7 +57,7 @@ m = median (x)
 
 Median sering lebih stabil daripada mean jika terdapat pencilan.
 
-### c. Mode
+### 2.5 c. Mode
 
 `mode` menghitung nilai yang paling sering muncul.
 
@@ -103,11 +67,11 @@ m = mode (x)
 
 Jika ada lebih dari satu nilai dengan frekuensi tertinggi yang sama, Octave mengembalikan nilai terkecil di antaranya.
 
-## 4.3 Ukuran Penyebaran
+### 2.6 Ukuran Penyebaran
 
 Ukuran penyebaran menunjukkan seberapa lebar data tersebar dari pusatnya.
 
-### a. Nilai minimum dan maksimum
+### 2.7 a. Nilai minimum dan maksimum
 
 Octave menyediakan `bounds` untuk memperoleh nilai minimum dan maksimum sekaligus.
 
@@ -115,7 +79,7 @@ Octave menyediakan `bounds` untuk memperoleh nilai minimum dan maksimum sekaligu
 [minimum, maksimum] = bounds (x)
 ```
 
-### b. Range
+### 2.8 b. Range
 
 `range` adalah selisih nilai maksimum dan minimum.
 
@@ -123,7 +87,7 @@ Octave menyediakan `bounds` untuk memperoleh nilai minimum dan maksimum sekaligu
 r = range (x)
 ```
 
-### c. Interquartile Range (IQR)
+### 2.9 c. Interquartile Range (IQR)
 
 `iqr` menghitung jarak antara kuartil ketiga dan kuartil pertama.
 
@@ -133,7 +97,7 @@ r = iqr (x)
 
 IQR lebih tahan terhadap pencilan dibanding `range` atau `std`.
 
-### d. Standar deviasi
+### 2.10 d. Standar deviasi
 
 `std` mengukur penyebaran data terhadap rata-ratanya.
 
@@ -141,7 +105,7 @@ IQR lebih tahan terhadap pencilan dibanding `range` atau `std`.
 s = std (x)
 ```
 
-### e. Varians
+### 2.11 e. Varians
 
 `var` adalah kuadrat dari standar deviasi.
 
@@ -149,7 +113,7 @@ s = std (x)
 v = var (x)
 ```
 
-## 4.4 Operasi pada Dimensi Data
+### 2.12 Operasi pada Dimensi Data
 
 Sebagian besar fungsi statistik di Octave mendukung argumen dimensi.
 
@@ -166,7 +130,7 @@ Makna:
 - `mean (A, 2)` menghitung rata-rata setiap baris,
 - `mean (A, "all")` menghitung rata-rata semua elemen matriks.
 
-## 4.5 Penanganan Nilai NaN
+### 2.13 Penanganan Nilai NaN
 
 Banyak fungsi statistik di Octave mendukung argumen `nanflag`. Beberapa fungsi seperti `mean`, `median`, `std`, dan `var` mendukung pilihan seperti `"includenan"` atau `"omitnan"`.
 
@@ -180,11 +144,11 @@ mean (x, "omitnan")
 
 Secara praktis, `omitnan` berguna ketika data hilang direpresentasikan dengan `NaN`.
 
-## 4.6 File I/O di Octave
+### 2.14 File I/O di Octave
 
 File I/O adalah proses membaca data dari file dan menulis data ke file. Di Octave, pendekatan dasarnya dapat dibagi menjadi dua.
 
-### a. Simple File I/O
+### 2.15 a. Simple File I/O
 
 Menggunakan perintah seperti `save` dan `load`.
 
@@ -195,7 +159,7 @@ load data.mat
 
 Perintah ini cocok untuk menyimpan variabel Octave dengan cepat.
 
-### b. File I/O berbasis file descriptor
+### 2.16 b. File I/O berbasis file descriptor
 
 Menggunakan `fopen`, `fprintf`, `fscanf`, `fgetl`, dan `fclose`.
 
@@ -217,7 +181,7 @@ fclose (fid);
 
 `fopen` mengembalikan file identifier. Jika gagal membuka file, nilainya dapat menjadi `-1`.
 
-## 4.7 Format Output ke File
+### 2.17 Format Output ke File
 
 Saat menulis laporan atau hasil analisis, `fprintf` sangat berguna karena mendukung format keluaran terstruktur.
 
@@ -231,9 +195,9 @@ Jika argumen pertama adalah file identifier, keluaran ditulis ke file, bukan ke 
 
 ---
 
-## 5. Fungsi-Fungsi Penting
+## 3. Fungsi-Fungsi Penting
 
-### 5.1 Statistik deskriptif
+### 3.1 Statistik deskriptif
 
 - `mean (x)` : rata-rata
 - `median (x)` : nilai tengah
@@ -246,7 +210,7 @@ Jika argumen pertama adalah file identifier, keluaran ditulis ke file, bukan ke 
 - `sum (x)` : jumlah seluruh elemen
 - `sort (x)` : mengurutkan data
 
-### 5.2 File I/O
+### 3.2 File I/O
 
 - `save file variabel` : menyimpan variabel ke file
 - `load file` : memuat data dari file
@@ -258,9 +222,9 @@ Jika argumen pertama adalah file identifier, keluaran ditulis ke file, bukan ke 
 
 ---
 
-## 6. Contoh Kode dan Penjelasan
+## 4. Contoh Kode dan Penjelasan
 
-## 6.1 Contoh 1 — Statistik Deskriptif pada Vektor
+### 4.1 Contoh 1 — Statistik Deskriptif pada Vektor
 
 ```octave
 nilai = [72 75 80 80 84 90 95 95 95 100];
@@ -275,7 +239,7 @@ simpangan_baku = std (nilai)
 varians_nilai = var (nilai)
 ```
 
-### Penjelasan
+### 4.2 Penjelasan
 
 - `mean (nilai)` menghitung rata-rata data.
 - `median (nilai)` menghitung nilai tengah.
@@ -285,7 +249,7 @@ varians_nilai = var (nilai)
 - `iqr (nilai)` mengukur sebaran tengah data.
 - `std (nilai)` dan `var (nilai)` mengukur tingkat sebaran data terhadap rata-rata.
 
-## 6.2 Contoh 2 — Statistik Deskriptif pada Matriks
+### 4.3 Contoh 2 — Statistik Deskriptif pada Matriks
 
 ```octave
 data = [72 165 8;
@@ -300,7 +264,7 @@ std_kolom = std (data)
 [var_kolom, mean_kolom_lagi] = var (data)
 ```
 
-### Penjelasan
+### 4.4 Penjelasan
 
 - `mean (data)` menghitung rata-rata tiap kolom.
 - `mean (data, 2)` menghitung rata-rata tiap baris.
@@ -308,7 +272,7 @@ std_kolom = std (data)
 - `std (data)` menghasilkan standar deviasi tiap kolom.
 - `var (data)` menghasilkan varians tiap kolom dan dapat juga mengembalikan mean.
 
-## 6.3 Contoh 3 — Mengabaikan Nilai NaN
+### 4.5 Contoh 3 — Mengabaikan Nilai NaN
 
 ```octave
 x = [10 20 NaN 40 50];
@@ -319,13 +283,13 @@ median_tanpa_nan = median (x, "omitnan")
 std_tanpa_nan = std (x, 0, "omitnan")
 ```
 
-### Penjelasan
+### 4.6 Penjelasan
 
 - Tanpa `omitnan`, hasil dapat menjadi `NaN`.
 - Dengan `omitnan`, elemen `NaN` diabaikan dalam perhitungan.
 - Teknik ini umum dipakai ketika data belum lengkap.
 
-## 6.4 Contoh 4 — Menyimpan dan Memuat Variabel dengan `save` dan `load`
+### 4.7 Contoh 4 — Menyimpan dan Memuat Variabel dengan `save` dan `load`
 
 ```octave
 data = [72 75 80; 81 79 90; 88 84 92];
@@ -340,14 +304,14 @@ load hasil_analisis.mat
 who
 ```
 
-### Penjelasan
+### 4.8 Penjelasan
 
 - `save hasil_analisis.mat data rata2 std_data` menyimpan variabel yang disebutkan ke file.
 - `clear` menghapus variabel dari workspace.
 - `load hasil_analisis.mat` memuat kembali variabel ke workspace.
 - `who` dipakai untuk memeriksa apakah variabel berhasil dimuat.
 
-## 6.5 Contoh 5 — Menulis Laporan Ringkas ke File Teks
+### 4.9 Contoh 5 — Menulis Laporan Ringkas ke File Teks
 
 ```octave
 nilai = [72 75 80 80 84 90 95 95 95 100];
@@ -371,14 +335,14 @@ fprintf (fid, "Maksimum      : %.2f\n", maksimum);
 fclose (fid);
 ```
 
-### Penjelasan
+### 4.10 Penjelasan
 
 - `fopen (..., "w")` membuka file untuk ditulis.
 - `fprintf` menulis teks dan angka terformat.
 - `%.2f` berarti angka pecahan ditulis dengan dua digit di belakang koma.
 - `fclose` wajib dipanggil agar file ditutup dengan benar.
 
-## 6.6 Contoh 6 — Membaca Data Numerik dari File Teks
+### 4.11 Contoh 6 — Membaca Data Numerik dari File Teks
 
 ```octave
 fid = fopen ("data_angka.txt", "w");
@@ -393,14 +357,14 @@ A
 mean_A = mean (A)
 ```
 
-### Penjelasan
+### 4.12 Penjelasan
 
 - File dibuat terlebih dahulu agar contoh dapat langsung diuji.
 - `fscanf` membaca bilangan dari file menurut format yang diberikan.
 - Ukuran `[3, 3]` menyatakan data dibaca sebagai matriks 3×3.
 - Tanda transpose `'` dipakai agar orientasi hasil sesuai dengan susunan baris pada file.
 
-## 6.7 Contoh 7 — Membaca File Baris per Baris
+### 4.13 Contoh 7 — Membaca File Baris per Baris
 
 ```octave
 fid = fopen ("catatan.txt", "w");
@@ -416,14 +380,14 @@ baris3 = fgetl (fid)
 fclose (fid);
 ```
 
-### Penjelasan
+### 4.14 Penjelasan
 
 - `fgetl` membaca satu baris teks setiap kali dipanggil.
 - Teknik ini berguna untuk membaca file teks sederhana, header, atau catatan hasil eksperimen.
 
 ---
 
-## 7. Langkah Praktikum
+## 5. Langkah Praktikum
 
 Ikuti langkah berikut secara berurutan.
 
@@ -440,9 +404,9 @@ Ikuti langkah berikut secara berurutan.
 
 ---
 
-## 8. Latihan Terbimbing
+## 6. Latihan Terbimbing
 
-### Latihan 1 — Ringkasan Data Vektor
+### 6.1 Latihan 1 — Ringkasan Data Vektor
 
 Gunakan data berikut:
 
@@ -460,7 +424,7 @@ Kerjakan:
 7. hitung standar deviasi,
 8. hitung varians.
 
-### Latihan 2 — Statistik Matriks
+### 6.2 Latihan 2 — Statistik Matriks
 
 Gunakan data berikut:
 
@@ -478,7 +442,7 @@ Kerjakan:
 4. hitung var tiap kolom,
 5. hitung mean seluruh elemen.
 
-### Latihan 3 — Menyimpan dan Memuat Data
+### 6.3 Latihan 3 — Menyimpan dan Memuat Data
 
 1. Buat matriks `A` ukuran `3 x 4`.
 2. Simpan ke file `data_latihan.mat`.
@@ -486,7 +450,7 @@ Kerjakan:
 4. Muat kembali file tersebut.
 5. Tampilkan isi variabel yang dimuat.
 
-### Latihan 4 — Menulis File Teks
+### 6.4 Latihan 4 — Menulis File Teks
 
 Buat file `ringkasan.txt` yang berisi:
 - judul laporan,
@@ -497,7 +461,7 @@ Buat file `ringkasan.txt` yang berisi:
 
 Gunakan `fprintf`.
 
-### Latihan 5 — Membaca Data dari File
+### 6.5 Latihan 5 — Membaca Data dari File
 
 1. Buat file teks numerik ukuran `3 x 3`.
 2. Baca file tersebut ke matriks.
@@ -505,7 +469,7 @@ Gunakan `fprintf`.
 
 ---
 
-## 9. Tugas Latihan
+## 7. Tugas Latihan
 
 Kerjakan secara mandiri.
 
@@ -518,15 +482,15 @@ Kerjakan secara mandiri.
 
 ---
 
-## 10. Tugas Praktikum
+## 8. Tugas Praktikum
 
-### Judul
+### 8.1 Judul
 **Analisis Data Deskriptif dan Penyimpanan Hasil ke File**
 
-### Tujuan
+### 8.2 Tujuan
 Mahasiswa mampu melakukan analisis statistik deskriptif pada data numerik serta menyimpan dan memuat hasil analisis menggunakan file.
 
-### Instruksi
+### 8.3 Instruksi
 
 Buat folder kerja dengan nama:
 
@@ -536,7 +500,7 @@ praktikum_octave_analisis_data
 
 Di dalam folder tersebut, buat file berikut.
 
-### 10.1 File `data_praktikum.m`
+### 8.4 File `data_praktikum.m`
 
 Isi file ini dengan sebuah matriks data berukuran minimal `5 x 4`.
 
@@ -550,7 +514,7 @@ data = [72 80 65 90;
         85 90 75 95];
 ```
 
-### 10.2 File `analisis_deskriptif.m`
+### 8.5 File `analisis_deskriptif.m`
 
 File ini harus:
 
@@ -594,7 +558,7 @@ var_kolom
 save hasil_analisis.mat data mean_kolom median_kolom mode_kolom min_kolom max_kolom range_kolom std_kolom var_kolom
 ```
 
-### 10.3 File `buat_laporan.m`
+### 8.6 File `buat_laporan.m`
 
 File ini harus:
 
@@ -650,7 +614,7 @@ fprintf (fid, "\n");
 fclose (fid);
 ```
 
-### 10.4 File `baca_file_teks.m`
+### 8.7 File `baca_file_teks.m`
 
 File ini harus:
 
@@ -677,7 +641,7 @@ B
 mean_B = mean (B)
 ```
 
-### 10.5 Luaran yang Dikumpulkan
+### 8.8 Luaran yang Dikumpulkan
 
 Mahasiswa mengumpulkan:
 
@@ -691,77 +655,7 @@ Mahasiswa mengumpulkan:
 
 ---
 
-## 11. Kriteria Penilaian
-
-- **Kebenaran data dan struktur file** : 15%
-- **Kebenaran analisis deskriptif** : 25%
-- **Ketepatan penggunaan `save` dan `load`** : 15%
-- **Ketepatan penggunaan `fopen`, `fprintf`, `fscanf`, `fclose`** : 20%
-- **Kerapian skrip dan komentar** : 10%
-- **Kelengkapan luaran** : 15%
-
----
-
-## 12. Kesalahan Umum yang Sering Terjadi
-
-### 12.1 Salah memahami orientasi matriks
-
-Kesalahan umum:
-- mengira `mean (A)` menghitung rata-rata seluruh elemen.
-
-Padahal:
-- `mean (A)` default bekerja per kolom,
-- gunakan `mean (A, "all")` untuk seluruh elemen.
-
-### 12.2 Lupa menutup file
-
-Kesalahan umum:
-- file dibuka dengan `fopen`, tetapi tidak ditutup.
-
-Akibat:
-- isi file bisa tidak lengkap atau file tetap terbuka.
-
-Solusi:
-- selalu akhiri dengan `fclose (fid)`.
-
-### 12.3 Ukuran pembacaan `fscanf` tidak sesuai
-
-Kesalahan umum:
-- ukuran matriks saat membaca tidak cocok dengan isi file.
-
-Solusi:
-- pastikan jumlah elemen dan bentuk data pada file sesuai dengan ukuran yang diminta.
-
-### 12.4 Variabel tidak muncul setelah `load`
-
-Penyebab:
-- nama file salah,
-- file tidak berada pada direktori aktif,
-- file belum berhasil dibuat.
-
-Solusi:
-
-```octave
-pwd
-dir
-who
-```
-
-### 12.5 Hasil statistik menjadi `NaN`
-
-Penyebab:
-- data memuat `NaN`, lalu dihitung tanpa `omitnan`.
-
-Solusi:
-
-```octave
-mean (x, "omitnan")
-median (x, "omitnan")
-```
-
----
-
-## 13. Ringkasan
+## 9. Ringkasan
 
 Pada pertemuan ini, mahasiswa telah mempelajari:
 
@@ -778,7 +672,7 @@ Materi ini sangat penting karena pada praktik komputasi numerik, data jarang han
 
 ---
 
-## 14. Referensi
+## 10. Referensi
 
 1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
 2. Statistics — https://docs.octave.org/latest/Statistics.html

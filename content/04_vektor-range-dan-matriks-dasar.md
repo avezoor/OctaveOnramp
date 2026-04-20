@@ -1,36 +1,14 @@
 # Vektor, Range, dan Matriks Dasar
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Vektor, Range, dan Matriks Dasar
-- **Perangkat lunak**: GNU Octave
-- **Bentuk file**: Markdown
-
----
-
 ## 1. Deskripsi Singkat
 
 GNU Octave adalah bahasa dan lingkungan komputasi numerik yang berorientasi pada matriks. Pada topik ini, praktikan akan mempelajari cara membuat **vektor baris**, **vektor kolom**, **range**, dan **matriks dasar**, serta bagaimana mengakses elemen-elemen di dalamnya. Materi ini penting karena sebagian besar operasi numerik di Octave dibangun di atas konsep vektor dan matriks.
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, praktikan mampu:
-
-1. menjelaskan pengertian vektor dan matriks dalam Octave,
-2. membuat vektor baris dan vektor kolom,
-3. membuat data berurutan menggunakan notasi range,
-4. membuat matriks dasar dengan berbagai cara,
-5. mengakses elemen, baris, dan kolom pada matriks,
-6. menggunakan fungsi dasar yang berkaitan dengan ukuran dan bentuk data,
-7. menyelesaikan latihan dan tugas praktikum berbasis vektor serta matriks.
-
----
-
-## 3. Dasar Teori
-
-### 3.1 Vektor dan Matriks dalam Octave
+### 2.1 Vektor dan Matriks dalam Octave
 
 Dalam Octave, vektor dan matriks adalah blok dasar komputasi numerik. Matriks ditulis di dalam tanda kurung siku `[ ]`. Elemen-elemen dalam **satu baris** dipisahkan dengan **spasi** atau **koma**, sedangkan **antarbaris** dipisahkan dengan **titik koma** atau pindah baris.
 
@@ -47,7 +25,7 @@ akan menghasilkan matriks:
 3  4
 ```
 
-### 3.2 Vektor Baris dan Vektor Kolom
+### 2.2 Vektor Baris dan Vektor Kolom
 
 - **Vektor baris** memiliki 1 baris dan beberapa kolom.
 - **Vektor kolom** memiliki beberapa baris dan 1 kolom.
@@ -59,7 +37,7 @@ v_baris = [2, 4, 6, 8]
 v_kolom = [2; 4; 6; 8]
 ```
 
-### 3.3 Range
+### 2.3 Range
 
 Range adalah cara singkat untuk membuat **vektor baris dengan elemen berjarak tetap**.
 
@@ -94,7 +72,7 @@ menghasilkan:
 2  4  6  8  10
 ```
 
-### 3.4 Catatan Penting tentang Range Pecahan
+### 2.4 Catatan Penting tentang Range Pecahan
 
 Range yang memakai bilangan pecahan menggunakan aritmetika floating-point. Karena itu, hasil batas akhirnya bisa saja tidak selalu persis seperti yang terlihat. Untuk kasus yang membutuhkan titik awal dan akhir yang pasti, pendekatan seperti `linspace` lebih aman.
 
@@ -104,7 +82,7 @@ Contoh yang umum dipakai:
 x = linspace (0, 1, 6)
 ```
 
-### 3.5 Matriks Dasar
+### 2.5 Matriks Dasar
 
 Matriks dapat dibentuk secara manual atau menggunakan fungsi pembangkit.
 
@@ -129,7 +107,7 @@ Keterangan:
 - `eye (n)` membuat matriks identitas ukuran `n x n`,
 - `rand (m, n)` membuat matriks acak ukuran `m x n`.
 
-### 3.6 Ukuran Data
+### 2.6 Ukuran Data
 
 Beberapa fungsi yang sering digunakan:
 
@@ -148,7 +126,7 @@ Keterangan:
 - `columns (A)` menampilkan jumlah kolom,
 - `numel (A)` menampilkan jumlah seluruh elemen.
 
-### 3.7 Akses Elemen dan Bagian Matriks
+### 2.7 Akses Elemen dan Bagian Matriks
 
 Elemen matriks dapat diakses dengan indeks:
 
@@ -182,7 +160,7 @@ Mengubah matriks menjadi satu kolom:
 A(:)
 ```
 
-### 3.8 Kata Kunci `end`
+### 2.8 Kata Kunci `end`
 
 Dalam indeks, `end` berarti posisi terakhir pada dimensi tersebut.
 
@@ -197,16 +175,16 @@ v(1:2:end)
 
 ---
 
-## 4. Pengenalan Sintaks Penting
+## 3. Pengenalan Sintaks Penting
 
-### 4.1 Membuat Vektor
+### 3.1 Membuat Vektor
 
 ```octave
 x = [1, 2, 3, 4]
 y = [1; 2; 3; 4]
 ```
 
-### 4.2 Membuat Range
+### 3.2 Membuat Range
 
 ```octave
 1:10
@@ -214,14 +192,14 @@ y = [1; 2; 3; 4]
 10:-2:0
 ```
 
-### 4.3 Membuat Matriks
+### 3.3 Membuat Matriks
 
 ```octave
 A = [1, 2; 3, 4]
 B = [1 2 3; 4 5 6]
 ```
 
-### 4.4 Mengakses Data
+### 3.4 Mengakses Data
 
 ```octave
 A(1,1)
@@ -229,7 +207,7 @@ A(2,:)
 A(:,1)
 ```
 
-### 4.5 Mengetahui Ukuran
+### 3.5 Mengetahui Ukuran
 
 ```octave
 size (A)
@@ -240,9 +218,9 @@ numel (A)
 
 ---
 
-## 5. Contoh Kode dan Penjelasan
+## 4. Contoh Kode dan Penjelasan
 
-### Contoh 1 — Vektor Baris dan Vektor Kolom
+### 4.1 Contoh 1 — Vektor Baris dan Vektor Kolom
 
 ```octave
 v1 = [3, 6, 9, 12]
@@ -255,7 +233,7 @@ v2 = [3; 6; 9; 12]
 
 ---
 
-### Contoh 2 — Membuat Range
+### 4.2 Contoh 2 — Membuat Range
 
 ```octave
 a = 1:5
@@ -270,7 +248,7 @@ c = 10:-2:2
 
 ---
 
-### Contoh 3 — Matriks Dasar
+### 4.3 Contoh 3 — Matriks Dasar
 
 ```octave
 A = [1, 2, 3; 4, 5, 6]
@@ -287,7 +265,7 @@ D = eye (3)
 
 ---
 
-### Contoh 4 — Ukuran dan Jumlah Elemen
+### 4.4 Contoh 4 — Ukuran dan Jumlah Elemen
 
 ```octave
 A = [1, 2, 3; 4, 5, 6];
@@ -305,7 +283,7 @@ jumlah_elemen = numel (A)
 
 ---
 
-### Contoh 5 — Mengakses Elemen Matriks
+### 4.5 Contoh 5 — Mengakses Elemen Matriks
 
 ```octave
 A = [10, 20, 30; 40, 50, 60; 70, 80, 90];
@@ -324,7 +302,7 @@ semua = A(:)
 
 ---
 
-### Contoh 6 — Menggunakan `end`
+### 4.6 Contoh 6 — Menggunakan `end`
 
 ```octave
 v = [5, 10, 15, 20, 25, 30];
@@ -343,9 +321,9 @@ elemen_genap = v(2:2:end)
 
 ---
 
-## 6. Langkah Praktikum
+## 5. Langkah Praktikum
 
-### Praktik 1 — Membuat Vektor
+### 5.1 Praktik 1 — Membuat Vektor
 
 Ketik dan jalankan perintah berikut:
 
@@ -361,7 +339,7 @@ size (v_kolom)
 - membedakan bentuk vektor baris dan vektor kolom,
 - memahami bahwa bentuk data memengaruhi hasil operasi berikutnya.
 
-### Praktik 2 — Membuat Range
+### 5.2 Praktik 2 — Membuat Range
 
 ```octave
 clc;
@@ -374,7 +352,7 @@ r3 = 20:-5:0
 - membuat data berurutan secara cepat,
 - memahami konsep awal, langkah, dan akhir.
 
-### Praktik 3 — Membuat Matriks
+### 5.3 Praktik 3 — Membuat Matriks
 
 ```octave
 clc;
@@ -388,7 +366,7 @@ D = eye (4)
 - membuat matriks secara manual,
 - membuat matriks dengan fungsi bawaan.
 
-### Praktik 4 — Mengakses Isi Matriks
+### 5.4 Praktik 4 — Mengakses Isi Matriks
 
 ```octave
 clc;
@@ -406,7 +384,7 @@ vektor_kolom = A(:)
 - mengambil satu kolom,
 - mengubah matriks menjadi satu kolom.
 
-### Praktik 5 — Eksplorasi Ukuran
+### 5.5 Praktik 5 — Eksplorasi Ukuran
 
 ```octave
 clc;
@@ -424,9 +402,9 @@ numel (A)
 
 ---
 
-## 7. Tugas Latihan
+## 6. Tugas Latihan
 
-### A. Soal Konsep
+### 6.1 A. Soal Konsep
 
 Jawab pertanyaan berikut:
 
@@ -436,7 +414,7 @@ Jawab pertanyaan berikut:
 4. Bagaimana cara mengambil semua elemen pada kolom ketiga suatu matriks?
 5. Apa fungsi `size`, `rows`, `columns`, dan `numel`?
 
-### B. Soal Praktik
+### 6.2 B. Soal Praktik
 
 Kerjakan di Octave:
 
@@ -453,20 +431,20 @@ Kerjakan di Octave:
 
 ---
 
-## 8. Tugas Praktikum
+## 7. Tugas Praktikum
 
-### Judul
+### 7.1 Judul
 **Pembuatan dan Manipulasi Vektor, Range, dan Matriks Dasar di Octave**
 
-### Tujuan
+### 7.2 Tujuan
 Praktikan mampu membuat dan memanipulasi data berbentuk vektor dan matriks secara benar.
 
-### Instruksi
+### 7.3 Instruksi
 Buat folder kerja dan simpan tiga file berikut.
 
 ---
 
-### File 1 — `vektor_dan_range.m`
+### 7.4 File 1 — `vektor_dan_range.m`
 
 Isi file ini dengan program yang:
 - membuat satu vektor baris,
@@ -505,7 +483,7 @@ disp(r3);
 
 ---
 
-### File 2 — `matriks_dasar.m`
+### 7.5 File 2 — `matriks_dasar.m`
 
 Isi file ini dengan program yang:
 - membuat satu matriks manual ukuran 3 x 3,
@@ -544,7 +522,7 @@ disp(size(D));
 
 ---
 
-### File 3 — `akses_matriks.m`
+### 7.6 File 3 — `akses_matriks.m`
 
 Isi file ini dengan program yang:
 - membuat matriks 4 x 4,
@@ -586,7 +564,7 @@ disp(A(1,end));
 
 ---
 
-### Output yang Dikumpulkan
+### 7.7 Output yang Dikumpulkan
 
 1. file `vektor_dan_range.m`
 2. file `matriks_dasar.m`
@@ -596,63 +574,7 @@ disp(A(1,end));
 
 ---
 
-## 9. Kriteria Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Kebenaran sintaks program | 25% |
-| Kebenaran pembuatan vektor dan range | 20% |
-| Kebenaran pembuatan matriks | 20% |
-| Kebenaran akses elemen/baris/kolom | 20% |
-| Kerapian output dan dokumentasi | 15% |
-
----
-
-## 10. Kesalahan Umum
-
-### 1. Salah memisahkan elemen dan baris
-Contoh salah:
-
-```octave
-A = [1, 2, 3, 4, 5, 6]
-```
-
-jika yang diinginkan sebenarnya matriks 2 x 3.
-
-Contoh benar:
-
-```octave
-A = [1, 2, 3; 4, 5, 6]
-```
-
-### 2. Salah membedakan vektor baris dan kolom
-
-```octave
-[1, 2, 3]
-[1; 2; 3]
-```
-
-Keduanya berisi nilai yang sama, tetapi bentuknya berbeda.
-
-### 3. Salah memakai indeks
-
-```octave
-A(0,1)
-```
-
-Ini salah karena indeks di Octave dimulai dari **1**, bukan 0.
-
-### 4. Range pecahan tidak selalu tepat di batas akhir
-
-```octave
-0:0.1:1
-```
-
-Untuk kebutuhan titik awal dan titik akhir yang pasti, gunakan `linspace`.
-
----
-
-## 11. Ringkasan
+## 8. Ringkasan
 
 Pada praktikum ini, praktikan telah mempelajari:
 - cara membuat vektor baris dan vektor kolom,
@@ -666,11 +588,11 @@ Materi ini menjadi fondasi untuk operasi matriks, manipulasi data numerik, dan p
 
 ---
 
-## 12. Referensi
+## 9. Referensi
 
-1. GNU Octave Manual, versi 11.1.0.
-2. Bagian **Matrices**.
-3. Bagian **Ranges**.
-4. Bagian **Creating a Matrix**.
-5. Bagian **Index Expressions**.
-6. Bagian **Special Utility Matrices**.
+1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
+2. Matrices — https://docs.octave.org/latest/Matrices.html
+3. Ranges — https://docs.octave.org/latest/Ranges.html
+4. Creating a Matrix — https://docs.octave.org/latest/Creating-a-Matrix.html
+5. Index Expressions — https://docs.octave.org/latest/Index-Expressions.html
+6. Special Utility Matrices — https://docs.octave.org/latest/Special-Utility-Matrices.html

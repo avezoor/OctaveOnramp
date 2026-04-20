@@ -1,14 +1,5 @@
 # String, Input/Output, dan Script Pertama
 
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: String, Input/Output, dan Script Pertama
-- **Bentuk**: Praktikum
-- **Perangkat lunak**: GNU Octave
-- **Format berkas**: Markdown
-
----
-
 ## 1. Deskripsi Singkat
 
 Pada praktikum ini, peserta mempelajari tiga hal penting dalam pemrograman dasar Octave, yaitu **string**, **input/output**, dan **script pertama**. String digunakan untuk menyimpan teks, input dipakai untuk menerima data dari pengguna, output dipakai untuk menampilkan hasil, dan script dipakai untuk menyimpan rangkaian perintah di dalam file `.m` agar dapat dijalankan kembali.
@@ -17,33 +8,9 @@ Berdasarkan dokumentasi resmi terbaru, manual saat ini sesuai dengan **GNU Octav
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, peserta mampu:
-
-1. Menjelaskan konsep string pada Octave.
-2. Menggunakan string untuk menyimpan dan menggabungkan teks.
-3. Menggunakan input dari keyboard dengan fungsi `input`.
-4. Menampilkan data menggunakan `disp`, `printf`, `fprintf`, dan `sprintf`.
-5. Mengatur format output sederhana.
-6. Membuat dan menjalankan file script `.m` pertama.
-7. Menyusun program interaktif sederhana berbasis input dan output.
-
----
-
-## 3. Prasyarat
-
-Peserta sebaiknya sudah memahami:
-
-- cara menjalankan Octave,
-- penggunaan variabel dan operator dasar,
-- cara membuat dan menyimpan file `.m`.
-
----
-
-## 4. Dasar Teori
-
-### 4.1 String pada Octave
+### 2.1 String pada Octave
 
 String adalah data yang berisi teks. Dalam dokumentasi Octave terbaru dijelaskan bahwa string dapat memiliki panjang berapa pun. Karena tanda petik tunggal juga dipakai untuk operator transpose, dokumentasi resmi menyarankan penggunaan **tanda petik ganda** untuk menuliskan string.
 
@@ -66,7 +33,7 @@ Hasilnya adalah string:
 Halo Octave
 ```
 
-### 4.2 Input pada Octave
+### 2.2 Input pada Octave
 
 Octave menyediakan fungsi `input` untuk membaca masukan dari pengguna. Jika `input` dipanggil biasa, data yang dimasukkan akan dievaluasi sebagai ekspresi Octave. Jika ingin membaca **teks literal**, gunakan argumen kedua berupa string `"s"`.
 
@@ -82,7 +49,7 @@ Contoh input string:
 nama_file = input("Masukkan nama file: ", "s");
 ```
 
-### 4.3 Output pada Octave
+### 2.3 Output pada Octave
 
 Untuk menampilkan keluaran ke layar, Octave menyediakan beberapa fungsi penting.
 
@@ -126,7 +93,7 @@ teks = sprintf("Nilai pi pendekatan = %.2f", x);
 disp(teks)
 ```
 
-### 4.4 Format Output
+### 2.4 Format Output
 
 Dokumentasi Octave menjelaskan bahwa `disp` dipengaruhi oleh pengaturan format output, dan `printf`/`fprintf` menggunakan template string mirip gaya C. Beberapa kode format yang sering dipakai:
 
@@ -144,7 +111,7 @@ printf("%.2f\n", angka)
 printf("%.4f\n", angka)
 ```
 
-### 4.5 Script Pertama
+### 2.5 Script Pertama
 
 Script adalah file yang berisi urutan perintah Octave. Menurut dokumentasi resmi, file script dibaca dan dievaluasi seolah-olah setiap baris diketik langsung pada prompt Octave. Script cocok dipakai untuk menyimpan langkah-langkah kerja yang akan dijalankan berulang.
 
@@ -162,9 +129,9 @@ script_pertama.m
 
 ---
 
-## 5. Materi Inti
+## 3. Materi Inti
 
-### 5.1 Membuat dan Menyimpan String
+### 3.1 Membuat dan Menyimpan String
 
 Contoh:
 
@@ -178,7 +145,7 @@ disp(pesan)
 - Isi string ditulis di antara tanda kutip ganda.
 - `disp(pesan)` menampilkan isi variabel ke layar.
 
-### 5.2 Menggabungkan String
+### 3.2 Menggabungkan String
 
 Contoh:
 
@@ -194,7 +161,7 @@ disp(hasil)
 - `" "` dipakai untuk memberi spasi di antara dua kata.
 - Penggabungan dilakukan dengan tanda kurung siku `[]`.
 
-### 5.3 Input Angka
+### 3.3 Input Angka
 
 Contoh:
 
@@ -211,7 +178,7 @@ disp(jumlah)
 - hasil penjumlahan disimpan di `jumlah`,
 - hasil ditampilkan dengan `disp`.
 
-### 5.4 Input String
+### 3.4 Input String
 
 Contoh:
 
@@ -224,7 +191,7 @@ disp(["Input yang diterima: ", identitas])
 - argumen kedua `"s"` membuat `input` membaca teks apa adanya,
 - hasil input bisa digabung dengan string lain untuk ditampilkan.
 
-### 5.5 Output dengan `disp`
+### 3.5 Output dengan `disp`
 
 Contoh:
 
@@ -238,7 +205,7 @@ disp(keterangan)
 - formatnya sederhana,
 - otomatis menambah baris baru.
 
-### 5.6 Output dengan `printf`
+### 3.6 Output dengan `printf`
 
 Contoh:
 
@@ -251,7 +218,7 @@ printf("Nilai akhir = %.1f\n", nilai)
 - `%.1f` berarti tampilkan satu angka di belakang koma,
 - `\n` memindahkan output ke baris baru.
 
-### 5.7 Output dengan `sprintf`
+### 3.7 Output dengan `sprintf`
 
 Contoh:
 
@@ -266,7 +233,7 @@ disp(teks_output)
 - hasilnya disimpan dulu ke variabel,
 - baru ditampilkan atau dipakai lagi.
 
-### 5.8 Script Pertama
+### 3.8 Script Pertama
 
 Buat file bernama `script_pertama.m` dengan isi berikut:
 
@@ -298,16 +265,16 @@ printf("Hasil dikali 2      : %g\n", hasil)
 
 ---
 
-## 6. Demonstrasi Praktikum
+## 4. Demonstrasi Praktikum
 
-### Percobaan 1 — Menyimpan dan Menampilkan String
+### 4.1 Percobaan 1 — Menyimpan dan Menampilkan String
 
 ```octave
 kalimat = "Ini adalah latihan string";
 disp(kalimat)
 ```
 
-### Percobaan 2 — Menggabungkan Dua String
+### 4.2 Percobaan 2 — Menggabungkan Dua String
 
 ```octave
 kata1 = "GNU";
@@ -316,21 +283,21 @@ kalimat = [kata1, " ", kata2];
 disp(kalimat)
 ```
 
-### Percobaan 3 — Input dan Output Sederhana
+### 4.3 Percobaan 3 — Input dan Output Sederhana
 
 ```octave
 bil = input("Masukkan sebuah bilangan: ");
 printf("Bilangan yang dimasukkan adalah %g\n", bil)
 ```
 
-### Percobaan 4 — Input String
+### 4.4 Percobaan 4 — Input String
 
 ```octave
 label = input("Masukkan label data: ", "s");
 disp(["Label yang diterima: ", label])
 ```
 
-### Percobaan 5 — Script Interaktif
+### 4.5 Percobaan 5 — Script Interaktif
 
 Buat file `latihan_io.m`:
 
@@ -355,9 +322,9 @@ Jalankan script tersebut dari editor atau dari Command Window dengan menuliskan 
 
 ---
 
-## 7. Tugas Latihan
+## 5. Tugas Latihan
 
-### A. Soal Konsep
+### 5.1 A. Soal Konsep
 
 Jawab pertanyaan berikut.
 
@@ -367,7 +334,7 @@ Jawab pertanyaan berikut.
 4. Apa perbedaan `disp` dan `printf`?
 5. Mengapa script berguna dibanding mengetik perintah satu per satu di Command Window?
 
-### B. Soal Praktik
+### 5.2 B. Soal Praktik
 
 Kerjakan perintah berikut di Octave.
 
@@ -387,19 +354,19 @@ printf("Kuadrat dari %g adalah %g\n", n, hasil)
 
 ---
 
-## 8. Tugas Praktikum
+## 6. Tugas Praktikum
 
-### Judul Tugas
+### 6.1 Judul Tugas
 **Membuat Program Interaktif Sederhana dengan String, Input/Output, dan Script**
 
-### Tujuan
+### 6.2 Tujuan
 Peserta mampu membuat file script `.m` yang:
 - menerima input string,
 - menerima input angka,
 - menampilkan hasil dengan format yang rapi,
 - menyimpan alur program dalam satu script.
 
-### Ketentuan Tugas
+### 6.3 Ketentuan Tugas
 Buat satu file bernama:
 
 ```text
@@ -417,7 +384,7 @@ Isi program harus memenuhi syarat berikut:
 4. Menampilkan hasil dengan format yang rapi.
 5. Menampilkan pesan penutup.
 
-### Contoh Kerangka Program
+### 6.4 Contoh Kerangka Program
 
 ```octave
 clc;
@@ -440,7 +407,7 @@ printf("Total        : %g\n", total)
 disp("Program selesai dijalankan.")
 ```
 
-### Pengembangan Tugas
+### 6.5 Pengembangan Tugas
 Tambahkan minimal dua fitur berikut:
 
 - menampilkan hasil dalam kalimat lengkap menggunakan `sprintf`,
@@ -448,7 +415,7 @@ Tambahkan minimal dua fitur berikut:
 - menghitung diskon atau bonus sederhana,
 - menyimpan output ke file teks menggunakan `fprintf`.
 
-### Luaran yang Dikumpulkan
+### 6.6 Luaran yang Dikumpulkan
 
 1. File `praktikum_string_io.m`
 2. Tangkapan layar hasil program saat dijalankan
@@ -456,74 +423,7 @@ Tambahkan minimal dua fitur berikut:
 
 ---
 
-## 9. Rubrik Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Kebenaran penggunaan string | 20% |
-| Kebenaran input angka dan string | 20% |
-| Kebenaran output dan format | 20% |
-| Script dapat dijalankan tanpa error | 25% |
-| Kerapian dan keterbacaan program | 15% |
-
----
-
-## 10. Kesalahan Umum
-
-### 1. Lupa memakai `"s"` saat ingin membaca string
-Contoh salah:
-
-```octave
-teks = input("Masukkan teks: ");
-```
-
-Akibatnya, Octave mencoba mengevaluasi masukan sebagai ekspresi.
-
-Perbaikan:
-
-```octave
-teks = input("Masukkan teks: ", "s");
-```
-
-### 2. Salah memakai format `%d` untuk data pecahan
-Contoh:
-
-```octave
-x = 3.14;
-printf("%d\n", x)
-```
-
-Perbaikan yang lebih tepat:
-
-```octave
-printf("%.2f\n", x)
-```
-
-### 3. Script diawali dengan `function` padahal yang dibuat adalah script biasa
-Jika file dimaksudkan sebagai script, isi file cukup berupa urutan perintah tanpa deklarasi fungsi.
-
-### 4. Menggabungkan string tanpa spasi
-Contoh:
-
-```octave
-hasil = ["GNU", "Octave"];
-```
-
-Hasil:
-
-```text
-GNUOctave
-```
-
-Jika ingin ada jarak:
-
-```octave
-hasil = ["GNU", " ", "Octave"];
-```
-
----
-
-## 11. Ringkasan
+## 7. Ringkasan
 
 Pada modul ini telah dipelajari bahwa:
 
@@ -539,7 +439,7 @@ Materi ini menjadi dasar untuk membuat program interaktif yang lebih panjang pad
 
 ---
 
-## 12. Referensi
+## 8. Referensi
 
 1. GNU Octave Manual (latest), sesuai dengan GNU Octave 11.1.0  
    https://docs.octave.org/latest/

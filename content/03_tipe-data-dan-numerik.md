@@ -1,13 +1,4 @@
-# Modul Praktikum Pemrograman Dasar Octave
-## Pertemuan — Tipe Data dan Tipe Data Numerik
-
-### Identitas Modul
-- **Mata kuliah**: Pemrograman Dasar
-- **Topik**: Tipe Data dan Tipe Data Numerik
-- **Perangkat lunak**: GNU Octave
-- **Format**: Modul praktikum berbentuk markdown
-
----
+# Tipe Data dan Tipe Data Numerik
 
 ## 1. Deskripsi Singkat
 
@@ -31,33 +22,9 @@ Fokus utama pertemuan ini adalah memahami:
 
 ---
 
-## 2. Capaian Pembelajaran
+## 2. Dasar Teori
 
-Setelah mengikuti praktikum ini, peserta mampu:
-
-1. Menjelaskan pengertian tipe data dalam Octave.
-2. Mengidentifikasi tipe data umum yang tersedia di Octave.
-3. Menjelaskan perbedaan tipe numerik `double`, `single`, dan integer.
-4. Menggunakan fungsi `class`, `isa`, dan `typeinfo` untuk memeriksa tipe data.
-5. Membuat variabel dengan berbagai tipe numerik.
-6. Melakukan konversi sederhana antar tipe data numerik.
-7. Menjelaskan perilaku dasar operasi campuran pada tipe numerik.
-
----
-
-## 3. Prasyarat
-
-Peserta diharapkan sudah memahami:
-- variabel dan assignment,
-- operasi aritmetika dasar,
-- penulisan skrip sederhana di Octave,
-- penggunaan Command Window dan file `.m`.
-
----
-
-## 4. Dasar Teori
-
-## 4.1 Pengertian Tipe Data
+### 2.1 Pengertian Tipe Data
 
 Tipe data adalah klasifikasi yang menjelaskan **jenis nilai** yang disimpan oleh suatu variabel dan **cara Octave memperlakukan nilai tersebut** saat diproses.
 
@@ -74,7 +41,7 @@ Tipe data memengaruhi:
 
 ---
 
-## 4.2 Tipe Data Bawaan di Octave
+### 2.2 Tipe Data Bawaan di Octave
 
 Secara umum, Octave menyediakan tipe data bawaan seperti:
 - real dan complex scalars/matrices,
@@ -94,7 +61,7 @@ Walaupun pertemuan ini berfokus pada tipe data numerik, peserta tetap perlu meng
 
 ---
 
-## 4.3 Tipe Data Numerik
+### 2.3 Tipe Data Numerik
 
 Tipe data numerik digunakan untuk menyimpan bilangan dan melakukan perhitungan matematika.
 
@@ -119,7 +86,7 @@ z = 3 + 4i;
 
 ---
 
-## 4.4 `double` sebagai Default
+### 2.4 `double` sebagai Default
 
 Secara default, konstanta numerik di Octave direpresentasikan sebagai **double precision floating point**.
 
@@ -136,7 +103,7 @@ ans = double
 
 Artinya, ketika menulis angka biasa seperti `10`, `3.14`, atau `2e3`, Octave akan menyimpannya sebagai `double`.
 
-### Karakteristik `double`
+### 2.5 Karakteristik `double`
 - presisi tinggi,
 - paling umum digunakan,
 - cocok untuk komputasi numerik umum,
@@ -155,7 +122,7 @@ class(c)
 
 ---
 
-## 4.5 `single`
+### 2.6 `single`
 
 Tipe `single` adalah floating point presisi tunggal.
 
@@ -170,7 +137,7 @@ Hasil:
 ans = single
 ```
 
-### Kapan `single` dipakai?
+### 2.7 Kapan `single` dipakai?
 - ketika ingin menghemat memori,
 - ketika presisi `double` tidak diperlukan,
 - pada data besar atau aplikasi tertentu yang memang memakai presisi tunggal.
@@ -186,17 +153,17 @@ class(b)
 
 ---
 
-## 4.6 Integer
+### 2.8 Integer
 
 Octave mendukung integer bertanda dan tidak bertanda dengan ukuran 8, 16, 32, dan 64 bit.
 
-### Integer bertanda
+### 2.9 Integer bertanda
 - `int8`
 - `int16`
 - `int32`
 - `int64`
 
-### Integer tak bertanda
+### 2.10 Integer tak bertanda
 - `uint8`
 - `uint16`
 - `uint32`
@@ -213,14 +180,14 @@ class(b)
 class(c)
 ```
 
-### Catatan penting
+### 2.11 Catatan penting
 Integer sering dipakai untuk **menyimpan data**, bukan untuk komputasi utama, karena banyak operasi numerik di Octave lebih alami menggunakan floating point.
 
 ---
 
-## 4.7 Bilangan Real dan Kompleks
+### 2.12 Bilangan Real dan Kompleks
 
-### Bilangan real
+### 2.13 Bilangan real
 Bilangan real tidak memiliki bagian imajiner.
 
 ```octave
@@ -228,7 +195,7 @@ x = 10;
 y = -3.5;
 ```
 
-### Bilangan kompleks
+### 2.14 Bilangan kompleks
 Bilangan kompleks memiliki bagian real dan imajiner.
 
 ```octave
@@ -250,7 +217,7 @@ iscomplex(z1)
 
 ---
 
-## 4.8 Notasi Bilangan di Octave
+### 2.15 Notasi Bilangan di Octave
 
 Octave menerima beberapa notasi bilangan:
 - desimal,
@@ -273,7 +240,7 @@ e = 1_000_000;
 
 ---
 
-## 4.9 Logical sebagai Data Numerik Khusus
+### 2.16 Logical sebagai Data Numerik Khusus
 
 Nilai logical adalah:
 - `true`
@@ -298,11 +265,11 @@ mask = x > 3
 
 ---
 
-## 4.10 Memeriksa Tipe Data
+### 2.17 Memeriksa Tipe Data
 
 Fungsi yang umum dipakai:
 
-### `class(x)`
+### 2.18 `class(x)`
 Mengembalikan nama kelas atau tipe data dari variabel.
 
 ```octave
@@ -310,7 +277,7 @@ x = 5;
 class(x)
 ```
 
-### `isa(x, "tipe")`
+### 2.19 `isa(x, "tipe")`
 Mengecek apakah suatu variabel bertipe tertentu.
 
 ```octave
@@ -319,7 +286,7 @@ isa(x, "uint8")
 isa(x, "double")
 ```
 
-### `typeinfo(x)`
+### 2.20 `typeinfo(x)`
 Menampilkan informasi tipe data.
 
 ```octave
@@ -327,7 +294,7 @@ x = 2 + 3i;
 typeinfo(x)
 ```
 
-### `whos`
+### 2.21 `whos`
 Menampilkan daftar variabel beserta informasi detailnya.
 
 ```octave
@@ -339,7 +306,7 @@ whos
 
 ---
 
-## 4.11 Konversi Tipe Data
+### 2.22 Konversi Tipe Data
 
 Konversi tipe dapat dilakukan dengan fungsi konstruktor tipe data.
 
@@ -356,7 +323,7 @@ class(c)
 class(d)
 ```
 
-### Konversi yang sering dipakai
+### 2.23 Konversi yang sering dipakai
 - `double(x)`
 - `single(x)`
 - `int8(x)`
@@ -370,7 +337,7 @@ class(d)
 
 ---
 
-## 4.12 Operasi Campuran dan Konversi Otomatis
+### 2.24 Operasi Campuran dan Konversi Otomatis
 
 Octave mendukung banyak operasi campuran antar tipe data, tetapi hasil tipe akhirnya tidak selalu sama dengan operand awal.
 
@@ -404,7 +371,7 @@ Karena itu, peserta perlu berhati-hati saat mencampur:
 
 ---
 
-## 4.13 Overflow dan Underflow pada Integer
+### 2.25 Overflow dan Underflow pada Integer
 
 Operasi integer memiliki keterbatasan rentang nilai.
 
@@ -422,9 +389,9 @@ Peserta perlu memahami bahwa:
 
 ---
 
-## 5. Langkah Praktikum
+## 3. Langkah Praktikum
 
-### 5.1 Menyiapkan Lingkungan Kerja
+### 3.1 Menyiapkan Lingkungan Kerja
 
 Jalankan perintah berikut:
 ```octave
@@ -434,7 +401,7 @@ pwd
 who
 ```
 
-### 5.2 Mencoba Berbagai Tipe Data
+### 3.2 Mencoba Berbagai Tipe Data
 
 Ketik dan jalankan:
 ```octave
@@ -455,7 +422,7 @@ class(f)
 class(g)
 ```
 
-### 5.3 Melihat Detail Workspace
+### 3.3 Melihat Detail Workspace
 
 ```octave
 whos
@@ -467,7 +434,7 @@ Amati:
 - byte,
 - class.
 
-### 5.4 Mencoba Konversi Tipe
+### 3.4 Mencoba Konversi Tipe
 
 ```octave
 x = 25.75;
@@ -483,7 +450,7 @@ class(x_int8)
 class(x_uint8)
 ```
 
-### 5.5 Mencoba Bilangan Kompleks
+### 3.5 Mencoba Bilangan Kompleks
 
 ```octave
 z = 5 + 2i;
@@ -494,7 +461,7 @@ abs(z)
 class(z)
 ```
 
-### 5.6 Mencoba Operasi Campuran
+### 3.6 Mencoba Operasi Campuran
 
 ```octave
 a = uint8(5);
@@ -510,9 +477,9 @@ class(f)
 
 ---
 
-## 6. Contoh Kode dan Penjelasan
+## 4. Contoh Kode dan Penjelasan
 
-## Contoh 1 — Memeriksa Tipe Data Variabel
+## 5. Contoh 1 — Memeriksa Tipe Data Variabel
 
 ```octave
 a = 10;
@@ -526,14 +493,14 @@ class(c)
 class(d)
 ```
 
-### Penjelasan
+### 5.1 Penjelasan
 - `a` dan `b` akan bertipe `double`.
 - `c` bertipe `single` karena dikonversi secara eksplisit.
 - `d` bertipe `int16`.
 
 ---
 
-## Contoh 2 — Data Kompleks
+## 6. Contoh 2 — Data Kompleks
 
 ```octave
 z = 3 + 4i;
@@ -544,7 +511,7 @@ abs(z)
 class(z)
 ```
 
-### Penjelasan
+### 6.1 Penjelasan
 - `real(z)` mengambil bagian real.
 - `imag(z)` mengambil bagian imajiner.
 - `abs(z)` menghitung magnitudo.
@@ -552,7 +519,7 @@ class(z)
 
 ---
 
-## Contoh 3 — Integer Bertanda dan Tidak Bertanda
+## 7. Contoh 3 — Integer Bertanda dan Tidak Bertanda
 
 ```octave
 a = int8(120);
@@ -562,14 +529,14 @@ class(a)
 class(b)
 ```
 
-### Penjelasan
+### 7.1 Penjelasan
 - `int8` dapat menyimpan bilangan negatif dan positif dalam rentang kecil.
 - `uint8` hanya untuk bilangan tidak negatif.
 - Keduanya memakai ukuran 8-bit tetapi makna nilainya berbeda.
 
 ---
 
-## Contoh 4 — Konversi Tipe
+## 8. Contoh 4 — Konversi Tipe
 
 ```octave
 x = 12.9;
@@ -585,13 +552,13 @@ x3
 x4
 ```
 
-### Penjelasan
+### 8.1 Penjelasan
 - Saat nilai pecahan dikonversi ke integer, bagian pecahan tidak dipertahankan seperti pada floating point.
 - `single` dan `double` tetap merepresentasikan bilangan pecahan.
 
 ---
 
-## Contoh 5 — Operasi Campuran
+## 9. Contoh 5 — Operasi Campuran
 
 ```octave
 a = uint8(1);
@@ -602,13 +569,13 @@ class(c)
 c
 ```
 
-### Penjelasan
+### 9.1 Penjelasan
 - Octave dapat melakukan konversi otomatis pada beberapa operasi campuran.
 - Namun tidak semua kombinasi tipe data bisa digabung tanpa error.
 
 ---
 
-## Contoh 6 — Mengecek Tipe dengan `isa` dan `typeinfo`
+## 10. Contoh 6 — Mengecek Tipe dengan `isa` dan `typeinfo`
 
 ```octave
 x = single(9.75);
@@ -618,15 +585,15 @@ isa(x, "double")
 typeinfo(x)
 ```
 
-### Penjelasan
+### 10.1 Penjelasan
 - `isa` berguna untuk validasi tipe.
 - `typeinfo` memberi keterangan tipe dalam bentuk string.
 
 ---
 
-## 7. Tugas Latihan
+## 11. Tugas Latihan
 
-### Latihan 1
+### 11.1 Latihan 1
 Buat variabel berikut lalu tentukan tipenya:
 ```octave
 a = 100;
@@ -645,7 +612,7 @@ class(d)
 class(e)
 ```
 
-### Latihan 2
+### 11.2 Latihan 2
 Lakukan konversi nilai `45.75` ke:
 - `double`
 - `single`
@@ -654,13 +621,13 @@ Lakukan konversi nilai `45.75` ke:
 
 Tuliskan hasil dan tipe datanya.
 
-### Latihan 3
+### 11.3 Latihan 3
 Buat dua variabel kompleks, lalu tampilkan:
 - bagian real,
 - bagian imajiner,
 - magnitudo.
 
-### Latihan 4
+### 11.4 Latihan 4
 Coba operasi berikut:
 ```octave
 uint8(10) + 5
@@ -670,7 +637,7 @@ int8(10) + int16(5)
 
 Tuliskan mana yang berhasil dan mana yang error.
 
-### Latihan 5
+### 11.5 Latihan 5
 Gunakan `whos` untuk melihat semua variabel yang telah dibuat. Catat:
 - nama variabel,
 - class,
@@ -678,12 +645,12 @@ Gunakan `whos` untuk melihat semua variabel yang telah dibuat. Catat:
 
 ---
 
-## 8. Tugas Praktikum
+## 12. Tugas Praktikum
 
-## Judul
+## 13. Judul
 **Eksplorasi Tipe Data dan Tipe Data Numerik di GNU Octave**
 
-## Tujuan
+## 14. Tujuan
 Peserta mampu:
 - membedakan tipe data umum dan numerik,
 - membuat data numerik dengan beberapa tipe,
@@ -691,7 +658,7 @@ Peserta mampu:
 - mengamati hasil operasi campuran,
 - dan mendokumentasikan hasil pengamatan.
 
-## Instruksi
+## 15. Instruksi
 
 Buat folder kerja:
 ```text
@@ -700,7 +667,7 @@ praktikum_tipe_data_octave
 
 Di dalam folder tersebut, buat file berikut.
 
-### 1. File `eksplorasi_tipe_data.m`
+### 15.1 1. File `eksplorasi_tipe_data.m`
 
 Isi file minimal:
 - membuat variabel bertipe `double`,
@@ -735,7 +702,7 @@ disp(["class(f) = ", class(f)]);
 disp(["class(g) = ", class(g)]);
 ```
 
-### 2. File `konversi_numerik.m`
+### 15.2 2. File `konversi_numerik.m`
 
 Isi file minimal:
 - membuat satu nilai pecahan,
@@ -761,7 +728,7 @@ disp(["int16  : ", num2str(x_int16)]);
 disp(["uint16 : ", num2str(x_uint16)]);
 ```
 
-### 3. File `uji_operasi_campuran.m`
+### 15.3 3. File `uji_operasi_campuran.m`
 
 Isi file minimal:
 - coba tiga operasi campuran antar tipe data,
@@ -788,7 +755,7 @@ disp(f);
 disp(class(f));
 ```
 
-### 4. File `laporan_ringkas.txt`
+### 15.4 4. File `laporan_ringkas.txt`
 Tuliskan jawaban singkat untuk pertanyaan berikut:
 1. Apa tipe default untuk bilangan biasa di Octave?
 2. Apa perbedaan `single` dan `double`?
@@ -798,7 +765,7 @@ Tuliskan jawaban singkat untuk pertanyaan berikut:
 
 ---
 
-## 9. Format Laporan Singkat
+## 16. Format Laporan Singkat
 
 Laporan minimal memuat:
 - judul praktikum,
@@ -810,39 +777,7 @@ Laporan minimal memuat:
 
 ---
 
-## 10. Kriteria Penilaian
-
-| Aspek | Bobot |
-|---|---:|
-| Kesesuaian file dan struktur folder | 15% |
-| Kebenaran penggunaan tipe data | 20% |
-| Kebenaran konversi numerik | 20% |
-| Analisis operasi campuran | 20% |
-| Kerapian kode dan komentar | 10% |
-| Laporan/kesimpulan | 15% |
-
----
-
-## 11. Kesalahan Umum
-
-### 1. Mengira semua angka otomatis integer
-Padahal angka biasa di Octave secara default disimpan sebagai `double`.
-
-### 2. Salah memahami integer tak bertanda
-`uint8`, `uint16`, dan tipe `uint` lain tidak dirancang untuk bilangan negatif.
-
-### 3. Mencampur integer berbeda ukuran tanpa hati-hati
-Beberapa operasi campuran integer dapat gagal.
-
-### 4. Tidak memeriksa tipe data hasil operasi
-Selalu gunakan `class(...)` jika ingin yakin tipe hasil perhitungan.
-
-### 5. Menganggap nilai kompleks sama dengan string
-Data kompleks tetap termasuk data numerik.
-
----
-
-## 12. Ringkasan
+## 17. Ringkasan
 
 Pada modul ini, peserta telah mempelajari:
 - konsep tipe data dalam Octave,
@@ -862,11 +797,11 @@ Pemahaman ini penting sebagai dasar sebelum masuk ke materi:
 
 ---
 
-## 13. Referensi
+## 18. Referensi
 
-1. GNU Octave Manual, versi terbaru yang sesuai dengan dokumentasi resmi.
-2. Bagian **Data Types** pada manual GNU Octave.
-3. Bagian **Numeric Data Types** pada manual GNU Octave.
-4. Bagian **Integer Data Types** pada manual GNU Octave.
-5. Bagian **Automatic Conversion of Data Types** pada manual GNU Octave.
-6. Bagian **Predicates for Numeric Objects** pada manual GNU Octave.
+1. GNU Octave Manual 11.1.0 — https://docs.octave.org/latest/
+2. Data Types — https://docs.octave.org/latest/Data-Types.html
+3. Numeric Data Types — https://docs.octave.org/latest/Numeric-Data-Types.html
+4. Integer Data Types — https://docs.octave.org/latest/Integer-Data-Types.html
+5. Automatic Conversion of Data Types — https://docs.octave.org/latest/Automatic-Conversion-of-Data-Types.html
+6. Predicates for Numeric Objects — https://docs.octave.org/latest/Predicates-for-Numeric-Objects.html
