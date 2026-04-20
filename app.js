@@ -411,12 +411,38 @@ function renderFallbackMarkdown(markdown) {
   return html.join("");
 }
 
+function encodeMathSource(value) {
+  return encodeURIComponent(value);
+}
+
+function decodeMathSource(value) {
+  return decodeURIComponent(value);
+}
+
+function injectMathPlaceholders(markdown) {
+  return markdown
+    .replace(/(^|\n)\$\$\s*([\s\S]*?)\s*\$\$(?=\n|$)/g, (match, prefix, mathSource) => {
+      const normalizedSource = mathSource.trim();
+      return `${prefix}<div class="math-block" data-math-source="${encodeMathSource(normalizedSource)}"></div>`;
+    })
+    .replace(/\\\[\s*([\s\S]*?)\s*\\\]/g, (match, mathSource) => {
+      const normalizedSource = mathSource.trim();
+      return `<div class="math-block" data-math-source="${encodeMathSource(normalizedSource)}"></div>`;
+    })
+    .replace(/\\\(([\s\S]*?)\\\)/g, (match, mathSource) => {
+      const normalizedSource = mathSource.trim();
+      return `<span class="math-inline" data-math-source="${encodeMathSource(normalizedSource)}"></span>`;
+    });
+}
+
 function renderMarkdown(markdown) {
+  const normalizedMarkdown = injectMathPlaceholders(markdown);
+
   if (window.marked?.parse) {
-    return window.marked.parse(markdown);
+    return window.marked.parse(normalizedMarkdown);
   }
 
-  return renderFallbackMarkdown(markdown);
+  return renderFallbackMarkdown(normalizedMarkdown);
 }
 
 function condenseExternalLinkLabels() {
@@ -436,7 +462,37 @@ function condenseExternalLinkLabels() {
   });
 }
 
+function renderMathPlaceholders() {
+  if (typeof window.katex?.render !== "function") {
+    return;
+  }
+
+  const mathNodes = contentEl.querySelectorAll("[data-math-source]");
+
+  mathNodes.forEach((node) => {
+    const mathSource = node.getAttribute("data-math-source");
+
+    if (!mathSource) {
+      return;
+    }
+
+    const isDisplayMode = node.classList.contains("math-block");
+
+    try {
+      window.katex.render(decodeMathSource(mathSource), node, {
+        displayMode: isDisplayMode,
+        throwOnError: false,
+      });
+      node.removeAttribute("data-math-source");
+    } catch (error) {
+      console.warn("Gagal merender placeholder persamaan LaTeX.", error);
+    }
+  });
+}
+
 function typesetMath() {
+  renderMathPlaceholders();
+
   if (typeof window.renderMathInElement !== "function") {
     return;
   }
@@ -448,6 +504,7 @@ function typesetMath() {
         { left: "\\[", right: "\\]", display: true },
         { left: "\\(", right: "\\)", display: false },
       ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
       throwOnError: false,
     });
   } catch (error) {
