@@ -39,7 +39,20 @@
       <header class="topbar">
         <button id="menuBtn" class="menu-btn" type="button" aria-label="Buka menu modul" aria-expanded="false">☰</button>
         <h1 id="pageTitle">Modul Pemrograman Dasar Octave</h1>
-        <div id="currentDateInfo" class="topbar-date" aria-label="Tanggal hari ini">Memuat tanggal...</div>
+        <div class="topbar-actions">
+          <button
+            id="fullscreenBtn"
+            class="topbar-action-btn"
+            type="button"
+            aria-label="Masuk mode layar penuh"
+            aria-pressed="false"
+            title="Layar penuh"
+          >
+            <span class="topbar-action-icon" aria-hidden="true">⛶</span>
+            <span class="topbar-action-text">Fullscreen</span>
+          </button>
+          <div id="currentDateInfo" class="topbar-date" aria-label="Tanggal hari ini">Memuat tanggal...</div>
+        </div>
       </header>
 
       <div class="content-layout">

@@ -1,77 +1,62 @@
 # Pertemuan 9 — Visualisasi 2D Dasar
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: Membuat domain data: `x = -10:0.1:10`.
+## Modul ringkas
+- Visualisasi 2D membantu membaca pola fungsi dan data dengan cepat.
+- Fungsi inti yang paling sering dipakai adalah `plot`.
+- Label sumbu, judul, grid, dan legenda harus selalu dibuat jelas.
 
-## Capaian pembelajaran
-- Membuat grafik 2D dengan `plot`.
-- Memberi judul, label sumbu, legend, dan grid.
-- Memahami hubungan antara vektor `x` dan `y` pada grafik.
+## Konsep inti
+- `plot (x, y)` membuat grafik garis 2D.
+- Jika hanya menulis `plot (y)`, sumbu `x` otomatis menjadi `1:numel (y)`.
+- Banyak pasangan data dapat digambar dalam satu pemanggilan `plot`.
+- `xlabel`, `ylabel`, `title`, `legend`, dan `grid on` dipakai untuk memperjelas grafik.
 
-## Pokok materi
-- Membuat domain data: `x = -10:0.1:10`.
-- Plot fungsi sederhana dan banyak kurva dalam satu axes.
-- Atribut grafik: `title`, `xlabel`, `ylabel`, `legend`, `grid on`.
-- Format garis sederhana.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-x = -2*pi:0.01:2*pi;
-y1 = sin(x);
-y2 = cos(x);
+x = linspace (0, 2*pi, 200);
+y1 = sin (x);
+y2 = cos (x);
 
-plot(x, y1, "b", x, y2, "r--")
+plot (x, y1, "b-", x, y2, "r--", "linewidth", 2)
+xlabel ("x")
+ylabel ("nilai fungsi")
+title ("Grafik sin(x) dan cos(x)")
+legend ("sin(x)", "cos(x)")
 grid on
-title("Grafik sin(x) dan cos(x)")
-xlabel("x")
-ylabel("nilai fungsi")
-legend("sin(x)", "cos(x)")
 ```
 
-## Variasi cepat
+## Penjelasan singkat fungsi dan perintah
+- `plot`: membuat grafik garis 2D.
+- `xlabel`, `ylabel`: memberi nama sumbu.
+- `title`: memberi judul grafik.
+- `legend`: memberi keterangan kurva.
+- `grid on`: menampilkan garis bantu.
+- `hold on`: menahan axes agar kurva baru ditambahkan ke grafik yang sama.
+- `xlim`, `ylim`: mengatur batas sumbu.
+- `print`: menyimpan grafik ke file seperti PNG atau PDF.
 
-```octave
-fplot(@(x) sin(x)./x, [-20 20])
-grid on
-title("f(x) = sin(x) / x")
-```
+## Latihan
+1. Gambar `sin (x)` pada rentang `0` sampai `4*pi`.
+2. Gambar `x.^2` dan `sqrt (x)` dalam satu grafik.
+3. Tambahkan judul, label sumbu, legenda, dan grid.
+4. Ubah gaya garis dan warna minimal untuk dua kurva.
+5. Simpan grafik ke file gambar dengan `print`.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Tugas praktikum
+1. Buat ringkasan elemen penting grafik yang baik: judul, label sumbu, legenda, dan grid.
+2. Bandingkan dua grafik yang informatif dan yang kurang informatif, lalu jelaskan perbedaannya.
+3. Tulis langkah menyimpan grafik ke file gambar.
 
-## Latihan 60 menit
+## Tugas koding
+1. Buat script `plot_fungsi_dasar.m` yang menggambar minimal dua fungsi dalam satu figure.
+2. Lengkapi grafik dengan anotasi dasar yang rapi.
+3. Simpan hasil plot ke file PNG menggunakan `print`.
 
-1. Plot `y = x^2`, `y = x^3`, dan `y = sqrt(x)` pada domain yang sesuai.
-2. Tambahkan judul, label, legend, dan grid.
-3. Ganti gaya garis dan warna.
-4. Plot `sin(x)` dan `cos(x)` dalam satu gambar.
-
-## Tugas mandiri
-Buat grafik perbandingan `e^x` dan `ln(x)` dan jelaskan domain yang valid.
-
-## Catatan pengajar
-Jangan hanya mengajari cara memanggil `plot`. Ajarkan juga kebiasaan visualisasi yang benar: sumbu harus jelas, kurva diberi label, dan domain fungsi dipilih secara sadar.
-
-## Referensi utama
-
-- PDF modul: Menggambar Grafik, hal. 27–35, khusus perintah dasar 2D.
-- Manual GNU Octave (tautan bab terkait):
-  - [Two-Dimensional Plots](https://docs.octave.org/latest/Two_002dDimensional-Plots.html)
-  - [Two-dimensional Function Plotting](https://docs.octave.org/latest/Two_002ddimensional-Function-Plotting.html)
-  - [Plot Annotations](https://docs.octave.org/latest/Plot-Annotations.html)
+## Referensi manual Octave
+- Two-dimensional plots: https://docs.octave.org/latest/Two_002dDimensional-Plots.html
+- Plot annotations: https://docs.octave.org/latest/Plot-Annotations.html
+- Printing and saving plots: https://docs.octave.org/latest/Printing-and-Saving-Plots.html

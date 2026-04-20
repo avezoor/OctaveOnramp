@@ -1,88 +1,63 @@
 # Pertemuan 3 — Vektor, Range, dan Matriks Dasar
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: Pembentukan matriks dengan `[ ]`, pemisah kolom spasi/koma, dan pemisah baris titik koma.
+## Modul ringkas
+- Struktur data inti di Octave adalah vektor dan matriks.
+- Range dengan operator titik dua `:` sangat penting untuk membuat deret angka secara cepat.
+- Indeks, `end`, dan operator `:` dipakai untuk mengambil bagian data.
 
-## Capaian pembelajaran
-- Membuat vektor dan matriks dengan sintaks dasar Octave.
-- Memahami range `m:n` dan `m:k:n` untuk membangkitkan data otomatis.
-- Mempraktikkan indexing, slicing, transpose, dan ukuran matriks.
+## Konsep inti
+- Vektor baris ditulis seperti `[1 2 3]`, vektor kolom seperti `[1; 2; 3]`.
+- Range `awal:akhir` atau `awal:langkah:akhir` menghasilkan deret berjarak tetap.
+- Matriks dibuat dengan memisahkan kolom memakai spasi atau koma, dan baris memakai titik koma.
+- Indeks di Octave dimulai dari 1.
+- `A(:)` mengubah isi matriks menjadi vektor kolom.
 
-## Pokok materi
-- Pembentukan matriks dengan `[ ]`, pemisah kolom spasi/koma, dan pemisah baris titik koma.
-- Range: `1:10`, `0:0.5:5`, `linspace`, `logspace`.
-- Fungsi pembentuk: `zeros`, `ones`, `eye`, `rand`, `randn`, `size`, `length`, `numel`.
-- Indexing: `A(2,3)`, `A(:,2)`, `A(1,:)`, `A(:)`, transpose `A'`.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-x = 1:10
-y = 0:0.5:5
-z = linspace(0, 2*pi, 9)
+v1 = 1:5
+v2 = 0:0.5:2
+v3 = linspace (0, 1, 6)
 
 A = [1 2 3; 4 5 6; 7 8 9]
-B = rand(3, 2);
-C = ones(2, 4);
+B = zeros (2, 3)
+C = ones (3, 2)
 
-size(A)
-length(x)
-numel(B)
-
-A(2,3)
-A(:,2)
-A(1,:)
-A'
+baris_pertama = A(1, :)
+kolom_kedua = A(:, 2)
+elemen_akhir = A(end, end)
+semua_elemen = A(:)
 ```
 
-## Konsep kunci
-- **Vektor baris**: `x = [1 2 3]`
-- **Vektor kolom**: `x = [1; 2; 3]`
-- **Semua elemen**: `A(:)`
-- **Transpose**: ubah baris menjadi kolom atau sebaliknya.
+## Penjelasan singkat fungsi dan perintah
+- `:`: pembentuk range dan juga pemilih seluruh baris atau kolom saat indexing.
+- `linspace (a, b, n)`: membuat `n` titik dari `a` sampai `b`.
+- `zeros (m, n)`: matriks nol berukuran `m x n`.
+- `ones (m, n)`: matriks satu berukuran `m x n`.
+- `end`: merujuk ke indeks terakhir pada dimensi yang sedang diakses.
+- `A(i, j)`: mengambil elemen baris ke-`i`, kolom ke-`j`.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Latihan
+1. Buat vektor `1:2:15` dan `10:-2:0`.
+2. Buat matriks `3 x 3` berisi bilangan 1 sampai 9.
+3. Ambil baris ke-2, kolom ke-3, dan submatriks dua baris pertama.
+4. Ubah matriks menjadi vektor kolom dengan `(:)`.
+5. Bandingkan `0:0.1:1` dengan `linspace (0, 1, 11)`.
 
-## Latihan 60 menit
+## Tugas praktikum
+1. Buat ringkasan tentang perbedaan vektor baris, vektor kolom, range, dan matriks.
+2. Tunjukkan tiga contoh indexing berbeda menggunakan `:`, `end`, dan indeks eksplisit.
+3. Jelaskan kapan lebih tepat memakai `linspace` daripada range biasa.
 
-1. Buat vektor:
-   - `1` sampai `20`
-   - bilangan ganjil `1` sampai `19`
-   - 11 titik dari `-1` ke `1`
-2. Buat matriks 3x3 berisi angka 1–9.
-3. Ambil:
-   - baris kedua
-   - kolom ketiga
-   - elemen pojok kanan bawah
-4. Buat matriks identitas 4x4.
-5. Buat matriks acak 5x5 lalu hitung ukurannya.
+## Tugas koding
+1. Buat script `latihan_vektor_matriks.m` yang membentuk tiga vektor dan dua matriks berbeda.
+2. Ambil beberapa elemen penting dari matriks lalu simpan ke variabel baru.
+3. Ubah salah satu matriks menjadi vektor kolom dan tampilkan hasilnya.
 
-## Tugas mandiri
-Rancang sendiri satu matriks 4x4 dan tulis 5 operasi indexing yang berbeda.
-
-## Catatan pengajar
-Ini sesi yang sangat penting karena banyak materi lanjutan di Octave bertumpu pada vektor dan matriks. Pada PDF, topik ini muncul sebagai modul besar; di sini dipisah supaya mahasiswa punya waktu praktik yang cukup.
-
-## Referensi utama
-
-- PDF modul: Operasi Array, Vektor, dan Matriks, hal. 16–18.
-- Manual GNU Octave (tautan bab terkait):
-  - [Creating a Matrix](https://docs.octave.org/latest/Creating-a-Matrix.html)
-  - [Matrices](https://docs.octave.org/latest/Matrices.html)
-  - [Ranges](https://docs.octave.org/latest/Ranges.html)
+## Referensi manual Octave
+- Ranges: https://docs.octave.org/latest/Ranges.html
+- Index expressions: https://docs.octave.org/latest/Index-Expressions.html
+- Simple examples: https://docs.octave.org/latest/Simple-Examples.html

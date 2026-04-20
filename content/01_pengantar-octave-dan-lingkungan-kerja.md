@@ -1,75 +1,67 @@
 # Pertemuan 1 — Pengantar Octave dan Lingkungan Kerja
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: Apa itu Octave, kapan dipakai, dan hubungan kompatibilitasnya dengan gaya kerja MATLAB.
+## Modul ringkas
+- GNU Octave adalah bahasa tingkat tinggi untuk komputasi numerik, analisis data, aljabar linear, dan eksperimen ilmiah.
+- Manual `latest` di `docs.octave.org` saat ini mengacu ke GNU Octave versi 11.1.0.
+- Pada pertemuan ini fokusnya adalah mengenal jendela kerja, direktori aktif, variabel di workspace, dan cara membaca dokumentasi bawaan.
 
-## Capaian pembelajaran
-- Mengenal peran GNU Octave sebagai lingkungan komputasi numerik berbasis matriks.
-- Memahami alur kerja dasar: membuka Octave, mengetik perintah, membaca output, dan memakai bantuan bawaan.
-- Mengenal command history, working directory, dan kebiasaan kerja yang rapi sejak awal.
+## Konsep inti
+- Octave bisa dijalankan lewat GUI maupun command line.
+- Setiap perintah dievaluasi oleh interpreter. Jika baris tidak diakhiri `;`, hasil biasanya langsung tampil.
+- Working directory menentukan lokasi file script, data, dan hasil simpan.
+- Workspace adalah kumpulan variabel yang sedang aktif.
+- Dokumentasi bawaan sangat penting: `help`, `doc`, `lookfor`, `who`, dan `whos` membantu belajar mandiri.
 
-## Pokok materi
-- Apa itu Octave, kapan dipakai, dan hubungan kompatibilitasnya dengan gaya kerja MATLAB.
-- Prompt, command window, editor, dan arti tanda titik koma `;` untuk menahan output.
-- Perintah navigasi dasar: `pwd`, `cd`, `dir`/`ls`, `who`, `whos`, `clc`, `clear`.
-- Sistem bantuan: `help --list`, `help nama_fungsi`, `lookfor kata_kunci`, `doc`.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
 pwd
-who
-whos
+ls
 
 a = 10
 b = 3;
 c = a + b
 
+who
+whos
+
 help plot
 lookfor matrix
 ```
 
-**Catatan penting**
-- Baris tanpa `;` akan menampilkan hasil ke layar.
-- `help nama_fungsi` sangat penting di praktikum karena membuat mahasiswa bisa belajar mandiri.
-- Biasakan memeriksa folder kerja dengan `pwd` sebelum menyimpan skrip.
+## Penjelasan singkat fungsi dan perintah
+- `clc`: membersihkan tampilan command window.
+- `clear`: menghapus variabel dari workspace.
+- `pwd`: menampilkan folder kerja aktif.
+- `ls` atau `dir`: menampilkan isi folder kerja.
+- `who`: menampilkan nama variabel yang aktif.
+- `whos`: menampilkan detail variabel seperti ukuran dan tipe data.
+- `help nama_fungsi`: menampilkan bantuan singkat di terminal.
+- `doc nama_fungsi`: membuka dokumentasi yang lebih lengkap jika tersedia.
+- `lookfor kata_kunci`: mencari fungsi berdasarkan kata kunci deskripsi.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
-
-## Latihan 60 menit
-
-1. Buka Octave lalu jalankan `pwd`, `who`, `whos`, dan `help --list`.
-2. Buat tiga variabel: `nama`, `nim`, dan `kelas`.
-3. Bersihkan layar dengan `clc`, lalu tampilkan kembali variabel yang ada.
+## Latihan
+1. Jalankan `pwd`, lalu pindah ke folder lain dengan `cd` dan kembali lagi.
+2. Buat variabel `nama`, `nim`, dan `kelas`, lalu tampilkan dengan `who`.
+3. Bandingkan hasil `who` dan `whos` setelah membuat matriks `A = rand (3, 3)`.
 4. Cari dokumentasi untuk `plot`, `mean`, dan `save`.
-5. Tulis ringkasan singkat: apa beda `clear` dan `clc`?
+5. Tulis dua kalimat singkat tentang perbedaan `clc` dan `clear`.
 
-## Tugas mandiri
-Buat catatan pribadi berisi 10 perintah Octave yang paling sering dipakai di awal praktikum.
+## Tugas praktikum
+1. Buat catatan kerja yang berisi 10 perintah Octave dasar yang paling sering dipakai di awal praktikum.
+2. Jalankan semua perintah dasar yang dipelajari lalu dokumentasikan fungsi masing-masing dalam tabel singkat.
+3. Simpulkan alur kerja dasar Octave mulai dari membuka program sampai membaca dokumentasi fungsi.
 
-## Catatan pengajar
-Materi ini mengadaptasi bagian pengenalan MATLAB pada PDF menjadi alur yang relevan untuk Octave. Fokusnya bukan pada fitur komersial/toolbox, melainkan pada kebiasaan kerja komputasi yang benar: memahami prompt, direktori kerja, dokumentasi, dan eksperimen cepat.
+## Tugas koding
+1. Buat script `pertemuan1_intro.m` yang menjalankan `clc`, `clear`, `pwd`, `who`, dan `whos`.
+2. Tambahkan tiga variabel bebas di dalam script lalu tampilkan salah satunya ke layar.
+3. Di akhir script, panggil `help mean` dan beri komentar singkat tentang fungsi tersebut.
 
-## Referensi utama
-
-- PDF modul: Pendahuluan dan Operasi Lembar Kerja, terutama hal. 4–10.
-- Manual GNU Octave (tautan bab terkait):
-  - [Top / daftar isi manual](https://docs.octave.org/latest/)
-  - [Help and Documentation](https://docs.octave.org/latest/Help-and-Documentation.html)
-  - [Simple Examples](https://docs.octave.org/latest/Simple-Examples.html)
+## Referensi manual Octave
+- Manual utama: https://docs.octave.org/latest/
+- Pengantar: https://docs.octave.org/latest/Introduction.html
+- Contoh sederhana: https://docs.octave.org/latest/Simple-Examples.html
+- Bantuan dan dokumentasi: https://docs.octave.org/latest/Help-and-Documentation.html

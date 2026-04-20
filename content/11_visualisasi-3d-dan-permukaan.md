@@ -1,93 +1,69 @@
 # Pertemuan 11 — Visualisasi 3D dan Permukaan
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: `meshgrid` untuk membangun koordinat `X` dan `Y`.
+## Modul ringkas
+- Plot 3D digunakan untuk melihat bentuk permukaan, lintasan ruang, dan hubungan tiga variabel.
+- Fungsi paling umum adalah `mesh`, `surf`, dan `plot3`.
+- `meshgrid` sering dipakai untuk membangun koordinat permukaan.
 
-## Capaian pembelajaran
-- Memahami cara membangun grid 3D dengan `meshgrid`.
-- Membuat `mesh`, `surf`, `contour3`, dan `plot3`.
-- Mengaitkan data 2 variabel bebas dengan permukaan 3D.
+## Konsep inti
+- `mesh` membuat permukaan kawat.
+- `surf` membuat permukaan berwarna atau berarsir.
+- `plot3` menampilkan kurva 3D yang tidak harus berupa permukaan.
+- `view`, `shading`, dan `colormap` membantu memperjelas tampilan.
 
-## Pokok materi
-- `meshgrid` untuk membangun koordinat `X` dan `Y`.
-- `mesh` dan `surf` untuk permukaan.
-- `contour`, `contour3`, `plot3` untuk variasi tampilan.
-- Pengaruh sudut pandang dan pewarnaan.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-tx = linspace(-8, 8, 41);
-ty = linspace(-8, 8, 41);
-[xx, yy] = meshgrid(tx, ty);
+t = linspace (-8, 8, 41)';
+[x, y] = meshgrid (t, t);
+r = sqrt (x.^2 + y.^2) + eps;
+z = sin (r) ./ r;
 
-r = sqrt(xx.^2 + yy.^2) + eps;
-zz = sin(r) ./ r;
+subplot (1, 2, 1)
+mesh (x, y, z)
+title ("Mesh")
+xlabel ("x")
+ylabel ("y")
+zlabel ("z")
 
-figure(1)
-mesh(tx, ty, zz)
-xlabel("x")
-ylabel("y")
-zlabel("z")
-title("Mesh plot")
+subplot (1, 2, 2)
+surf (x, y, z)
+shading interp
+colormap (jet (64))
+title ("Surface")
 ```
 
-```octave
-figure(2)
-surf(xx, yy, zz)
-xlabel("x")
-ylabel("y")
-zlabel("z")
-title("Surface plot")
-```
+## Penjelasan singkat fungsi dan perintah
+- `meshgrid`: membentuk grid koordinat dari dua vektor.
+- `mesh`: permukaan kawat 3D.
+- `surf`: permukaan 3D berwarna.
+- `plot3`: kurva 3D.
+- `view (az, el)`: mengatur sudut pandang.
+- `shading interp`: menghaluskan tampilan warna permukaan.
+- `colormap`: mengatur peta warna.
+- `colorbar`: menampilkan skala warna.
 
-```octave
-t = 0:0.1:10*pi;
-r = linspace(0, 1, numel(t));
-z = linspace(0, 1, numel(t));
-figure(3)
-plot3(r.*sin(t), r.*cos(t), z)
-grid on
-title("Plot3 helix")
-```
+## Latihan
+1. Buat grafik `mesh` dari fungsi `z = x.^2 + y.^2`.
+2. Ubah grafik yang sama menjadi `surf`.
+3. Coba beberapa sudut pandang dengan `view`.
+4. Tambahkan `colorbar` dan ganti `colormap`.
+5. Buat lintasan heliks sederhana dengan `plot3`.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Tugas praktikum
+1. Jelaskan perbedaan visual antara `mesh`, `surf`, dan `plot3`.
+2. Uji beberapa kombinasi `view` dan `colormap`, lalu catat pengaruhnya.
+3. Buat ringkasan fungsi `meshgrid` dan mengapa ia penting pada plot permukaan.
 
-## Latihan 60 menit
+## Tugas koding
+1. Buat script `plot_3d_permukaan.m` yang menghasilkan satu `mesh` dan satu `surf`.
+2. Tambahkan `colorbar`, `view`, dan label sumbu pada hasil visualisasi.
+3. Buat contoh kedua berupa lintasan 3D memakai `plot3`.
 
-1. Buat grid dengan `meshgrid`.
-2. Visualisasikan fungsi:
-   - `z = x.^2 + y.^2`
-   - `z = sin(x).*cos(y)`
-3. Tampilkan hasil dengan `mesh` dan `surf`.
-4. Tambahkan `contour` atau `contour3`.
-5. Ubah judul dan label sumbu.
-
-## Tugas mandiri
-Buat satu laporan singkat: apa perbedaan `mesh`, `surf`, dan `plot3`?
-
-## Catatan pengajar
-Mahasiswa biasanya tertarik dengan 3D, tetapi tetap tekankan bahwa 3D dipakai jika benar-benar menambah makna, bukan sekadar membuat grafik terlihat keren.
-
-## Referensi utama
-
-- PDF modul: Menggambar Grafik, hal. 30–35, khusus grafik 3D.
-- Manual GNU Octave (tautan bab terkait):
-  - [Three-Dimensional Plots](https://docs.octave.org/latest/Three_002dDimensional-Plots.html)
-  - [Graphics Objects](https://docs.octave.org/latest/Graphics-Objects.html)
+## Referensi manual Octave
+- Three-dimensional plots: https://docs.octave.org/latest/Three_002dDimensional-Plots.html
+- Plot annotations: https://docs.octave.org/latest/Plot-Annotations.html
+- High-level plotting: https://docs.octave.org/latest/High_002dLevel-Plotting.html

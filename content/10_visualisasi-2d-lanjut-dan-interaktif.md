@@ -1,94 +1,71 @@
-# Pertemuan 10 — Visualisasi 2D Lanjut, `subplot`, Histogram, dan Interaksi
+# Pertemuan 10 — Visualisasi 2D Lanjut, subplot, Histogram, dan Interaksi
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: `subplot` untuk tata letak multi-grafik.
+## Modul ringkas
+- Setelah memahami `plot`, langkah berikutnya adalah menyusun banyak grafik dalam satu tampilan dan memilih tipe plot yang sesuai.
+- `subplot` dipakai untuk membandingkan beberapa grafik.
+- Histogram membantu melihat sebaran data.
 
-## Capaian pembelajaran
-- Membuat beberapa grafik dalam satu figure.
-- Mengenal grafik statistik dan diskrit seperti histogram, stem, dan scatter.
-- Mengenal interaksi sederhana pada plot.
+## Konsep inti
+- `subplot (m, n, p)` membagi figure menjadi kisi `m x n` dan mengaktifkan panel ke-`p`.
+- `hist` menampilkan jumlah data dalam sejumlah bin.
+- `bar`, `stem`, dan `stairs` berguna untuk tipe data diskret atau hitungan.
+- Interaksi visual sederhana dapat dilakukan dengan zoom, pan, atau pemilihan titik.
 
-## Pokok materi
-- `subplot` untuk tata letak multi-grafik.
-- `hist`, `stem`, `scatter`, `bar`, `stairs`, `semilogx`, `semilogy`, `loglog`.
-- `ginput` untuk memilih titik dari grafik aktif.
-- Kapan memilih tiap jenis grafik.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-x = 0:0.1:10;
-y = sin(x);
+x = linspace (0, 2*pi, 200);
+data = randn (1, 200);
 
-figure(1)
-
-subplot(2,2,1)
-plot(x, y)
+subplot (2, 2, 1)
+plot (x, sin (x), "b", "linewidth", 1.5)
+title ("sin(x)")
 grid on
-title("plot")
 
-subplot(2,2,2)
-stem(x, y)
+subplot (2, 2, 2)
+plot (x, cos (x), "r", "linewidth", 1.5)
+title ("cos(x)")
 grid on
-title("stem")
 
-subplot(2,2,3)
-stairs(x, y)
-grid on
-title("stairs")
+subplot (2, 2, 3)
+bar (1:5, [3 5 2 6 4])
+title ("Bar chart")
 
-subplot(2,2,4)
-bar(x(1:10), y(1:10))
-grid on
-title("bar")
+subplot (2, 2, 4)
+hist (data, 15)
+title ("Histogram data acak")
 ```
 
-```octave
-data = randn(1, 200);
-figure(2)
-hist(data, 20)
-grid on
-title("Histogram data acak")
-```
+## Penjelasan singkat fungsi dan perintah
+- `subplot`: membuat beberapa axes dalam satu figure.
+- `hist`: histogram sederhana berdasarkan jumlah bin atau pusat bin.
+- `bar`: diagram batang.
+- `stem`: menampilkan data diskret berupa garis vertikal dengan penanda.
+- `stairs`: menampilkan grafik bertangga.
+- `axis tight`: menyesuaikan batas axes ke data.
+- `hold on`: menumpuk beberapa objek pada axes yang sama.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Latihan
+1. Buat satu figure berisi empat subplot yang menampilkan `sin`, `cos`, `tan`, dan `exp`.
+2. Buat histogram dari 100 data acak normal.
+3. Bandingkan `bar`, `stem`, dan `plot` untuk data yang sama.
+4. Tambahkan `axis tight` dan `grid on` pada beberapa subplot.
+5. Susun layout subplot yang mudah dibaca untuk laporan praktikum.
 
-## Latihan 60 menit
+## Tugas praktikum
+1. Jelaskan kapan memakai `subplot`, `hist`, `bar`, dan `stem`.
+2. Buat analisis singkat terhadap bentuk histogram dari data acak normal.
+3. Rancang layout figure yang cocok untuk membandingkan empat jenis visualisasi.
 
-1. Buat satu figure berisi 4 subplot:
-   - `sin(x)`
-   - `cos(x)`
-   - `sin(x)+cos(x)`
-   - histogram data acak
-2. Uji grafik `semilogx` atau `semilogy` untuk data eksponensial.
-3. Buat plot titik sebaran dua vektor acak.
-4. Coba `ginput(2)` pada sebuah grafik dan catat koordinatnya.
+## Tugas koding
+1. Buat script `visualisasi_2d_lanjut.m` yang memuat minimal empat subplot berbeda.
+2. Sertakan satu histogram dan satu bar chart di dalamnya.
+3. Tambahkan pengaturan tampilan agar tiap subplot mudah dibaca.
 
-## Tugas mandiri
-Buat dashboard kecil 2x2 untuk membandingkan tiga fungsi dan satu histogram.
-
-## Catatan pengajar
-Sesi ini cocok untuk memperlihatkan bahwa bentuk visual harus mengikuti jenis data. Jangan semua data dipaksa jadi grafik garis.
-
-## Referensi utama
-
-- PDF modul: Menggambar Grafik, hal. 28–35, khusus ragam grafik 2D.
-- Manual GNU Octave (tautan bab terkait):
-  - [Two-Dimensional Plots](https://docs.octave.org/latest/Two_002dDimensional-Plots.html)
-  - [Interacting with Plots](https://docs.octave.org/latest/Interacting-with-Plots.html)
+## Referensi manual Octave
+- Two-dimensional plots: https://docs.octave.org/latest/Two_002dDimensional-Plots.html
+- Multiple plots on one page: https://docs.octave.org/latest/Multiple-Plots-on-One-Page.html
+- Interacting with plots: https://docs.octave.org/latest/Interacting-with-Plots.html

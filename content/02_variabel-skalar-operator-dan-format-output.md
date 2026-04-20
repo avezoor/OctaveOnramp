@@ -1,84 +1,68 @@
 # Pertemuan 2 — Variabel, Skalar, Operator, dan Format Output
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: Penugasan variabel dan aturan penamaan.
+## Modul ringkas
+- Variabel di Octave bersifat dinamis, jadi nama yang sama dapat menyimpan angka, string, atau matriks.
+- Operator aritmetika dipakai untuk komputasi skalar maupun matriks.
+- Format output penting agar hasil numerik mudah dibaca dan dilaporkan.
 
-## Capaian pembelajaran
-- Memahami cara mendefinisikan variabel dan menggunakan operator numerik dasar.
-- Membedakan output yang dicetak otomatis, `disp`, dan `printf`.
-- Mengenal konstanta dan fungsi matematika dasar yang sering dipakai dalam praktikum.
+## Konsep inti
+- Penugasan memakai operator `=`.
+- Operator dasar: `+`, `-`, `*`, `/`, `\`, `^`.
+- Untuk operasi elemen per elemen gunakan bentuk bertitik seperti `.*`, `./`, dan `.^`.
+- Fungsi numerik dasar yang sering dipakai antara lain `abs`, `sqrt`, `exp`, `log`, `sin`, `cos`, `round`, `floor`, dan `ceil`.
+- Output bisa ditampilkan otomatis, dengan `disp`, atau dengan format terkontrol melalui `printf`.
 
-## Pokok materi
-- Penugasan variabel dan aturan penamaan.
-- Operator `+`, `-`, `*`, `/`, `^` dan prioritas operasi.
-- Fungsi penting: `abs`, `sqrt`, `exp`, `log`, `sin`, `cos`, `tan`, `round`, `floor`, `ceil`, `rem`.
-- Format keluaran dengan `disp`, `printf`, dan kebiasaan memberi label pada hasil.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-pi
-eps
+format short
 
 x = 5;
 y = 2;
 
-hasil1 = x + y
-hasil2 = x / y
-hasil3 = x ^ y
+jumlah = x + y
+bagi = x / y
+pangkat = x ^ y
 
-disp("Nilai hasil3 adalah:")
-disp(hasil3)
+disp ("Nilai akar x:")
+disp (sqrt (x))
 
-printf("sqrt(%d) = %.4f\n", x, sqrt(x))
-printf("sin(pi/6) = %.4f\n", sin(pi/6))
-printf("sisa bagi 17 dengan 5 = %d\n", rem(17, 5))
+printf ("sin(pi/6) = %.4f\n", sin (pi / 6))
+printf ("exp(2) = %.4f\n", exp (2))
+printf ("sisa 17 dibagi 5 = %d\n", rem (17, 5))
 ```
 
-## Fokus praktikum
-- Gunakan radian untuk fungsi trigonometri.
-- Jika ingin sudut derajat, konversi dulu: `derajat * pi / 180`.
-- Biasakan menamai hasil dengan variabel yang jelas, misalnya `luas`, `rata2`, `akar1`.
+## Penjelasan singkat fungsi dan perintah
+- `format short` dan `format long`: mengatur tampilan jumlah digit hasil.
+- `disp`: menampilkan teks atau nilai tanpa format khusus.
+- `printf`: menampilkan output dengan format seperti `%d`, `%f`, atau `%.3f`.
+- `rem (a, b)`: sisa pembagian `a` oleh `b`.
+- `sqrt (x)`: akar kuadrat.
+- `exp (x)`: nilai `e^x`.
+- `log (x)`: logaritma natural.
+- `sin`, `cos`, `tan`: fungsi trigonometri dengan satuan radian.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
-
-## Latihan 60 menit
-
-1. Hitung nilai dari:
-   - `exp(3)`
-   - `log(10)`
-   - `sqrt(49)`
-   - `round(pi, 3)` jika tersedia, atau tampilkan `pi` dengan `printf`.
+## Latihan
+1. Hitung `sqrt (49)`, `abs (-12)`, `exp (3)`, dan `log (10)`.
 2. Ubah 30 derajat ke radian, lalu hitung `sin`, `cos`, dan `tan`.
-3. Tampilkan hasil perhitungan dengan `disp` dan `printf`.
-4. Buat program kecil yang menerima jari-jari lingkaran dan mencetak luas serta keliling.
+3. Tampilkan hasil yang sama memakai output otomatis, `disp`, dan `printf`.
+4. Buat program singkat untuk menghitung luas dan keliling lingkaran dari jari-jari `r`.
+5. Bandingkan hasil `format short` dan `format long` untuk nilai `pi`.
 
-## Tugas mandiri
-Tulis 10 fungsi matematika dasar yang menurutmu wajib dihafal untuk praktikum numerik.
+## Tugas praktikum
+1. Susun tabel berisi minimal 12 fungsi matematika dasar beserta contoh pemakaiannya.
+2. Jelaskan perbedaan operator `*`, `/`, `^` dengan operator elemen per elemen `.*`, `./`, `.^` secara singkat.
+3. Dokumentasikan hasil tampilan `format short` dan `format long` untuk tiga bilangan berbeda.
 
-## Catatan pengajar
-Bagian ini mengambil semangat tabel sintaks pada PDF, tetapi diperbarui untuk gaya penulisan Octave yang lebih rapi dan mudah dibaca. Utamakan latihan kecil dan cepat supaya mahasiswa nyaman dengan prompt.
+## Tugas koding
+1. Buat script `hitung_nilai_aritmetika.m` yang menghitung beberapa ekspresi matematika dasar.
+2. Tampilkan hasil dengan `disp` dan `printf` dalam format yang rapi.
+3. Tambahkan perhitungan konversi derajat ke radian lalu hitung nilai `sin`, `cos`, dan `tan`.
 
-## Referensi utama
-
-- PDF modul: Operasi Lembar Kerja, hal. 8–10.
-- Manual GNU Octave (tautan bab terkait):
-  - [Simple Examples](https://docs.octave.org/latest/Simple-Examples.html)
-  - [Arithmetic Operators](https://docs.octave.org/latest/Arithmetic-Ops.html)
-  - [Help and Documentation](https://docs.octave.org/latest/Help-and-Documentation.html)
+## Referensi manual Octave
+- Assignment expressions: https://docs.octave.org/latest/Assignment-Ops.html
+- Arithmetic operators: https://docs.octave.org/latest/Arithmetic-Ops.html
+- Simple examples: https://docs.octave.org/latest/Simple-Examples.html

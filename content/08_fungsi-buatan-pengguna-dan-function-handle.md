@@ -1,82 +1,61 @@
 # Pertemuan 8 — Fungsi Buatan Pengguna, Banyak Output, dan Function Handle
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: Struktur dasar `function y = nama(x)`.
+## Modul ringkas
+- Fungsi buatan pengguna dipakai untuk memecah program besar menjadi blok kecil yang dapat dipakai ulang.
+- Satu fungsi bisa memiliki beberapa input dan beberapa output.
+- Function handle menyimpan referensi ke fungsi sehingga bisa dipanggil tidak langsung atau dikirim ke fungsi lain.
 
-## Capaian pembelajaran
-- Membuat function file yang menerima input dan mengembalikan output.
-- Menulis fungsi dengan lebih dari satu keluaran.
-- Mengenal function handle dan anonymous function untuk pemanggilan tidak langsung.
+## Konsep inti
+- Deklarasi fungsi dimulai dengan kata kunci `function`.
+- Variabel di dalam fungsi bersifat lokal.
+- `nargin` membantu memeriksa jumlah argumen yang diberikan.
+- Function handle ditulis sebagai `@nama_fungsi`.
+- Anonymous function ditulis seperti `@(x) x.^2 + 1`.
 
-## Pokok materi
-- Struktur dasar `function y = nama(x)`.
-- Banyak output: `[x1, x2] = akar_kuadrat(a,b,c)`.
-- Script vs function file.
-- Function handle: `f = @sin`, anonymous function: `@(x) x.^2 + 1`.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
-% file: luas_persegi_panjang.m
-function L = luas_persegi_panjang(p, l)
-  L = p * l;
+function [luas, keliling] = lingkaran (r)
+  luas = pi * r^2;
+  keliling = 2 * pi * r;
 endfunction
-```
 
-```octave
-% file: akar_kuadrat.m
-function [x1, x2] = akar_kuadrat(a, b, c)
-  d = b^2 - 4*a*c;
-  x1 = (-b + sqrt(d)) / (2*a);
-  x2 = (-b - sqrt(d)) / (2*a);
-endfunction
-```
-
-```octave
-L = luas_persegi_panjang(5, 3)
-[x1, x2] = akar_kuadrat(1, -3, -4)
+[L, K] = lingkaran (7)
 
 f = @sin;
-feval(f, pi/2)
+hasil1 = f (pi / 2)
 
 g = @(x) x.^2 + 2*x + 1;
-g(3)
+hasil2 = g (3)
 ```
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Penjelasan singkat fungsi dan perintah
+- `function y = nama (arg)`: bentuk dasar fungsi dengan satu output.
+- `function [a, b] = nama (arg)`: fungsi dengan banyak output.
+- `endfunction`: penutup deklarasi fungsi.
+- `nargin`: jumlah argumen yang benar-benar dikirim saat fungsi dipanggil.
+- `usage ("nama_fungsi (arg)")`: pesan bantuan penggunaan fungsi.
+- `@sin`: function handle ke fungsi bawaan.
+- `feval (f, x)`: memanggil fungsi melalui handle, walau `f(x)` biasanya lebih ringkas.
 
-## Latihan 60 menit
+## Latihan
+1. Buat fungsi `persegi (s)` yang mengembalikan luas dan keliling.
+2. Buat fungsi `rata3 (a, b, c)` yang mengembalikan rata-rata tiga bilangan.
+3. Tambahkan pengecekan `nargin` pada salah satu fungsi.
+4. Buat anonymous function untuk menghitung `3*x^2 - 2*x + 5`.
+5. Bandingkan pemanggilan lewat `f(x)` dan `feval (f, x)`.
 
-1. Buat fungsi untuk menghitung volume balok.
-2. Buat fungsi untuk mengembalikan luas dan keliling persegi panjang sekaligus.
-3. Buat anonymous function untuk:
-   - `f(x) = x^2 - 4x + 4`
-   - `g(x) = sin(x) ./ x`
-4. Uji function handle pada `sin`, `cos`, dan fungsi buatan sendiri.
+## Tugas praktikum
+1. Jelaskan struktur dasar deklarasi fungsi di Octave.
+2. Bandingkan fungsi biasa, function handle, dan anonymous function dalam tabel singkat.
+3. Buat catatan tentang manfaat `nargin` saat memvalidasi input fungsi.
 
-## Tugas mandiri
-Buat library kecil berisi 3 fungsi geometri dan satu skrip utama yang memanggil semuanya.
+## Tugas koding
+1. Buat file fungsi `konversi_suhu.m` yang mengubah Celsius ke Fahrenheit dan Kelvin.
+2. Buat file fungsi `stat_ringkas.m` yang mengembalikan minimal dua output dari sebuah vektor.
+3. Buat satu anonymous function tambahan dan gunakan untuk menghitung nilai pada beberapa input.
 
-## Catatan pengajar
-Pada PDF masih ada gaya `inline` lama. Untuk pengajaran modern di Octave, lebih baik utamakan function file, function handle, dan anonymous function karena lebih konsisten dan lebih dekat dengan praktik saat ini.
-
-## Referensi utama
-
-- PDF modul: Operasi Fungsi, hal. 12–15.
-- Manual GNU Octave (tautan bab terkait):
-  - [Functions and Scripts](https://docs.octave.org/latest/Functions-and-Scripts.html)
-  - [Introduction to Function and Script Files](https://docs.octave.org/latest/Introduction-to-Function-and-Script-Files.html)
-  - [Function Handles](https://docs.octave.org/latest/Function-Handles.html)
+## Referensi manual Octave
+- Defining functions: https://docs.octave.org/latest/Defining-Functions.html
+- Multiple return values: https://docs.octave.org/latest/Multiple-Return-Values.html
+- Function handles and anonymous functions: https://docs.octave.org/latest/Function-Handles-and-Anonymous-Functions.html

@@ -1,94 +1,74 @@
-# Pertemuan 6 — Percabangan `if`, `switch`, dan Operator Logika
+# Pertemuan 6 — Percabangan if, switch, dan Operator Logika
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: Operator `==`, `~=`, `<`, `<=`, `>`, `>=`.
+## Modul ringkas
+- Percabangan dipakai saat program harus memilih aksi berdasarkan kondisi.
+- `if` cocok untuk kondisi berbasis ekspresi logika.
+- `switch` cocok untuk banyak pilihan berdasarkan satu ekspresi yang sama.
 
-## Capaian pembelajaran
-- Memahami cara kerja keputusan program dengan `if`, `elseif`, `else`.
-- Menggunakan operator relasional dan logika untuk menyusun syarat.
-- Mengenal kapan `switch` lebih rapi daripada rantai `if` panjang.
+## Konsep inti
+- Kondisi dianggap benar jika nilainya tidak kosong dan semua elemennya bukan nol.
+- Bentuk umum `if` adalah `if ... elseif ... else ... endif`.
+- Bentuk umum `switch` adalah `switch ... case ... otherwise ... endswitch`.
+- Operator logika yang sering dipakai adalah `==`, `~=`, `<`, `<=`, `>`, `>=`, `&&`, `||`, dan `!`.
 
-## Pokok materi
-- Operator `==`, `~=`, `<`, `<=`, `>`, `>=`.
-- Operator logika `&&`, `||`, `!`/`~` dan gabungannya.
-- Struktur `if ... elseif ... else ... endif`.
-- Struktur `switch ... case ... otherwise ... endswitch`.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-nilai = input("Masukkan nilai ujian: ");
+nilai = input ("Masukkan nilai: ");
 
 if (nilai >= 85)
-  grade = "A";
+  disp ("Grade A")
 elseif (nilai >= 70)
-  grade = "B";
+  disp ("Grade B")
 elseif (nilai >= 60)
-  grade = "C";
+  disp ("Grade C")
 else
-  grade = "D";
+  disp ("Perlu perbaikan")
 endif
 
-printf("Grade Anda: %s\n", grade)
-```
-
-```octave
-hari = input("Masukkan kode hari (1-7): ");
+hari = "senin";
 
 switch (hari)
-  case 1
-    disp("Senin")
-  case 2
-    disp("Selasa")
-  case 3
-    disp("Rabu")
+  case "senin"
+    disp ("Awal pekan")
+  case {"sabtu", "minggu"}
+    disp ("Akhir pekan")
   otherwise
-    disp("Kode di luar contoh")
+    disp ("Hari kerja")
 endswitch
 ```
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Penjelasan singkat fungsi dan perintah
+- `if`: percabangan utama berbasis kondisi.
+- `elseif`: kondisi tambahan jika syarat sebelumnya salah.
+- `else`: blok cadangan jika semua kondisi salah.
+- `switch`: percabangan untuk satu ekspresi yang diuji ke beberapa label.
+- `case`: label yang diperiksa pada `switch`.
+- `otherwise`: bagian default pada `switch`.
+- `&&` dan `||`: operator logika short-circuit untuk kondisi skalar.
+- `&` dan `|`: operator logika elemen per elemen.
 
-## Latihan 60 menit
+## Latihan
+1. Buat program untuk menentukan bilangan positif, negatif, atau nol.
+2. Buat program yang mengecek apakah sebuah angka ganjil atau genap.
+3. Buat menu sederhana dengan `switch` untuk pilihan `"luas"`, `"keliling"`, atau `"keluar"`.
+4. Gunakan operator logika gabungan untuk menentukan lulus jika nilai tugas dan ujian sama-sama di atas batas tertentu.
+5. Uji apa yang terjadi jika menulis `else if` alih-alih `elseif`.
 
-1. Buat program cek bilangan ganjil/genap.
-2. Buat program klasifikasi suhu:
-   - `< 20` dingin
-   - `20–30` normal
-   - `> 30` panas
-3. Buat menu sederhana dengan `switch`:
-   - 1: tambah
-   - 2: kurang
-   - 3: kali
-   - 4: bagi
-4. Uji dengan beberapa input berbeda.
+## Tugas praktikum
+1. Buat tabel perbandingan kapan `if` lebih cocok dipakai daripada `switch`.
+2. Susun minimal lima contoh ekspresi logika dan tentukan hasil benar atau salahnya.
+3. Jelaskan aturan dasar `elseif` dan `otherwise` dalam bahasa singkat.
 
-## Tugas mandiri
-Buat program yang menentukan apakah sebuah tahun termasuk tahun kabisat.
+## Tugas koding
+1. Buat script `penentu_grade.m` yang menerima satu nilai dan mengembalikan grade huruf.
+2. Buat script kedua `menu_bangun_datar.m` yang memakai `switch` untuk memilih perhitungan.
+3. Tambahkan validasi sederhana untuk menangani input yang tidak sesuai.
 
-## Catatan pengajar
-Gunakan banyak contoh dekat dengan kehidupan sehari-hari: nilai, suhu, tarif, diskon, dan bilangan ganjil-genap. Mahasiswa biasanya lebih cepat paham jika syarat program terasa nyata.
-
-## Referensi utama
-
-- PDF modul: Control Flow, hal. 20–26.
-- Manual GNU Octave (tautan bab terkait):
-  - [The if Statement](https://docs.octave.org/latest/The-if-Statement.html)
-  - [The switch Statement](https://docs.octave.org/latest/The-switch-Statement.html)
-  - [Statements](https://docs.octave.org/latest/Statements.html)
+## Referensi manual Octave
+- Statements: https://docs.octave.org/latest/Statements.html
+- The if statement: https://docs.octave.org/latest/The-if-Statement.html
+- The switch statement: https://docs.octave.org/latest/The-switch-Statement.html

@@ -1,91 +1,69 @@
-# Pertemuan 7 — Perulangan `for`, `while`, `do-until`, `break`, dan `continue`
+# Pertemuan 7 — Perulangan for, while, do-until, break, dan continue
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: `for` untuk jumlah iterasi yang sudah diketahui.
+## Modul ringkas
+- Perulangan dipakai saat suatu proses harus diulang.
+- `for` cocok jika jumlah iterasi sudah diketahui.
+- `while` dan `do-until` cocok jika iterasi berhenti saat kondisi tertentu terpenuhi.
 
-## Capaian pembelajaran
-- Mengulang proses dengan `for`, `while`, dan `do-until`.
-- Memilih jenis loop yang sesuai dengan masalah.
-- Mengontrol loop dengan `break` dan `continue`.
+## Konsep inti
+- `for` mengiterasi range, vektor, matriks, atau cell array.
+- `while` terus berjalan selama kondisi bernilai benar.
+- `do ... until` menjalankan blok minimal satu kali.
+- `break` menghentikan loop lebih cepat.
+- `continue` melewati sisa isi loop pada iterasi saat ini.
 
-## Pokok materi
-- `for` untuk jumlah iterasi yang sudah diketahui.
-- `while` untuk iterasi berbasis kondisi.
-- `do-until` saat badan loop harus dijalankan minimal sekali.
-- Pola akumulasi, penghitung, validasi input, dan pencarian.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-jumlah = 0;
-for i = 1:10
-  jumlah = jumlah + i;
+total = 0;
+for i = 1:5
+  total += i;
 endfor
-printf("Jumlah 1..10 = %d\n", jumlah)
-```
 
-```octave
+disp (total)
+
 i = 1;
 while (i <= 5)
-  printf("i = %d\n", i)
-  i = i + 1;
+  printf ("i = %d\n", i)
+  i++;
 endwhile
-```
 
-```octave
-x = -1;
+n = 0;
 do
-  x = input("Masukkan bilangan positif: ");
-until (x > 0)
+  n++;
+until (n >= 3)
 ```
 
-```octave
-for n = 1:10
-  if (rem(n,2) != 0)
-    continue;
-  endif
-  disp(n)
-endfor
-```
+## Penjelasan singkat fungsi dan perintah
+- `for i = 1:10`: loop dengan pencacah.
+- `while (kondisi)`: loop berbasis kondisi awal.
+- `do ... until (kondisi)`: loop yang pasti jalan sekali.
+- `break`: keluar dari loop saat ini.
+- `continue`: lanjut ke iterasi berikutnya.
+- `i++`: menambah nilai `i` satu.
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Latihan
+1. Hitung jumlah bilangan 1 sampai 100 dengan `for`.
+2. Buat tabel perkalian angka 7 menggunakan `for`.
+3. Gunakan `while` untuk mencari bilangan terkecil yang kuadratnya lebih dari 500.
+4. Gunakan `continue` untuk menjumlahkan hanya bilangan ganjil dari 1 sampai 20.
+5. Buat menu input berulang yang berhenti jika pengguna mengetik angka 0.
 
-## Latihan 60 menit
+## Tugas praktikum
+1. Jelaskan perbedaan penggunaan `for`, `while`, dan `do-until`.
+2. Buat tiga contoh kasus yang membutuhkan `break` atau `continue`.
+3. Tulis algoritma singkat untuk menghitung deret bilangan menggunakan loop.
 
-1. Hitung jumlah kuadrat `1^2 + 2^2 + ... + 10^2`.
-2. Cetak semua bilangan genap dari 1 sampai 30.
-3. Buat `while` untuk menghitung berapa kali harus membagi 100 dengan 2 sampai kurang dari 1.
-4. Buat validasi input agar pengguna hanya boleh memasukkan angka 0–100.
-5. Gunakan `break` untuk menghentikan loop jika pengguna mengetik `-1`.
+## Tugas koding
+1. Buat script `deret_dan_perulangan.m` yang menghasilkan jumlah, rata-rata, dan daftar bilangan tertentu.
+2. Gunakan `for` untuk satu bagian dan `while` untuk bagian lain.
+3. Tambahkan contoh `break` dan `continue` yang benar-benar dipakai dalam program.
 
-## Tugas mandiri
-Buat program yang menampilkan tabel perkalian 1–10 dengan loop bersarang.
-
-## Catatan pengajar
-Mahasiswa sering bingung membedakan `for` dan `while`. Tekankan aturan sederhana: jika jumlah langkah sudah tahu, pilih `for`; jika berhenti berdasarkan kondisi, pilih `while`.
-
-## Referensi utama
-
-- PDF modul: Control Flow, hal. 20–26.
-- Manual GNU Octave (tautan bab terkait):
-  - [The for Statement](https://docs.octave.org/latest/The-for-Statement.html)
-  - [The while Statement](https://docs.octave.org/latest/The-while-Statement.html)
-  - [The do-until Statement](https://docs.octave.org/latest/The-do_002duntil-Statement.html)
-  - [The break Statement](https://docs.octave.org/latest/The-break-Statement.html)
-  - [The continue Statement](https://docs.octave.org/latest/The-continue-Statement.html)
+## Referensi manual Octave
+- Statements: https://docs.octave.org/latest/Statements.html
+- The for statement: https://docs.octave.org/latest/The-for-Statement.html
+- The while statement: https://docs.octave.org/latest/The-while-Statement.html
+- The do-until statement: https://docs.octave.org/latest/The-do_002duntil-Statement.html

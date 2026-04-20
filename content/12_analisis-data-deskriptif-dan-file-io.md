@@ -1,84 +1,73 @@
 # Pertemuan 12 — Analisis Data Deskriptif dan File I/O
 
-## Identitas sesi
-- Durasi: 1 x 60 menit
-- Format: teori singkat + demo + praktikum
-- Tingkat: dasar
-- Fokus: `mean`, `median`, `max`, `min`, `std`, `sum`, `cumsum`, `diff`.
+## Modul ringkas
+- Analisis deskriptif merangkum inti data dengan ukuran pusat, sebaran, dan posisi.
+- File I/O dibutuhkan agar data bisa dibaca dari file dan hasil bisa disimpan kembali.
+- Octave menyediakan fungsi statistik dasar dan beberapa cara membaca data numerik maupun teks.
 
-## Capaian pembelajaran
-- Menghitung ukuran statistik dasar dari suatu data.
-- Membuat data acak sebagai bahan latihan analisis.
-- Menyimpan dan memanggil kembali data hasil pengolahan.
+## Konsep inti
+- Ukuran pusat utama: `mean`, `median`, `mode`.
+- Ukuran sebaran utama: `std`, `var`, `range`, `iqr`.
+- `quantile` dan `prctile` membantu melihat posisi data.
+- `save` dan `load` dipakai untuk file data Octave.
+- `dlmread`, `csvread`, `textscan`, dan `importdata` dipakai untuk file teks atau CSV.
 
-## Pokok materi
-- `mean`, `median`, `max`, `min`, `std`, `sum`, `cumsum`, `diff`.
-- Data acak dengan `rand` dan `randn`.
-- Visualisasi statistik sederhana: histogram, scatter, line plot.
-- `save` dan `load` untuk menyimpan hasil kerja.
-
-## Alur 60 menit
-- 10 menit: pembukaan konsep dan konteks masalah
-- 20 menit: demo kode oleh pengajar
-- 20 menit: latihan mandiri/berpasangan
-- 10 menit: review hasil, tanya jawab, dan refleksi
-
-## Demo inti
+## Contoh penggunaan
 
 ```octave
 clc
 clear
 
-data = randn(50, 1);
+data = [72 75 81 90 88 76 79 92 85 77];
 
-rata2 = mean(data)
-tengah = median(data)
-maks = max(data)
-mini = min(data)
-sd = std(data)
+rata2 = mean (data)
+tengah = median (data)
+sd = std (data)
+q = quantile (data, [0.25 0.5 0.75])
 
-figure(1)
-hist(data, 10)
-grid on
-title("Histogram data acak normal")
+save ("nilai.mat", "data")
+clear data
+load ("nilai.mat")
 ```
+
+## Contoh membaca data numerik sederhana
 
 ```octave
-figure(2)
-plot(data, "o-")
-grid on
-title("Plot garis data")
-
-save data_statistik.mat data rata2 tengah maks mini sd
-load data_statistik.mat
-whos
+M = [1 2 3; 4 5 6; 7 8 9];
+csvwrite ("contoh.csv", M)
+N = csvread ("contoh.csv")
 ```
 
-## Checklist praktikum
-- [ ] Menjalankan semua contoh tanpa error
-- [ ] Menjelaskan arti tiap baris penting
-- [ ] Menyimpan file kerja dengan nama rapi
-- [ ] Menuliskan satu kesalahan umum yang berhasil diperbaiki
+## Penjelasan singkat fungsi dan perintah
+- `mean`: rata-rata.
+- `median`: nilai tengah.
+- `std`: simpangan baku.
+- `var`: varians.
+- `quantile`: kuantil data.
+- `save` dan `load`: simpan dan muat variabel Octave.
+- `dlmread`: membaca data numerik bertanda pemisah.
+- `csvread` dan `csvwrite`: baca tulis CSV numerik sederhana.
+- `textscan`: membaca teks terformat dari file atau string.
+- `importdata`: impor data dari beberapa format umum.
 
-## Latihan 60 menit
+## Latihan
+1. Hitung `mean`, `median`, `std`, `min`, dan `max` untuk sebuah vektor nilai.
+2. Hitung kuartil dengan `quantile`.
+3. Simpan sebuah matriks ke file `.mat`, lalu muat kembali.
+4. Buat file CSV kecil dan baca lagi isinya.
+5. Susun ringkasan deskriptif singkat dari data yang kamu analisis.
 
-1. Bangkitkan 50 data acak normal.
-2. Hitung rata-rata, median, maksimum, minimum, dan standar deviasi.
-3. Buat histogram dan plot garis.
-4. Simpan semua hasil ke file `.mat`.
-5. Muat lagi file itu dan tampilkan `whos`.
+## Tugas praktikum
+1. Buat laporan ringkas statistik deskriptif dari satu set data minimal 10 observasi.
+2. Bandingkan penyimpanan data menggunakan `.mat` dan `.csv`.
+3. Jelaskan alur sederhana membaca data, menganalisis, lalu menyimpan hasilnya kembali.
 
-## Tugas mandiri
-Gunakan `cumsum` dan `diff` pada satu data contoh lalu jelaskan maknanya.
+## Tugas koding
+1. Buat script `analisis_data_sederhana.m` yang membaca atau membentuk satu set data numerik.
+2. Hitung statistik dasar dan tampilkan hasilnya secara rapi.
+3. Simpan data atau hasil ringkasan ke file menggunakan salah satu metode I/O yang dipelajari.
 
-## Catatan pengajar
-Mahasiswa perlu melihat bahwa statistik dasar bisa langsung diterapkan pada data yang mereka hasilkan sendiri. Sesi ini juga menjadi jembatan ke proyek mini berbasis data.
-
-## Referensi utama
-
-- PDF modul: Analisis Data, hal. 36–40, ditambah praktik save/load dari modul kerja awal.
-- Manual GNU Octave (tautan bab terkait):
-  - [Statistics](https://docs.octave.org/latest/Statistics.html)
-  - [Descriptive Statistics](https://docs.octave.org/latest/Descriptive-Statistics.html)
-  - [Simple File I/O](https://docs.octave.org/latest/Simple-File-I_002fO.html)
-  - [Random Number Generation](https://docs.octave.org/latest/Random-Number-Generation.html)
+## Referensi manual Octave
+- Statistics: https://docs.octave.org/latest/Statistics.html
+- Descriptive statistics: https://docs.octave.org/latest/Descriptive-Statistics.html
+- Simple file I/O: https://docs.octave.org/latest/Simple-File-I_002fO.html

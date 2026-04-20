@@ -4,6 +4,7 @@ const tocEl = document.getElementById("toc");
 const tocBox = document.getElementById("tocBox");
 const pageTitleEl = document.getElementById("pageTitle");
 const currentDateInfoEl = document.getElementById("currentDateInfo");
+const fullscreenBtn = document.getElementById("fullscreenBtn");
 const menuBtn = document.getElementById("menuBtn");
 const closeSidebarBtn = document.getElementById("closeSidebarBtn");
 const sidebar = document.getElementById("sidebar");
@@ -33,6 +34,50 @@ function formatCurrentDate() {
 
 function renderCurrentDate() {
   currentDateInfoEl.textContent = formatCurrentDate();
+}
+
+function isFullscreenActive() {
+  return Boolean(document.fullscreenElement);
+}
+
+function updateFullscreenButton() {
+  if (!fullscreenBtn) {
+    return;
+  }
+
+  const fullscreenActive = isFullscreenActive();
+  const actionLabel = fullscreenActive ? "Keluar dari mode layar penuh" : "Masuk mode layar penuh";
+
+  fullscreenBtn.setAttribute("aria-label", actionLabel);
+  fullscreenBtn.setAttribute("aria-pressed", String(fullscreenActive));
+  fullscreenBtn.setAttribute("title", fullscreenActive ? "Keluar fullscreen" : "Layar penuh");
+  fullscreenBtn.dataset.state = fullscreenActive ? "active" : "idle";
+
+  const iconEl = fullscreenBtn.querySelector(".topbar-action-icon");
+  const textEl = fullscreenBtn.querySelector(".topbar-action-text");
+
+  if (iconEl) {
+    iconEl.textContent = fullscreenActive ? "✕" : "⛶";
+  }
+
+  if (textEl) {
+    textEl.textContent = fullscreenActive ? "Keluar" : "Fullscreen";
+  }
+}
+
+async function toggleFullscreen() {
+  try {
+    if (isFullscreenActive()) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    await document.documentElement.requestFullscreen();
+  } catch (error) {
+    console.warn("Fullscreen tidak tersedia.", error);
+  } finally {
+    updateFullscreenButton();
+  }
 }
 
 function setSidebarOpen(isOpen) {
@@ -137,6 +182,7 @@ scrollTopBtn.addEventListener("click", () => {
   setSidebarOpen(false);
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+fullscreenBtn?.addEventListener("click", toggleFullscreen);
 tocEl.addEventListener("click", (event) => {
   const targetLink = event.target.closest("a");
 
@@ -160,6 +206,7 @@ document.addEventListener("keydown", (event) => {
     setTocOpen(false);
   }
 });
+document.addEventListener("fullscreenchange", updateFullscreenButton);
 
 function escapeHtml(value) {
   return value
@@ -614,6 +661,7 @@ async function loadCurrentModule() {
 async function init() {
   try {
     renderCurrentDate();
+    updateFullscreenButton();
     await loadModules();
     await loadCurrentModule();
     updateScrollTopButton();
