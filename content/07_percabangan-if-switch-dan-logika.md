@@ -680,49 +680,6 @@ Mahasiswa mengumpulkan:
 
 ---
 
-### 8.1 1. Menulis `else if` alih-alih `elseif`
-Salah:
-
-```octave
-if (x > 0)
-  disp("positif")
-else if (x < 0)
-  disp("negatif")
-endif
-```
-
-Benar:
-
-```octave
-if (x > 0)
-  disp("positif")
-elseif (x < 0)
-  disp("negatif")
-endif
-```
-
----
-
-### 8.2 2. Lupa menutup blok dengan `endif` atau `endswitch`
-
-Setiap blok percabangan harus memiliki penutup yang benar.
-
----
-
-### 8.3 3. Salah memilih antara `switch` dan `if`
-
-- Gunakan `if` jika kondisi berupa ekspresi logika yang bervariasi.
-- Gunakan `switch` jika pilihan didasarkan pada satu variabel yang dibandingkan terhadap beberapa nilai tertentu.
-
----
-
-### 8.4 4. Menggunakan operator logika yang tidak sesuai
-
-- `&&` dan `||` lebih cocok untuk kondisi skalar.
-- `&` dan `|` digunakan untuk operasi element-wise.
-
----
-
 ## 9. Ringkasan
 
 Pada praktikum ini mahasiswa telah mempelajari:

@@ -778,57 +778,6 @@ diary off
 
 ---
 
-### 8.5 1. Nama file tidak sama dengan nama fungsi utama
-Akibat:
-- fungsi tidak dikenali atau perilakunya membingungkan.
-
-Solusi:
-- samakan nama file dan nama fungsi utama.
-
-### 8.6 2. Variabel output tidak pernah diisi
-Akibat:
-- muncul error atau warning karena nilai keluaran tidak terdefinisi.
-
-Solusi:
-- pastikan semua jalur logika memberi nilai pada variabel output.
-
-### 8.7 3. Jumlah argumen saat memanggil fungsi salah
-Akibat:
-- fungsi gagal dijalankan atau hasil tidak sesuai.
-
-Solusi:
-- gunakan `nargin` untuk memeriksa input.
-
-### 8.8 4. Salah mengira `return` mengirim nilai fungsi
-Akibat:
-- fungsi berhenti tetapi output tetap kosong.
-
-Solusi:
-- isi dulu variabel output, lalu gunakan `return` hanya untuk keluar lebih awal.
-
-### 8.9 5. Salah memakai command syntax untuk fungsi dengan output
-Contoh yang salah:
-
-```octave
-hasil fungsi_saya 5
-```
-
-Untuk fungsi dengan output, khususnya banyak output, gunakan **function syntax**:
-
-```octave
-hasil = fungsi_saya(5)
-[a, b] = fungsi_saya(5)
-```
-
-### 8.10 6. Lupa bahwa anonymous function cocok untuk rumus singkat
-Akibat:
-- terlalu banyak file fungsi kecil yang sebenarnya tidak perlu.
-
-Solusi:
-- gunakan anonymous function untuk fungsi singkat dan sekali pakai.
-
----
-
 ## 9. Ringkasan
 
 Pada modul ini mahasiswa telah mempelajari:

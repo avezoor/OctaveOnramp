@@ -465,36 +465,6 @@ Mahasiswa mengumpulkan:
 
 ---
 
-### 8.7 1. File tidak ditemukan
-Penyebab:
-- direktori kerja belum benar.
-
-Solusi:
-
-```octave
-pwd
-dir
-cd nama_folder
-```
-
-### 8.8 2. Fungsi tidak dikenali
-Penyebab:
-- file fungsi belum berada di folder aktif atau belum ada di path pencarian fungsi.
-
-### 8.9 3. `help nama_fungsi` tidak menampilkan deskripsi yang baik
-Penyebab:
-- komentar awal fungsi belum ditulis dengan rapi.
-
-Solusi:
-- tulis blok komentar pertama tepat di bawah deklarasi fungsi.
-
-### 8.10 4. Output terlalu penuh di layar
-Solusi:
-- gunakan `;` untuk menahan output,
-- gunakan `clc` untuk membersihkan layar.
-
----
-
 ## 9. Ringkasan
 
 Pada praktikum ini mahasiswa telah mempelajari:

@@ -433,47 +433,6 @@ Setiap mahasiswa menuliskan:
 
 ---
 
-### 7.1 Lupa operator elemen-per-elemen
-
-Contoh salah:
-
-```octave
-x = 0:0.1:2;
-y = x^2;
-```
-
-Untuk vektor, yang benar biasanya:
-
-```octave
-y = x.^2;
-```
-
-### 7.2 Ukuran `x` dan `y` tidak cocok
-
-Contoh salah:
-
-```octave
-x = 1:5;
-y = [2 4 6];
-plot(x, y)
-```
-
-Jumlah elemen `x` dan `y` harus sesuai.
-
-### 7.3 Legenda tidak sesuai urutan kurva
-
-Urutan teks pada `legend()` harus mengikuti urutan plot yang ditampilkan.
-
-### 7.4 Grafik baru menimpa grafik lama
-
-Jika ingin menambahkan kurva ke axes yang sama, gunakan `hold on`.
-
-### 7.5 File gambar tidak tersimpan
-
-Pastikan perintah `print` dijalankan setelah figure aktif benar-benar dibuat.
-
----
-
 ## 8. Ringkasan
 
 Pada modul ini mahasiswa mempelajari dasar visualisasi 2D di GNU Octave, meliputi:
