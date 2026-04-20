@@ -10,63 +10,58 @@
     "file": "02_variabel-skalar-operator-dan-format-output.md"
   },
   {
-    "slug": "03-vektor-range-dan-matriks-dasar",
-    "title": "Pertemuan 3 — Vektor, Range, dan Matriks Dasar",
-    "file": "03_vektor-range-dan-matriks-dasar.md"
+    "slug": "03-tipe-data-dan-numerik",
+    "title": "Pertemuan 3 — Tipe Data dan Numerik",
+    "file": "03_tipe-data-dan-numerik.md"
   },
   {
-    "slug": "04-operasi-vektor-matriks-dan-sistem-linier",
-    "title": "Pertemuan 4 — Operasi Vektor, Matriks, dan Sistem Linier",
-    "file": "04_operasi-vektor-matriks-dan-sistem-linier.md"
+    "slug": "04-vektor-range-dan-matriks-dasar",
+    "title": "Pertemuan 4 — Vektor, Range, dan Matriks Dasar",
+    "file": "04_vektor-range-dan-matriks-dasar.md"
   },
   {
-    "slug": "05-string-input-output-dan-script-pertama",
-    "title": "Pertemuan 5 — String, Input/Output, dan Script Pertama",
-    "file": "05_string-input-output-dan-script-pertama.md"
+    "slug": "05-operasi-vektor-matriks-dan-sistem-linier",
+    "title": "Pertemuan 5 — Operasi Vektor, Matriks, dan Sistem Linier",
+    "file": "05_operasi-vektor-matriks-dan-sistem-linier.md"
   },
   {
-    "slug": "06-percabangan-if-switch-dan-logika",
-    "title": "Pertemuan 6 — Percabangan if, switch, dan Operator Logika",
-    "file": "06_percabangan-if-switch-dan-logika.md"
+    "slug": "06-string-input-output-dan-script-pertama",
+    "title": "Pertemuan 6 — String, Input/Output, dan Script Pertama",
+    "file": "06_string-input-output-dan-script-pertama.md"
   },
   {
-    "slug": "07-perulangan-for-while-do-until",
-    "title": "Pertemuan 7 — Perulangan for, while, do-until, break, dan continue",
-    "file": "07_perulangan-for-while-do-until.md"
+    "slug": "07-percabangan-if-switch-dan-logika",
+    "title": "Pertemuan 7 — Percabangan if, switch, dan Operator Logika",
+    "file": "07_percabangan-if-switch-dan-logika.md"
   },
   {
-    "slug": "08-fungsi-buatan-pengguna-dan-function-handle",
-    "title": "Pertemuan 8 — Fungsi Buatan Pengguna, Banyak Output, dan Function Handle",
-    "file": "08_fungsi-buatan-pengguna-dan-function-handle.md"
+    "slug": "08-perulangan-for-while-do-until",
+    "title": "Pertemuan 8 — Perulangan for, while, do-until, break, dan continue",
+    "file": "08_perulangan-for-while-do-until.md"
   },
   {
-    "slug": "09-visualisasi-2d-dasar",
-    "title": "Pertemuan 9 — Visualisasi 2D Dasar",
-    "file": "09_visualisasi-2d-dasar.md"
+    "slug": "09-fungsi-buatan-pengguna-dan-function-handle",
+    "title": "Pertemuan 9 — Fungsi Buatan Pengguna, Banyak Output, dan Function Handle",
+    "file": "09_fungsi-buatan-pengguna-dan-function-handle.md"
   },
   {
-    "slug": "10-visualisasi-2d-lanjut-dan-interaktif",
-    "title": "Pertemuan 10 — Visualisasi 2D Lanjut, subplot, Histogram, dan Interaksi",
-    "file": "10_visualisasi-2d-lanjut-dan-interaktif.md"
+    "slug": "10-visualisasi-2d-dasar",
+    "title": "Pertemuan 10 — Visualisasi 2D Dasar",
+    "file": "10_visualisasi-2d-dasar.md"
   },
   {
-    "slug": "11-visualisasi-3d-dan-permukaan",
-    "title": "Pertemuan 11 — Visualisasi 3D dan Permukaan",
-    "file": "11_visualisasi-3d-dan-permukaan.md"
+    "slug": "11-visualisasi-2d-lanjut-dan-interaktif",
+    "title": "Pertemuan 11 — Visualisasi 2D Lanjut, Subplot, Histogram, dan Interaksi",
+    "file": "11_visualisasi-2d-lanjut-dan-interaktif.md"
   },
   {
-    "slug": "12-analisis-data-deskriptif-dan-file-io",
-    "title": "Pertemuan 12 — Analisis Data Deskriptif dan File I/O",
-    "file": "12_analisis-data-deskriptif-dan-file-io.md"
+    "slug": "12-visualisasi-3d-dan-permukaan",
+    "title": "Pertemuan 12 — Visualisasi 3D dan Permukaan",
+    "file": "12_visualisasi-3d-dan-permukaan.md"
   },
   {
-    "slug": "13-regresi-interpolasi-dan-fitting-polinomial",
-    "title": "Pertemuan 13 — Regresi, Interpolasi, dan Fitting Polinomial",
-    "file": "13_regresi-interpolasi-dan-fitting-polinomial.md"
-  },
-  {
-    "slug": "14-gui-ringan-octave-dan-proyek-mini",
-    "title": "Pertemuan 14 — GUI Ringan Octave, Callback, dan Proyek Mini Integrasi",
-    "file": "14_gui-ringan-octave-dan-proyek-mini.md"
+    "slug": "13-analisis-data-deskriptif-dan-file-io",
+    "title": "Pertemuan 13 — Analisis Data Deskriptif dan File I/O",
+    "file": "13_analisis-data-deskriptif-dan-file-io.md"
   }
 ]

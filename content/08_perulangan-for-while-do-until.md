@@ -1,0 +1,639 @@
+# Perulangan `for`, `while`, `do-until`, `break`, dan `continue`
+
+### Identitas Modul
+- **Mata kuliah**: Pemrograman Dasar
+- **Topik**: Perulangan `for`, `while`, `do-until`, `break`, dan `continue`
+- **Bentuk**: Praktikum
+- **Bahasa pemrograman**: GNU Octave
+- **Acuan utama**: Dokumentasi resmi GNU Octave terbaru
+
+---
+
+## 1. Deskripsi Singkat
+
+Perulangan adalah struktur kontrol yang digunakan untuk mengeksekusi blok perintah secara berulang. Dalam GNU Octave, bentuk perulangan yang umum digunakan adalah `for`, `while`, dan `do-until`. Selain itu, Octave juga menyediakan perintah `break` untuk menghentikan loop lebih awal dan `continue` untuk melewati sisa perintah pada iterasi tertentu lalu langsung lanjut ke iterasi berikutnya.
+
+Materi ini penting karena banyak permasalahan pemrograman dasar, komputasi numerik, pengolahan data, dan simulasi sederhana membutuhkan proses yang dilakukan berulang kali.
+
+---
+
+## 2. Capaian Pembelajaran
+
+Setelah mengikuti praktikum ini, praktikan diharapkan mampu:
+
+1. Menjelaskan konsep dasar perulangan dalam Octave.
+2. Menggunakan perulangan `for` untuk iterasi yang jumlah pengulangannya sudah diketahui.
+3. Menggunakan perulangan `while` untuk iterasi berbasis kondisi.
+4. Menggunakan `do-until` untuk proses yang harus dijalankan minimal satu kali.
+5. Menggunakan `break` untuk keluar dari loop.
+6. Menggunakan `continue` untuk melewati iterasi tertentu.
+7. Menyusun program sederhana yang melibatkan percabangan dan perulangan.
+
+---
+
+## 3. Prasyarat
+
+Sebelum mempelajari modul ini, praktikan sebaiknya sudah memahami:
+
+- variabel dan skalar,
+- operator aritmetika,
+- operator relasi dan logika,
+- penggunaan `if` sederhana,
+- penulisan script `.m` di Octave.
+
+---
+
+## 4. Dasar Teori
+
+## 4.1 Konsep Perulangan
+
+Perulangan dipakai saat suatu blok perintah perlu dijalankan lebih dari satu kali. Secara umum, perulangan dipakai untuk:
+
+- menampilkan deret nilai,
+- menjumlahkan atau menghitung akumulasi,
+- memproses elemen vektor atau matriks,
+- melakukan pencarian data,
+- mengulangi proses sampai syarat tertentu terpenuhi.
+
+Dalam Octave, setiap struktur kontrol memiliki penutup blok. Octave memperbolehkan penggunaan `end`, tetapi kata penutup yang lebih spesifik seperti `endfor`, `endwhile`, dan `endif` lebih disarankan karena membantu diagnosis jika ada kesalahan pasangan blok.
+
+---
+
+## 4.2 Perulangan `for`
+
+Perulangan `for` digunakan ketika banyak iterasi sudah diketahui atau dapat ditentukan dari himpunan nilai tertentu.
+
+### Bentuk umum
+
+```octave
+for variabel = ekspresi
+  pernyataan
+endfor
+```
+
+`ekspresi` dapat berupa:
+- range, misalnya `1:5`,
+- vektor, misalnya `[2 4 6 8]`,
+- hasil ekspresi lain yang menghasilkan sekumpulan nilai.
+
+Pada setiap iterasi, `variabel` akan diisi oleh satu nilai dari ekspresi tersebut.
+
+### Contoh 1
+
+```octave
+for i = 1:5
+  disp(i)
+endfor
+```
+
+### Penjelasan
+
+- `i = 1:5` berarti `i` akan bernilai 1, 2, 3, 4, dan 5.
+- `disp(i)` menampilkan nilai `i` pada setiap iterasi.
+
+### Contoh 2
+
+```octave
+jumlah = 0;
+for i = 1:10
+  jumlah = jumlah + i;
+endfor
+
+disp(jumlah)
+```
+
+### Penjelasan
+
+Program di atas menghitung jumlah bilangan 1 sampai 10.
+
+- nilai awal `jumlah` adalah 0,
+- pada setiap iterasi, nilai `i` ditambahkan ke `jumlah`,
+- hasil akhirnya adalah 55.
+
+---
+
+## 4.3 Perulangan `while`
+
+Perulangan `while` digunakan jika jumlah iterasi belum pasti, tetapi proses akan terus dilakukan selama kondisi bernilai benar.
+
+### Bentuk umum
+
+```octave
+while (kondisi)
+  pernyataan
+endwhile
+```
+
+### Contoh 1
+
+```octave
+i = 1;
+while (i <= 5)
+  disp(i)
+  i = i + 1;
+endwhile
+```
+
+### Penjelasan
+
+- loop dimulai dengan `i = 1`,
+- selama `i <= 5`, isi loop dijalankan,
+- `i = i + 1` penting agar kondisi berubah,
+- tanpa perubahan nilai `i`, loop bisa menjadi tak berhingga.
+
+### Contoh 2
+
+```octave
+nilai = 1;
+while (nilai < 100)
+  nilai = nilai * 2;
+  disp(nilai)
+endwhile
+```
+
+### Penjelasan
+
+Program akan terus mengalikan `nilai` dengan 2 sampai nilainya tidak lagi kurang dari 100.
+
+---
+
+## 4.4 Perulangan `do-until`
+
+`do-until` mirip dengan `while`, tetapi pemeriksaan kondisi dilakukan **di akhir** loop. Karena itu, isi loop **pasti dijalankan minimal satu kali**.
+
+### Bentuk umum
+
+```octave
+do
+  pernyataan
+until (kondisi)
+```
+
+Perulangan akan terus berjalan **sampai kondisi bernilai benar**.
+
+### Contoh 1
+
+```octave
+i = 1;
+do
+  disp(i)
+  i = i + 1;
+until (i > 5)
+```
+
+### Penjelasan
+
+- isi loop dijalankan dulu,
+- setelah itu kondisi `i > 5` diperiksa,
+- jika kondisi belum benar, loop berulang lagi,
+- hasil tampilan adalah 1 sampai 5.
+
+### Contoh 2
+
+```octave
+angka = 10;
+do
+  disp(angka)
+  angka = angka - 3;
+until (angka <= 0)
+```
+
+### Penjelasan
+
+Perintah dijalankan terus hingga `angka <= 0` bernilai benar.
+
+---
+
+## 4.5 Pernyataan `break`
+
+`break` digunakan untuk menghentikan loop sebelum kondisi normalnya selesai.
+
+### Bentuk umum
+
+```octave
+while (kondisi)
+  if (syarat_berhenti)
+    break;
+  endif
+endwhile
+```
+
+### Contoh
+
+```octave
+for i = 1:10
+  if (i == 6)
+    break;
+  endif
+  disp(i)
+endfor
+```
+
+### Penjelasan
+
+- loop seharusnya berjalan dari 1 sampai 10,
+- saat `i == 6`, perintah `break` dijalankan,
+- loop berhenti,
+- hasil yang tampil hanya 1 sampai 5.
+
+---
+
+## 4.6 Pernyataan `continue`
+
+`continue` digunakan untuk melewati sisa perintah dalam iterasi saat ini dan langsung lanjut ke iterasi berikutnya.
+
+### Contoh
+
+```octave
+for i = 1:10
+  if (rem(i, 2) != 0)
+    continue;
+  endif
+  disp(i)
+endfor
+```
+
+### Penjelasan
+
+- `rem(i, 2) != 0` berarti bilangan ganjil,
+- saat kondisi benar, `continue` dijalankan,
+- baris `disp(i)` dilewati,
+- yang ditampilkan hanya bilangan genap: 2, 4, 6, 8, 10.
+
+---
+
+## 4.7 Kapan Menggunakan `for`, `while`, dan `do-until`
+
+| Struktur | Kapan digunakan | Ciri utama |
+|---|---|---|
+| `for` | Jumlah iterasi sudah diketahui | Iterasi berdasarkan range/vektor |
+| `while` | Jumlah iterasi belum pasti | Berjalan selama kondisi benar |
+| `do-until` | Blok harus dijalankan minimal sekali | Kondisi dicek di akhir |
+
+---
+
+## 5. Contoh Kode dan Pembahasan
+
+## 5.1 Menampilkan Deret Bilangan dengan `for`
+
+```octave
+clc;
+for i = 1:2:9
+  fprintf("Nilai i = %d\n", i);
+endfor
+```
+
+### Pembahasan
+
+- `1:2:9` berarti mulai dari 1, naik 2 setiap iterasi, sampai 9,
+- nilai `i` adalah 1, 3, 5, 7, 9,
+- `fprintf` digunakan untuk menampilkan output dengan format tertentu.
+
+---
+
+## 5.2 Menjumlahkan Bilangan dengan `while`
+
+```octave
+clc;
+i = 1;
+jumlah = 0;
+
+while (i <= 5)
+  jumlah = jumlah + i;
+  i = i + 1;
+endwhile
+
+fprintf("Jumlah = %d\n", jumlah);
+```
+
+### Pembahasan
+
+Program menjumlahkan bilangan 1 sampai 5.
+
+Prosesnya:
+- iterasi 1: jumlah = 1
+- iterasi 2: jumlah = 3
+- iterasi 3: jumlah = 6
+- iterasi 4: jumlah = 10
+- iterasi 5: jumlah = 15
+
+---
+
+## 5.3 Menu Sederhana dengan `do-until`
+
+```octave
+clc;
+pilihan = 0;
+
+do
+  disp("=== MENU ===");
+  disp("1. Tampilkan pesan");
+  disp("2. Keluar");
+  pilihan = input("Masukkan pilihan: ");
+
+  if (pilihan == 1)
+    disp("Praktikum Octave berjalan.");
+  endif
+until (pilihan == 2)
+```
+
+### Pembahasan
+
+`do-until` cocok untuk menu karena isi blok harus dijalankan dulu minimal satu kali sebelum keputusan berhenti diambil.
+
+---
+
+## 5.4 Menghentikan Pencarian dengan `break`
+
+```octave
+clc;
+data = [4, 7, 10, 13, 20];
+target = 13;
+ketemu = 0;
+
+for i = 1:length(data)
+  if (data(i) == target)
+    ketemu = 1;
+    indeks = i;
+    break;
+  endif
+endfor
+
+if (ketemu == 1)
+  fprintf("Data ditemukan pada indeks ke-%d\n", indeks);
+else
+  disp("Data tidak ditemukan.");
+endif
+```
+
+### Pembahasan
+
+Begitu nilai target ditemukan, loop langsung dihentikan. Ini membuat program lebih efisien dibanding tetap memeriksa elemen berikutnya.
+
+---
+
+## 5.5 Menyaring Data dengan `continue`
+
+```octave
+clc;
+for i = 1:10
+  if (i == 4 || i == 7)
+    continue;
+  endif
+  fprintf("Bilangan: %d\n", i);
+endfor
+```
+
+### Pembahasan
+
+- saat `i = 4` atau `i = 7`, output dilewati,
+- iterasi berikutnya tetap berjalan,
+- bilangan 4 dan 7 tidak ditampilkan.
+
+---
+
+## 6. Langkah Praktikum
+
+Ikuti langkah berikut secara berurutan.
+
+### Langkah 1 — Membuat script `latihan_for.m`
+
+Isi file:
+
+```octave
+clc;
+for i = 1:10
+  fprintf("Iterasi ke-%d\n", i);
+endfor
+```
+
+Jalankan script dan amati hasilnya.
+
+---
+
+### Langkah 2 — Membuat script `latihan_while.m`
+
+Isi file:
+
+```octave
+clc;
+i = 1;
+while (i <= 10)
+  fprintf("Nilai i = %d\n", i);
+  i = i + 1;
+endwhile
+```
+
+Jalankan dan bandingkan hasilnya dengan `for`.
+
+---
+
+### Langkah 3 — Membuat script `latihan_do_until.m`
+
+Isi file:
+
+```octave
+clc;
+i = 1;
+do
+  fprintf("Perulangan ke-%d\n", i);
+  i = i + 1;
+until (i > 5)
+```
+
+Amati bahwa isi loop dijalankan dulu sebelum kondisi dicek.
+
+---
+
+### Langkah 4 — Membuat script `latihan_break_continue.m`
+
+Isi file:
+
+```octave
+clc;
+for i = 1:10
+  if (i == 8)
+    break;
+  endif
+
+  if (i == 3 || i == 5)
+    continue;
+  endif
+
+  fprintf("Nilai yang ditampilkan: %d\n", i);
+endfor
+```
+
+Analisis:
+- kenapa angka 3 dan 5 tidak muncul,
+- kenapa loop berhenti saat mencapai 8.
+
+---
+
+## 7. Tugas Latihan
+
+Kerjakan soal berikut.
+
+### A. Soal Konsep
+
+1. Jelaskan perbedaan utama antara `for`, `while`, dan `do-until`.
+2. Mengapa `do-until` selalu menjalankan isi loop minimal satu kali?
+3. Apa perbedaan fungsi `break` dan `continue`?
+4. Mengapa loop `while` lebih berisiko menjadi loop tak berhingga?
+5. Kapan `for` lebih cocok digunakan daripada `while`?
+
+### B. Soal Praktik
+
+1. Buat program dengan `for` untuk menampilkan kuadrat bilangan 1 sampai 10.
+2. Buat program dengan `while` untuk menghitung jumlah bilangan genap dari 2 sampai 20.
+3. Buat program dengan `do-until` untuk menampilkan bilangan dari 10 turun ke 1.
+4. Buat program yang menampilkan bilangan 1 sampai 20, tetapi melewati bilangan kelipatan 3 menggunakan `continue`.
+5. Buat program yang mencari bilangan pertama antara 1 sampai 100 yang habis dibagi 17 dan gunakan `break` untuk menghentikan loop saat ditemukan.
+
+---
+
+## 8. Tugas Praktikum
+
+## Judul
+**Simulasi Penggunaan Perulangan pada Octave**
+
+## Tujuan
+Praktikan dapat membuat program yang memanfaatkan `for`, `while`, `do-until`, `break`, dan `continue` dalam satu studi kasus sederhana.
+
+## Deskripsi Tugas
+Buat file bernama `praktikum_perulangan.m` yang memenuhi ketentuan berikut.
+
+### Bagian 1 — Deret bilangan dengan `for`
+Tampilkan bilangan 1 sampai 15 beserta kuadratnya.
+
+Contoh format output:
+
+```text
+1 -> 1
+2 -> 4
+3 -> 9
+...
+```
+
+### Bagian 2 — Penjumlahan dengan `while`
+Hitung jumlah bilangan dari 1 sampai 50.
+
+### Bagian 3 — Simulasi menu dengan `do-until`
+Buat menu sederhana berikut:
+- 1 = tampilkan pesan,
+- 2 = hitung jumlah 1 sampai 10,
+- 3 = keluar.
+
+Menu harus terus berulang sampai pengguna memilih keluar.
+
+### Bagian 4 — `continue`
+Tampilkan bilangan 1 sampai 30, tetapi jangan tampilkan bilangan yang habis dibagi 4.
+
+### Bagian 5 — `break`
+Cari bilangan pertama dari 1 sampai 100 yang lebih besar dari 40 dan habis dibagi 9.
+
+---
+
+## 9. Format Pengumpulan
+
+Praktikan mengumpulkan:
+
+1. file `praktikum_perulangan.m`,
+2. tangkapan layar hasil eksekusi,
+3. ringkasan singkat berisi:
+   - penggunaan `for`,
+   - penggunaan `while`,
+   - penggunaan `do-until`,
+   - contoh `break`,
+   - contoh `continue`.
+
+---
+
+## 10. Kriteria Penilaian
+
+| Aspek | Bobot |
+|---|---:|
+| Ketepatan penggunaan `for` | 20% |
+| Ketepatan penggunaan `while` | 20% |
+| Ketepatan penggunaan `do-until` | 20% |
+| Ketepatan penggunaan `break` dan `continue` | 20% |
+| Kerapian output dan struktur program | 20% |
+
+---
+
+## 11. Kesalahan Umum
+
+### 1. Loop tidak berhenti
+Penyebab umum:
+- variabel kontrol tidak berubah,
+- kondisi loop selalu benar.
+
+Contoh salah:
+
+```octave
+i = 1;
+while (i <= 5)
+  disp(i)
+endwhile
+```
+
+Masalah:
+- `i` tidak pernah berubah,
+- program akan terus berjalan.
+
+Perbaikan:
+
+```octave
+i = 1;
+while (i <= 5)
+  disp(i)
+  i = i + 1;
+endwhile
+```
+
+### 2. Salah memahami `do-until`
+Kesalahan umum:
+- mengira loop berjalan selama kondisi benar.
+
+Padahal:
+- `do-until` berjalan **sampai** kondisi benar,
+- jadi logikanya berbeda dengan `while`.
+
+### 3. `break` dipakai padahal yang diinginkan hanya melewati satu iterasi
+Solusi:
+- gunakan `continue` jika loop masih perlu dilanjutkan.
+
+### 4. Tidak memakai penutup blok yang jelas
+Disarankan memakai:
+- `endfor`,
+- `endwhile`,
+- `endif`.
+
+Ini membantu membaca kode dan memudahkan pelacakan kesalahan.
+
+---
+
+## 12. Ringkasan
+
+Pada modul ini telah dipelajari:
+
+- `for` untuk iterasi dengan jumlah yang sudah diketahui,
+- `while` untuk iterasi selama kondisi benar,
+- `do-until` untuk iterasi yang dijalankan minimal sekali,
+- `break` untuk menghentikan loop,
+- `continue` untuk melewati satu iterasi.
+
+Pemahaman terhadap kelima konsep ini sangat penting karena hampir semua program dasar yang melibatkan pengolahan data, pencarian, akumulasi, dan validasi input memerlukan perulangan.
+
+---
+
+## 13. Referensi
+
+1. GNU Octave Manual, versi terbaru.
+2. Bagian **Statements** pada dokumentasi resmi GNU Octave.
+3. Subbagian **The for Statement**.
+4. Subbagian **The while Statement**.
+5. Subbagian **The do-until Statement**.
+6. Subbagian **The break Statement**.
+7. Subbagian **The continue Statement**.
+8. Subbagian **Boolean Expressions**.

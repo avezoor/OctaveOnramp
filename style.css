@@ -17,6 +17,11 @@
   --glow: rgba(255, 122, 0, 0.22);
   --glow-strong: rgba(255, 170, 73, 0.34);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.44);
+  --code-block-padding: 18px;
+  --code-toolbar-offset: 12px;
+  --code-toolbar-size: 36px;
+  --code-line-gap: 14px;
+  --code-line-number-width: 3ch;
 }
 
 * {
@@ -25,6 +30,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -509,18 +516,22 @@ body.toc-open {
 }
 
 .content pre.code-block {
-  padding: 18px 58px 18px 18px;
+  padding:
+    var(--code-block-padding)
+    calc(var(--code-block-padding) + var(--code-toolbar-size) + var(--code-toolbar-offset))
+    var(--code-block-padding)
+    var(--code-block-padding);
 }
 
 .copy-code-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: var(--code-toolbar-offset);
+  right: var(--code-toolbar-offset);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: var(--code-toolbar-size);
+  height: var(--code-toolbar-size);
   padding: 0;
   background:
     linear-gradient(180deg, rgba(255, 177, 74, 0.14), rgba(255, 122, 0, 0.08)),
@@ -576,15 +587,15 @@ body.toc-open {
 
 .content pre.code-block .code-line {
   display: grid;
-  grid-template-columns: minmax(2ch, auto) minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: var(--code-line-number-width) minmax(0, 1fr);
+  gap: var(--code-line-gap);
   align-items: start;
   width: max-content;
   min-width: 100%;
 }
 
 .content pre.code-block .code-line-number {
-  min-width: 3ch;
+  min-width: 0;
   padding-right: 12px;
   border-right: 1px solid rgba(255, 122, 0, 0.18);
   color: rgba(255, 177, 74, 0.66);
@@ -921,10 +932,6 @@ body.toc-open {
   .content {
     padding: 20px;
     padding-bottom: 112px;
-  }
-
-  .content pre.code-block {
-    padding: 14px 52px 14px 14px;
   }
 
   .toc-box {
