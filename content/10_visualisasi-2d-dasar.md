@@ -393,7 +393,6 @@ Contoh target hasil:
 1. `praktikum_visualisasi2d_dasar.m`
 2. satu file gambar hasil plot
 3. tangkapan layar hasil eksekusi
-4. catatan singkat hasil praktikum bila diminta pengampu
 
 ---
 

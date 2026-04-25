@@ -411,12 +411,6 @@ z = x^2 - y^2
 4. Tambahkan `title`, `xlabel`, `ylabel`, `zlabel`, dan `grid on`.
 5. Gunakan `colormap ("cool")` dan `colorbar`.
 6. Ubah sudut pandang menjadi minimal tiga variasi yang berbeda.
-7. Setelah praktik selesai, jawab singkat:
-   - perbedaan `plot3` dan `plot`,
-   - fungsi `meshgrid`,
-   - perbedaan tampilan `mesh` dan `surf`,
-   - fungsi `view`,
-   - manfaat `colorbar` dan `shading interp`.
 
 ---
 
@@ -515,7 +509,6 @@ print("hasil_visualisasi3d.png", "-dpng");
 1. `praktikum_visualisasi3d.m`
 2. satu file gambar hasil visualisasi
 3. tangkapan layar hasil eksekusi
-4. ringkasan singkat hasil pengamatan bila diminta pengampu
 
 ---
 

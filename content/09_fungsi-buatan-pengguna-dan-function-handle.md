@@ -613,12 +613,6 @@ Kerjakan langkah berikut:
 4. Buat function handle `@sqrt` dan evaluasi untuk 16, 25, dan 49.
 5. Buat fungsi yang menerima function handle dan vektor, lalu mengembalikan hasil evaluasi fungsi pada setiap elemen vektor.
 6. Buat fungsi rekursif `pangkat_rekursif(a, n)` untuk menghitung `a^n` dengan `n` bilangan bulat nonnegatif.
-7. Setelah praktik selesai, jawab singkat:
-   - manfaat fungsi dibanding semua perintah ditulis langsung,
-   - perbedaan function file dan script file,
-   - fungsi `nargin`,
-   - perbedaan function handle dan anonymous function,
-   - arti **base case** pada rekursi.
 
 Contoh salah satu latihan:
 
@@ -751,7 +745,6 @@ endfunction
 ### 8.4 Luaran yang Dikumpulkan
 1. `praktikum_fungsi_dan_handle.m`
 2. tangkapan layar hasil eksekusi
-3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

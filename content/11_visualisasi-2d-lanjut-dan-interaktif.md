@@ -455,7 +455,6 @@ print ("hasil_visualisasi2d_lanjut.png", "-dpng")
 1. `praktikum_visualisasi2d_lanjut.m`
 2. file gambar `hasil_visualisasi2d_lanjut.png`
 3. tangkapan layar hasil eksekusi
-4. catatan singkat hasil praktikum bila diminta pengampu
 
 ---
 

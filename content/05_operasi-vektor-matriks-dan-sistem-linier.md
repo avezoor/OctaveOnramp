@@ -524,12 +524,6 @@ b = [9; -4];
 x = A \ b
 ```
 
-6. Setelah praktik selesai, jawab singkat:
-   - perbedaan `A * B` dan `A .* B`,
-   - alasan `A \ b` lebih baik daripada `inv(A) * b`,
-   - fungsi transpose,
-   - alasan ukuran matriks penting.
-
 ---
 
 ## 7. Tugas Praktikum
@@ -635,7 +629,6 @@ disp("Verifikasi C * x = "); disp(cek);
 
 1. `praktikum_operasi_vektor_matriks.m`
 2. tangkapan layar hasil eksekusi
-3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

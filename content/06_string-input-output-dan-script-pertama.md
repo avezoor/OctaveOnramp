@@ -333,12 +333,6 @@ Kerjakan perintah berikut di Octave.
 3. Minta input satu angka, lalu tampilkan kuadratnya.
 4. Minta input string, lalu tampilkan kembali dengan awalan teks keterangan.
 5. Gunakan `sprintf` untuk membentuk kalimat hasil perhitungan.
-6. Setelah praktik selesai, jawab singkat:
-   - perbedaan string dan numerik,
-   - alasan penggunaan tanda kutip ganda untuk string,
-   - perbedaan `input("...")` dan `input("...", "s")`,
-   - perbedaan `disp` dan `printf`,
-   - alasan script berguna dibanding mengetik perintah satu per satu.
 
 Contoh target pengerjaan nomor 3:
 
@@ -412,7 +406,6 @@ disp("Program selesai dijalankan.")
 
 1. File `praktikum_string_io.m`
 2. Tangkapan layar hasil program saat dijalankan
-3. Ringkasan singkat fungsi-fungsi yang dipakai bila diminta pengampu (`input`, `disp`, `printf`, `sprintf`)
 
 ---
 

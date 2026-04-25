@@ -446,12 +446,6 @@ Kerjakan soal berikut di Octave.
 3. Buat program dengan `do-until` untuk menampilkan bilangan dari 10 turun ke 1.
 4. Buat program yang menampilkan bilangan 1 sampai 20, tetapi melewati bilangan kelipatan 3 menggunakan `continue`.
 5. Buat program yang mencari bilangan pertama antara 1 sampai 100 yang habis dibagi 17 dan gunakan `break`.
-6. Setelah praktik selesai, jawab singkat:
-   - perbedaan utama `for`, `while`, dan `do-until`,
-   - alasan `do-until` berjalan minimal satu kali,
-   - perbedaan `break` dan `continue`,
-   - alasan `while` lebih berisiko menjadi loop tak berhingga,
-   - kapan `for` lebih cocok daripada `while`.
 
 ---
 
@@ -487,7 +481,6 @@ Contoh format output bagian `for`:
 
 1. `praktikum_perulangan.m`
 2. tangkapan layar hasil eksekusi
-3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

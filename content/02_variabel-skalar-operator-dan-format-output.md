@@ -594,7 +594,6 @@ Script boleh dikembangkan sesuai kebutuhan, tetapi seluruh hasil harus keluar da
 
 1. `praktikum_variabel_operator.m`
 2. tangkapan layar hasil eksekusi script
-3. file log praktikum bila diminta pengampu
 
 ---
 

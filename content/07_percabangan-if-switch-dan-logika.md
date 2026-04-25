@@ -496,12 +496,6 @@ Kerjakan menggunakan Octave.
 3. Buat program `switch` untuk menampilkan nama hari berdasarkan kode 1 sampai 5.
 4. Buat program untuk menentukan apakah seseorang boleh mengikuti ujian susulan jika kehadiran minimal 75 atau memiliki surat keterangan.
 5. Buat program untuk mengecek apakah sebuah bilangan berada di antara 10 dan 100.
-6. Setelah praktik selesai, jawab singkat:
-   - perbedaan `if` dan `switch`,
-   - kapan `switch` lebih tepat digunakan,
-   - fungsi `otherwise`,
-   - perbedaan `&` dan `&&`,
-   - alasan `elseif` tidak ditulis `else if`.
 
 ---
 
@@ -604,7 +598,6 @@ disp(["Besar diskon      = ", num2str(diskon)]);
 
 1. `praktikum_percabangan.m`
 2. tangkapan layar hasil eksekusi program
-3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

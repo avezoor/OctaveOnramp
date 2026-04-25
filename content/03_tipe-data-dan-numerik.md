@@ -733,7 +733,6 @@ disp("- Operasi campuran perlu diperhatikan karena tipe hasil bisa berubah.");
 
 1. `praktikum_tipe_data_numerik.m`
 2. tangkapan layar hasil eksekusi script
-3. catatan singkat hasil pengamatan bila diminta pengampu
 
 ---
 

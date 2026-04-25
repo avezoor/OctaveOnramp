@@ -418,11 +418,6 @@ Kerjakan langsung di Octave. Untuk latihan, tidak perlu membuat banyak file.
 8. Buat matriks nol ukuran 2 x 4.
 9. Tampilkan jumlah seluruh elemen dari matriks `[1, 2; 3, 4; 5, 6]`.
 10. Ambil elemen terakhir dari vektor `[4, 8, 12, 16, 20]`.
-11. Setelah praktik selesai, jawab singkat:
-    - perbedaan vektor baris dan vektor kolom,
-    - fungsi range,
-    - perbedaan `1:5` dan `1:2:5`,
-    - fungsi `size`, `rows`, `columns`, dan `numel`.
 
 ---
 
@@ -522,7 +517,7 @@ disp(M(1,end));
 
 1. file `praktikum_vektor_matriks_dasar.m`
 2. tangkapan layar hasil eksekusi
-3. ringkasan singkat hasil pengamatan praktikan bila diminta pengampu
+
 
 ---
 
