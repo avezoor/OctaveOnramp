@@ -295,31 +295,43 @@ Ikuti langkah berikut:
 
 ## 7. Tugas Latihan
 
-### 7.1 A. Latihan Pemahaman
-Jawab pertanyaan berikut:
+### 7.1 Tugas Latihan
 
-1. Apa perbedaan utama GUI dan CLI pada Octave?
-2. Apa fungsi `pwd` dan `cd`?
-3. Apa perbedaan `who` dan `whos`?
-4. Mengapa `help` dan `doc` sama-sama penting?
-5. Apa kegunaan `diary` dalam praktikum?
+Kerjakan langsung di **Command Window Octave**. Untuk materi paling awal ini, latihan tidak perlu dibuat menjadi banyak file dan tidak perlu membuat folder baru.
 
-### 7.2 B. Latihan Perintah
-Kerjakan di Octave:
-
-1. Tampilkan direktori kerja aktif.
-2. Tampilkan isi folder aktif.
+1. Jalankan `pwd`, `who`, dan `clc`.
+2. Tampilkan bantuan singkat untuk `disp` dan `mean` dengan `help`.
 3. Buat tiga variabel angka, lalu hitung rata-ratanya.
-4. Tampilkan daftar semua variabel yang ada.
-5. Cari dokumentasi fungsi `mean`.
+4. Tampilkan daftar variabel dengan `who` dan detailnya dengan `whos`.
+5. Aktifkan `diary`, jalankan beberapa perintah latihan, lalu matikan kembali dengan `diary off`.
+6. Setelah praktik selesai, tulis jawaban singkat tentang:
+   - perbedaan GUI dan CLI,
+   - fungsi `pwd` dan `cd`,
+   - perbedaan `who` dan `whos`,
+   - kegunaan `help` atau `doc`,
+   - kegunaan `diary`.
 
-Contoh jawaban untuk nomor 3:
+Contoh alur pengerjaan:
 
 ```octave
+pwd
+who
+clc
+
+help disp
+help mean
+
 a = 70;
 b = 80;
 c = 90;
 rata_rata = (a + b + c) / 3
+
+who
+whos
+
+diary log_latihan1.txt
+disp("Latihan command window selesai.")
+diary off
 ```
 
 ---
@@ -334,134 +346,79 @@ Mahasiswa mampu:
 - menggunakan lingkungan kerja Octave dengan benar,
 - mengelola direktori kerja,
 - membuat skrip `.m`,
-- membuat satu fungsi sederhana,
 - menggunakan dokumentasi bawaan.
 
 ### 8.3 Instruksi Tugas
-Buat folder dengan nama:
+Buat **satu file script saja** bernama `praktikum_pengantar_octave.m`.
 
-```text
-praktikum_octave_mahasiswa
-```
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-Di dalamnya, buat file berikut:
-
-#### 1. File `identitas_praktikum.m`
-Isi file harus:
-- menampilkan judul praktikum,
-- menampilkan identitas umum,
-- menampilkan kode peserta,
-- menampilkan kelas atau kelompok,
-- menampilkan hasil operasi:
-  - penjumlahan
-  - pengurangan
-  - perkalian
-  - pembagian
+Isi script harus memuat:
+- judul praktikum dan identitas singkat,
+- minimal dua variabel angka dan hasil operasi `+`, `-`, `*`, dan `/`,
+- tampilan folder aktif dengan `pwd`,
+- tampilan daftar variabel dengan `who` atau `whos`,
+- pesan penutup bahwa praktikum selesai dijalankan.
 
 Contoh kerangka:
 
 ```octave
 clc;
+format default;
+
 disp("=== PRAKTIKUM 1: PENGANTAR OCTAVE ===");
 
-identitas = "mahasiswa";
-kode_peserta = "00000000";
+nama = "mahasiswa";
+nim = "00000000";
 kelas = "kelas_praktikum";
-
-disp(["Identitas    : ", identitas]);
-disp(["Kode Peserta : ", kode_peserta]);
-disp(["Kelas        : ", kelas]);
 
 a = 12;
 b = 4;
+folder_aktif = pwd;
 
+disp(["Nama   : ", nama]);
+disp(["NIM    : ", nim]);
+disp(["Kelas  : ", kelas]);
+disp(["Folder : ", folder_aktif]);
+disp(" ");
+
+disp("=== OPERASI DASAR ===");
 disp(["a + b = ", num2str(a + b)]);
 disp(["a - b = ", num2str(a - b)]);
 disp(["a * b = ", num2str(a * b)]);
 disp(["a / b = ", num2str(a / b)]);
-```
+disp(" ");
 
-#### 2. File fungsi `hitung_lingkaran.m`
-Buat fungsi yang menerima jari-jari `r`, lalu menghasilkan:
-- luas lingkaran
-- keliling lingkaran
-
-Contoh spesifikasi:
-- input: `r`
-- output: `L`, `K`
-
-Kerangka:
-
-```octave
-function [L, K] = hitung_lingkaran(r)
-  % HITUNG_LINGKARAN Menghitung luas dan keliling lingkaran.
-  %   [L, K] = HITUNG_LINGKARAN(r) menerima jari-jari r.
-
-  L = pi * r^2;
-  K = 2 * pi * r;
-endfunction
-```
-
-#### 3. File `uji_fungsi.m`
-Gunakan file ini untuk menguji fungsi yang dibuat:
-
-```octave
-clc;
-r = 7;
-[L, K] = hitung_lingkaran(r);
-
-disp(["Jari-jari = ", num2str(r)]);
-disp(["Luas      = ", num2str(L)]);
-disp(["Keliling  = ", num2str(K)]);
-```
-
-#### 4. Gunakan perintah dokumentasi
-Di Command Window, jalankan:
-
-```octave
-help hitung_lingkaran
+disp("=== DAFTAR VARIABEL ===");
 who
 whos
-pwd
-dir
-```
 
-#### 5. Simpan log sesi praktikum
-Gunakan:
-
-```octave
-diary log_praktikum1.txt
-```
-
-Jalankan pengujian, lalu akhiri dengan:
-
-```octave
-diary off
+disp("Praktikum selesai dijalankan.");
 ```
 
 ### 8.4 Luaran yang Dikumpulkan
 Mahasiswa mengumpulkan:
-1. file `identitas_praktikum.m`
-2. file `hitung_lingkaran.m`
-3. file `uji_fungsi.m`
-4. file log `log_praktikum1.txt`
-5. tangkapan layar hasil eksekusi
+1. file `praktikum_pengantar_octave.m`
+2. tangkapan layar hasil eksekusi
+3. file log praktikum bila diminta pengampu
 
 ---
 
 ### 8.5 A. Aspek Penilaian
-1. **Kebenaran struktur folder dan file** — 15%
-2. **Kebenaran sintaks skrip** — 20%
-3. **Kebenaran fungsi yang dibuat** — 20%
-4. **Keberhasilan menjalankan dan menguji file** — 20%
-5. **Pemanfaatan dokumentasi/help dan diary** — 10%
-6. **Kerapian output dan dokumentasi komentar** — 15%
+1. **Kebenaran isi script dan sintaks** — 25%
+2. **Pemakaian perintah dasar Octave** — 20%
+3. **Keberhasilan menjalankan script** — 20%
+4. **Kerapian output** — 20%
+5. **Pemahaman penggunaan `help`, `who`, `whos`, dan `diary`** — 15%
 
 ### 8.6 B. Rubrik Ringkas
-- **Sangat baik**: semua file benar, fungsi berjalan, log tersedia, komentar rapi.
-- **Baik**: ada kekurangan kecil tetapi program berjalan.
-- **Cukup**: program sebagian berjalan, masih ada kesalahan sintaks/logika.
-- **Kurang**: file tidak lengkap atau program tidak dapat dijalankan.
+- **Sangat baik**: script lengkap, semua bagian berjalan, output rapi.
+- **Baik**: ada kekurangan kecil tetapi script dapat dijalankan.
+- **Cukup**: script sebagian berjalan, masih ada kesalahan kecil.
+- **Kurang**: script tidak lengkap atau tidak dapat dijalankan.
 
 ---
 

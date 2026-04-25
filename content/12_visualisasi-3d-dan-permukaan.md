@@ -386,19 +386,7 @@ print ("permukaan3d.png", "-dpng")
 
 ## 6. Tugas Latihan
 
-### 6.1 A. Latihan Konsep
-
-Jawab pertanyaan berikut.
-
-1. Apa perbedaan fungsi `plot3` dan `plot`?
-2. Mengapa `meshgrid` diperlukan pada pembuatan permukaan 3D?
-3. Apa perbedaan tampilan antara `mesh` dan `surf`?
-4. Apa fungsi `view` dalam visualisasi 3D?
-5. Mengapa `colorbar` penting pada plot permukaan berwarna?
-6. Apa pengaruh `shading interp` terhadap tampilan permukaan?
-7. Kapan `surfc` lebih berguna daripada `surf` biasa?
-
-### 6.2 B. Latihan Praktik
+### 6.1 Tugas Latihan
 
 Kerjakan perintah berikut di Octave.
 
@@ -423,6 +411,12 @@ z = x^2 - y^2
 4. Tambahkan `title`, `xlabel`, `ylabel`, `zlabel`, dan `grid on`.
 5. Gunakan `colormap ("cool")` dan `colorbar`.
 6. Ubah sudut pandang menjadi minimal tiga variasi yang berbeda.
+7. Setelah praktik selesai, jawab singkat:
+   - perbedaan `plot3` dan `plot`,
+   - fungsi `meshgrid`,
+   - perbedaan tampilan `mesh` dan `surf`,
+   - fungsi `view`,
+   - manfaat `colorbar` dan `shading interp`.
 
 ---
 
@@ -440,128 +434,88 @@ Mahasiswa mampu:
 - mengatur tampilan visualisasi agar informatif.
 
 ### 7.3 Instruksi Tugas
-
-Buat folder kerja dengan nama:
-
-```text
-praktikum_octave_visualisasi3d
-```
-
-Di dalam folder tersebut, buat file berikut.
-
-### 7.4 File `kurva3d_dasar.m`
-
-Isi file harus menampilkan satu kurva 3D parametrik.
-
-Spesifikasi minimal:
-
-- menggunakan `plot3`,
-- memiliki judul dan label sumbu,
-- mengaktifkan grid,
-- mengatur sudut pandang dengan `view`.
-
-Contoh kerangka:
-
-```octave
-t = linspace (0, 10*pi, 400);
-x = cos (t);
-y = sin (t);
-z = 0.2 * t;
-
-figure;
-plot3 (x, y, z, "LineWidth", 2);
-grid on;
-title ("Kurva 3D Parametrik");
-xlabel ("x");
-ylabel ("y");
-zlabel ("z");
-view (45, 25);
-```
-
-### 7.5 File `permukaan_fungsi.m`
-
-Buat visualisasi permukaan dari fungsi:
-
-```octave
-z = sin (sqrt (x.^2 + y.^2)) ./ sqrt (x.^2 + y.^2)
-```
+Buat **satu file script saja** bernama `praktikum_visualisasi3d.m`.
 
 Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-- gunakan `meshgrid`,
-- tampilkan dengan `surf`,
-- gunakan `colorbar`,
-- gunakan `shading interp`,
-- atur `colormap`.
-
-Contoh kerangka aman terhadap pembagian nol di pusat:
-
-```octave
-range = linspace (-8, 8, 81);
-[X, Y] = meshgrid (range, range);
-R = sqrt (X.^2 + Y.^2);
-Z = sin (R) ./ R;
-Z(R == 0) = 1;
-
-figure;
-surf (X, Y, Z);
-shading interp;
-colormap ("jet");
-colorbar;
-grid on;
-title ("Permukaan Fungsi Sombrero");
-xlabel ("x");
-ylabel ("y");
-zlabel ("z");
-view (50, 30);
-```
-
-### 7.6 File `perbandingan_permukaan.m`
-
-Gunakan data yang sama untuk membandingkan minimal tiga bentuk visualisasi:
-
-- `mesh`,
-- `surf`,
-- `surfc` atau `meshc`.
+Isi script harus memuat:
+- satu kurva 3D parametrik dengan `plot3`,
+- satu permukaan fungsi dengan `meshgrid` dan `surf`,
+- satu perbandingan tampilan `mesh`, `surf`, dan `surfc` atau `meshc`,
+- pengaturan `view`, `colormap`, `colorbar`, dan `shading`,
+- penyimpanan salah satu figure ke file gambar.
 
 Contoh kerangka:
 
 ```octave
-[X, Y, Z] = peaks (40);
+clc;
+clear;
 
-figure (1);
-mesh (X, Y, Z);
+disp("=== PRAKTIKUM 12: VISUALISASI 3D ===");
+
+t = linspace(0, 10*pi, 400);
+x = cos(t);
+y = sin(t);
+z = 0.2 * t;
+
+figure(1);
+plot3(x, y, z, "LineWidth", 2);
 grid on;
-title ("Mesh Plot");
+title("Kurva 3D Parametrik");
+xlabel("x");
+ylabel("y");
+zlabel("z");
+view(45, 25);
 
-figure (2);
-surf (X, Y, Z);
+range = linspace(-8, 8, 81);
+[X, Y] = meshgrid(range, range);
+R = sqrt(X.^2 + Y.^2);
+Z = sin(R) ./ R;
+Z(R == 0) = 1;
+
+figure(2);
+surf(X, Y, Z);
 shading interp;
+colormap("jet");
 colorbar;
-title ("Surface Plot");
+grid on;
+title("Permukaan Fungsi Sombrero");
+xlabel("x");
+ylabel("y");
+zlabel("z");
+view(50, 30);
 
-figure (3);
-surfc (X, Y, Z);
-colorbar;
-title ("Surface dengan Contour");
+[X2, Y2, Z2] = peaks(40);
+
+figure(3);
+subplot(1, 3, 1);
+mesh(X2, Y2, Z2);
+title("Mesh");
+grid on;
+
+subplot(1, 3, 2);
+surf(X2, Y2, Z2);
+title("Surf");
+shading interp;
+grid on;
+
+subplot(1, 3, 3);
+surfc(X2, Y2, Z2);
+title("Surfc");
+grid on;
+
+print("hasil_visualisasi3d.png", "-dpng");
 ```
 
-### 7.7 File `catatan_hasil.txt`
+### 7.4 Luaran yang Dikumpulkan
 
-Tuliskan ringkasan singkat yang menjawab:
-
-1. perbedaan visual antara `mesh` dan `surf`,
-2. fungsi `colorbar`,
-3. pengaruh `view` terhadap pembacaan grafik,
-4. visualisasi mana yang paling mudah dibaca dan alasannya.
-
-### 7.8 Luaran yang Dikumpulkan
-
-1. `kurva3d_dasar.m`
-2. `permukaan_fungsi.m`
-3. `perbandingan_permukaan.m`
-4. `catatan_hasil.txt`
-5. tangkapan layar hasil eksekusi
+1. `praktikum_visualisasi3d.m`
+2. satu file gambar hasil visualisasi
+3. tangkapan layar hasil eksekusi
+4. ringkasan singkat hasil pengamatan bila diminta pengampu
 
 ---
 

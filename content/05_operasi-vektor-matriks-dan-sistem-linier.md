@@ -495,21 +495,9 @@ uji = A * x
 
 ## 6. Tugas Latihan
 
-### 6.1 A. Latihan Konsep
+### 6.1 Tugas Latihan
 
-Jawab pertanyaan berikut:
-
-1. Apa perbedaan antara `A * B` dan `A .* B`?
-2. Mengapa `A \ b` lebih baik digunakan daripada `inv(A) * b` untuk menyelesaikan sistem linier?
-3. Apa perbedaan vektor baris dan vektor kolom?
-4. Apa fungsi transpose dalam pengolahan vektor dan matriks?
-5. Mengapa ukuran matriks penting dalam perkalian matriks?
-
----
-
-### 6.2 B. Latihan Praktik
-
-Kerjakan dengan Octave:
+Kerjakan langsung di Octave.
 
 1. Buat dua vektor baris masing-masing berisi 5 elemen.
 2. Hitung penjumlahan, pengurangan, dan perkalian elemen per elemen kedua vektor.
@@ -536,6 +524,12 @@ b = [9; -4];
 x = A \ b
 ```
 
+6. Setelah praktik selesai, jawab singkat:
+   - perbedaan `A * B` dan `A .* B`,
+   - alasan `A \ b` lebih baik daripada `inv(A) * b`,
+   - fungsi transpose,
+   - alasan ukuran matriks penting.
+
 ---
 
 ## 7. Tugas Praktikum
@@ -551,100 +545,22 @@ Praktikan mampu membuat skrip yang:
 - menampilkan hasil secara rapi.
 
 ### 7.3 Instruksi
+Buat **satu file script saja** bernama `praktikum_operasi_vektor_matriks.m`.
 
-Buat folder kerja dengan nama:
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-```text
-praktikum_octave_operasi_matriks
-```
+Isi script harus memuat:
+- operasi pada dua vektor baris,
+- operasi pada dua matriks 2×2,
+- contoh transpose,
+- penyelesaian satu sistem linier 3 variabel,
+- verifikasi hasil dengan `A * x`,
+- output yang rapi dan mudah dibaca.
 
-Kemudian buat file berikut.
-
----
-
-### 7.4 1. File `operasi_vektor.m`
-
-Isi file harus:
-- membuat dua vektor baris,
-- menghitung penjumlahan,
-- menghitung pengurangan,
-- menghitung perkalian elemen per elemen,
-- menghitung pembagian elemen per elemen,
-- menampilkan seluruh hasil.
-
-Contoh kerangka:
-
-```octave
-clc;
-clear;
-
-v1 = [10, 20, 30, 40];
-v2 = [2, 4, 5, 8];
-
-jumlah = v1 + v2;
-selisih = v1 - v2;
-kali_elemen = v1 .* v2;
-bagi_elemen = v1 ./ v2;
-
-fprintf("=== OPERASI VEKTOR ===\n");
-disp("v1 = "); disp(v1);
-disp("v2 = "); disp(v2);
-disp("v1 + v2 = "); disp(jumlah);
-disp("v1 - v2 = "); disp(selisih);
-disp("v1 .* v2 = "); disp(kali_elemen);
-disp("v1 ./ v2 = "); disp(bagi_elemen);
-```
-
----
-
-### 7.5 2. File `operasi_matriks.m`
-
-Isi file harus:
-- membuat dua matriks 2×2,
-- menghitung penjumlahan,
-- pengurangan,
-- perkalian matriks,
-- perkalian elemen per elemen,
-- transpose salah satu matriks,
-- menampilkan hasilnya.
-
-Contoh kerangka:
-
-```octave
-clc;
-clear;
-
-A = [1 2; 3 4];
-B = [2 1; 0 3];
-
-jumlah = A + B;
-selisih = A - B;
-kali_matriks = A * B;
-kali_elemen = A .* B;
-transpose_A = A.';
-
-fprintf("=== OPERASI MATRIKS ===\n");
-disp("A = "); disp(A);
-disp("B = "); disp(B);
-disp("A + B = "); disp(jumlah);
-disp("A - B = "); disp(selisih);
-disp("A * B = "); disp(kali_matriks);
-disp("A .* B = "); disp(kali_elemen);
-disp("A.' = "); disp(transpose_A);
-```
-
----
-
-### 7.6 3. File `sistem_linier.m`
-
-Isi file harus:
-- mendefinisikan sistem linier 3 variabel,
-- menyusun matriks koefisien `A`,
-- menyusun vektor konstanta `b`,
-- menghitung solusi dengan `A \ b`,
-- memverifikasi hasil menggunakan `A * x`.
-
-Model matematis yang diimplementasikan:
+Model matematis sistem linier yang diimplementasikan:
 
 $$
 \begin{aligned}
@@ -660,31 +576,66 @@ Contoh kerangka:
 clc;
 clear;
 
-A = [2 1 -1;
+disp("=== PRAKTIKUM 5: OPERASI VEKTOR, MATRIKS, DAN SISTEM LINIER ===");
+
+v1 = [10, 20, 30, 40];
+v2 = [2, 4, 5, 8];
+
+jumlah_v = v1 + v2;
+selisih_v = v1 - v2;
+kali_v = v1 .* v2;
+bagi_v = v1 ./ v2;
+
+disp("=== OPERASI VEKTOR ===");
+disp("v1 = "); disp(v1);
+disp("v2 = "); disp(v2);
+disp("v1 + v2 = "); disp(jumlah_v);
+disp("v1 - v2 = "); disp(selisih_v);
+disp("v1 .* v2 = "); disp(kali_v);
+disp("v1 ./ v2 = "); disp(bagi_v);
+disp(" ");
+
+A = [1 2; 3 4];
+B = [2 1; 0 3];
+
+jumlah_m = A + B;
+selisih_m = A - B;
+kali_m = A * B;
+kali_elemen = A .* B;
+transpose_A = A.';
+
+disp("=== OPERASI MATRIKS ===");
+disp("A = "); disp(A);
+disp("B = "); disp(B);
+disp("A + B = "); disp(jumlah_m);
+disp("A - B = "); disp(selisih_m);
+disp("A * B = "); disp(kali_m);
+disp("A .* B = "); disp(kali_elemen);
+disp("A.' = "); disp(transpose_A);
+disp(" ");
+
+C = [2 1 -1;
      1 3 2;
      1 -1 2];
+d = [8; 13; 3];
 
-b = [8; 13; 3];
-
-x = A \ b;
-cek = A * x;
+x = C \ d;
+cek = C * x;
 
 fprintf("=== SISTEM LINIER ===\n");
-disp("Matriks A = "); disp(A);
-disp("Vektor b = "); disp(b);
+disp("Matriks C = "); disp(C);
+disp("Vektor d = "); disp(d);
 disp("Solusi x = "); disp(x);
-disp("Verifikasi A * x = "); disp(cek);
+disp("Verifikasi C * x = "); disp(cek);
 ```
 
 ---
 
-### 7.7 4. File `laporan_ringkas.txt`
+### 7.4 Luaran yang Dikumpulkan
 
-Tuliskan ringkasan singkat berisi:
-- perbedaan `*` dan `.*`,
-- perbedaan `^` dan `.^`,
-- fungsi operator `\`,
-- kesimpulan dari hasil praktikum.
+1. `praktikum_operasi_vektor_matriks.m`
+2. tangkapan layar hasil eksekusi
+3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

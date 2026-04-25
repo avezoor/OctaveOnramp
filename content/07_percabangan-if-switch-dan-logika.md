@@ -483,53 +483,25 @@ endif
 
 ## 6. Tugas Latihan
 
-### 6.1 A. Latihan Konsep
-
-Jawab pertanyaan berikut:
-
-1. Apa perbedaan `if` dan `switch`?
-2. Kapan `switch` lebih tepat digunakan dibanding `if` bertingkat?
-3. Apa fungsi `otherwise` pada `switch`?
-4. Apa perbedaan `&` dengan `&&`?
-5. Mengapa `elseif` tidak boleh ditulis `else if` pada Octave?
-
----
-
-### 6.2 B. Latihan Kode
+### 6.1 Tugas Latihan
 
 Kerjakan menggunakan Octave.
 
-#### Soal 1
-Buat program untuk menentukan apakah sebuah bilangan:
-- positif,
-- negatif,
-- atau nol.
-
-#### Soal 2
-Buat program untuk menentukan grade berdasarkan ketentuan berikut:
-- `>= 85` → A
-- `>= 75` → B
-- `>= 65` → C
-- `< 65` → D
-
-#### Soal 3
-Buat program menggunakan `switch` untuk menampilkan nama hari berdasarkan kode:
-- 1 = Senin
-- 2 = Selasa
-- 3 = Rabu
-- 4 = Kamis
-- 5 = Jumat
-- selain itu tampilkan pesan bahwa kode tidak valid.
-
-#### Soal 4
-Buat program untuk menentukan apakah seseorang memenuhi syarat mengikuti ujian susulan jika:
-- kehadiran minimal 75, **atau**
-- memiliki surat keterangan.
-
-Gunakan operator logika.
-
-#### Soal 5
-Buat program untuk mengecek apakah sebuah bilangan berada di antara 10 dan 100.
+1. Buat program untuk menentukan apakah sebuah bilangan bernilai positif, negatif, atau nol.
+2. Buat program untuk menentukan grade dengan aturan:
+   - `>= 85` → A
+   - `>= 75` → B
+   - `>= 65` → C
+   - `< 65` → D
+3. Buat program `switch` untuk menampilkan nama hari berdasarkan kode 1 sampai 5.
+4. Buat program untuk menentukan apakah seseorang boleh mengikuti ujian susulan jika kehadiran minimal 75 atau memiliki surat keterangan.
+5. Buat program untuk mengecek apakah sebuah bilangan berada di antara 10 dan 100.
+6. Setelah praktik selesai, jawab singkat:
+   - perbedaan `if` dan `switch`,
+   - kapan `switch` lebih tepat digunakan,
+   - fungsi `otherwise`,
+   - perbedaan `&` dan `&&`,
+   - alasan `elseif` tidak ditulis `else if`.
 
 ---
 
@@ -546,33 +518,30 @@ Mahasiswa mampu membuat skrip yang menggunakan:
 - dan menampilkan output yang informatif.
 
 ### 7.3 Instruksi Tugas
+Buat **satu file script saja** bernama `praktikum_percabangan.m`.
 
-Buat folder kerja dengan nama:
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-```text
-praktikum_percabangan_octave
-```
-
-Di dalam folder tersebut, buat file berikut.
-
----
-
-### 7.4 1. File `cek_nilai.m`
-
-Buat program yang menerima nilai angka melalui variabel, lalu menampilkan:
-- "Nilai A"
-- "Nilai B"
-- "Nilai C"
-- "Nilai D"
-
-Gunakan `if`, `elseif`, dan `else`.
+Isi script harus memuat:
+- contoh `if`, `elseif`, `else` untuk menentukan grade,
+- contoh `switch` untuk memilih kategori,
+- contoh operator logika untuk menentukan kelayakan,
+- contoh `if` bertingkat untuk menghitung diskon,
+- output yang jelas dan mudah dibaca.
 
 Contoh kerangka:
 
 ```octave
 clc;
-nilai = 78;
+clear;
 
+disp("=== PRAKTIKUM 7: PERCABANGAN DASAR ===");
+
+nilai = 78;
+disp("=== CEK NILAI ===");
 if (nilai >= 85)
   disp("Nilai A");
 elseif (nilai >= 75)
@@ -582,25 +551,10 @@ elseif (nilai >= 65)
 else
   disp("Nilai D");
 endif
-```
+disp(" ");
 
----
-
-### 7.5 2. File `cek_kategori.m`
-
-Buat program menggunakan `switch` untuk memilih kategori berdasarkan kode berikut:
-- 1 = Makanan
-- 2 = Minuman
-- 3 = Alat Tulis
-- 4 = Buku
-- selain itu = Kategori tidak tersedia
-
-Contoh kerangka:
-
-```octave
-clc;
 kode = 2;
-
+disp("=== CEK KATEGORI ===");
 switch (kode)
   case 1
     disp("Kategori Makanan");
@@ -613,70 +567,44 @@ switch (kode)
   otherwise
     disp("Kategori tidak tersedia");
 endswitch
-```
+disp(" ");
 
----
-
-### 7.6 3. File `cek_kelayakan.m`
-
-Buat program untuk menentukan kelayakan mengikuti praktikum lanjutan dengan syarat:
-- nilai teori minimal 70,
-- dan kehadiran minimal 80.
-
-Jika dua syarat terpenuhi, tampilkan pesan layak. Jika tidak, tampilkan pesan belum layak.
-
-Contoh kerangka:
-
-```octave
-clc;
 nilai_teori = 75;
 kehadiran = 90;
-
+disp("=== CEK KELAYAKAN ===");
 if (nilai_teori >= 70) && (kehadiran >= 80)
   disp("Layak mengikuti praktikum lanjutan");
 else
   disp("Belum layak mengikuti praktikum lanjutan");
 endif
+disp(" ");
+
+total_belanja = 550000;
+member = true;
+
+disp("=== CEK DISKON ===");
+if (total_belanja >= 500000)
+  if (member)
+    diskon = 0.20 * total_belanja;
+    keterangan = "Diskon 20%";
+  else
+    diskon = 0.10 * total_belanja;
+    keterangan = "Diskon 10%";
+  endif
+else
+  diskon = 0;
+  keterangan = "Tidak ada diskon";
+endif
+
+disp(["Keterangan diskon = ", keterangan]);
+disp(["Besar diskon      = ", num2str(diskon)]);
 ```
 
----
+### 7.4 Luaran yang Dikumpulkan
 
-### 7.7 4. File `cek_diskon.m`
-
-Buat program untuk menentukan diskon belanja dengan aturan:
-- total belanja >= 500000 dan member → diskon 20%
-- total belanja >= 500000 dan bukan member → diskon 10%
-- total belanja < 500000 → tidak ada diskon
-
-Gunakan `if` bertingkat atau kombinasi operator logika.
-
----
-
-### 7.8 5. Dokumentasi Hasil
-
-Setiap file harus:
-- dapat dijalankan tanpa error,
-- memiliki komentar singkat di awal file,
-- menampilkan output yang jelas.
-
-Mahasiswa juga diminta membuat satu file laporan singkat berisi:
-- nama file,
-- tujuan file,
-- contoh input,
-- hasil output.
-
----
-
-## 8. Format Pengumpulan
-
-Mahasiswa mengumpulkan:
-
-1. `cek_nilai.m`
-2. `cek_kategori.m`
-3. `cek_kelayakan.m`
-4. `cek_diskon.m`
-5. satu file laporan singkat dalam format `.md` atau `.pdf`
-6. tangkapan layar hasil eksekusi program
+1. `praktikum_percabangan.m`
+2. tangkapan layar hasil eksekusi program
+3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

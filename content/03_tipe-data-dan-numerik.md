@@ -647,10 +647,10 @@ Gunakan `whos` untuk melihat semua variabel yang telah dibuat. Catat:
 
 ## 12. Tugas Praktikum
 
-## 13. Judul
+### 12.1 Judul
 **Eksplorasi Tipe Data dan Tipe Data Numerik di GNU Octave**
 
-## 14. Tujuan
+### 12.2 Tujuan
 Peserta mampu:
 - membedakan tipe data umum dan numerik,
 - membuat data numerik dengan beberapa tipe,
@@ -658,31 +658,29 @@ Peserta mampu:
 - mengamati hasil operasi campuran,
 - dan mendokumentasikan hasil pengamatan.
 
-## 15. Instruksi
+### 12.3 Instruksi
 
-Buat folder kerja:
-```text
-praktikum_tipe_data_octave
-```
+Buat **satu file script saja** bernama `praktikum_tipe_data_numerik.m`.
 
-Di dalam folder tersebut, buat file berikut.
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-### 15.1 1. File `eksplorasi_tipe_data.m`
-
-Isi file minimal:
-- membuat variabel bertipe `double`,
-- `single`,
-- `int8`,
-- `uint8`,
-- kompleks,
-- logical,
-- string,
-- lalu menampilkan `class` masing-masing.
+Isi script harus memuat:
+- contoh variabel `double`, `single`, `int8`, `uint8`, kompleks, logical, dan string,
+- tampilan `class` dari setiap variabel,
+- konversi satu nilai pecahan ke beberapa tipe numerik,
+- minimal tiga operasi campuran yang berhasil dijalankan,
+- tampilan hasil akhir yang rapi dan mudah dibaca.
 
 Contoh kerangka:
+
 ```octave
 clc;
 clear;
+
+disp("=== PRAKTIKUM 3: TIPE DATA DAN NUMERIK ===");
 
 a = 25;
 b = single(25);
@@ -692,7 +690,7 @@ e = 3 + 4i;
 f = true;
 g = "praktikum";
 
-disp("=== HASIL EKSPLORASI TIPE DATA ===");
+disp("=== EKSPLORASI TIPE DATA ===");
 disp(["class(a) = ", class(a)]);
 disp(["class(b) = ", class(b)]);
 disp(["class(c) = ", class(c)]);
@@ -700,22 +698,9 @@ disp(["class(d) = ", class(d)]);
 disp(["class(e) = ", class(e)]);
 disp(["class(f) = ", class(f)]);
 disp(["class(g) = ", class(g)]);
-```
-
-### 15.2 2. File `konversi_numerik.m`
-
-Isi file minimal:
-- membuat satu nilai pecahan,
-- mengonversinya ke beberapa tipe numerik,
-- menampilkan hasil konversi.
-
-Contoh kerangka:
-```octave
-clc;
-clear;
+disp(" ");
 
 x = 123.75;
-
 x_double = double(x);
 x_single = single(x);
 x_int16 = int16(x);
@@ -726,54 +711,29 @@ disp(["double : ", num2str(x_double)]);
 disp(["single : ", num2str(x_single)]);
 disp(["int16  : ", num2str(x_int16)]);
 disp(["uint16 : ", num2str(x_uint16)]);
-```
+disp(" ");
 
-### 15.3 3. File `uji_operasi_campuran.m`
-
-Isi file minimal:
-- coba tiga operasi campuran antar tipe data,
-- tampilkan hasil dan tipe akhirnya jika berhasil,
-- beri komentar singkat pada kode untuk menjelaskan pengamatan.
-
-Contoh:
-```octave
-clc;
-clear;
-
-a = uint8(5);
-b = 2;
-c = a + b;
-
-d = single(2.5);
-e = 3;
-f = d + e;
+u1 = uint8(10) + uint8(5);
+u2 = single(2.5) + 3;
+u3 = double(int16(7)) + 2.25;
 
 disp("=== OPERASI CAMPURAN ===");
-disp(c);
-disp(class(c));
-disp(f);
-disp(class(f));
+disp(["u1 = ", num2str(u1), " | class = ", class(u1)]);
+disp(["u2 = ", num2str(u2), " | class = ", class(u2)]);
+disp(["u3 = ", num2str(u3), " | class = ", class(u3)]);
+disp(" ");
+
+disp("Catatan singkat:");
+disp("- Bilangan biasa pada Octave umumnya bertipe double.");
+disp("- Single memakai presisi lebih rendah daripada double.");
+disp("- Operasi campuran perlu diperhatikan karena tipe hasil bisa berubah.");
 ```
 
-### 15.4 4. File `laporan_ringkas.txt`
-Tuliskan jawaban singkat untuk pertanyaan berikut:
-1. Apa tipe default untuk bilangan biasa di Octave?
-2. Apa perbedaan `single` dan `double`?
-3. Kapan integer lebih cocok digunakan?
-4. Mengapa operasi campuran perlu diperhatikan?
-5. Apa fungsi `class`, `isa`, dan `typeinfo`?
+### 12.4 Luaran yang Dikumpulkan
 
----
-
-## 16. Format Laporan Singkat
-
-Laporan minimal memuat:
-- judul praktikum,
-- tujuan,
-- daftar file,
-- hasil eksekusi,
-- analisis singkat,
-- kesimpulan.
+1. `praktikum_tipe_data_numerik.m`
+2. tangkapan layar hasil eksekusi script
+3. catatan singkat hasil pengamatan bila diminta pengampu
 
 ---
 

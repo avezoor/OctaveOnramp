@@ -437,41 +437,44 @@ Analisis:
 
 ## 5. Tugas Latihan
 
-Kerjakan soal berikut.
+### 5.1 Tugas Latihan
 
-### 5.1 A. Soal Konsep
-
-1. Jelaskan perbedaan utama antara `for`, `while`, dan `do-until`.
-2. Mengapa `do-until` selalu menjalankan isi loop minimal satu kali?
-3. Apa perbedaan fungsi `break` dan `continue`?
-4. Mengapa loop `while` lebih berisiko menjadi loop tak berhingga?
-5. Kapan `for` lebih cocok digunakan daripada `while`?
-
-### 5.2 B. Soal Praktik
+Kerjakan soal berikut di Octave.
 
 1. Buat program dengan `for` untuk menampilkan kuadrat bilangan 1 sampai 10.
 2. Buat program dengan `while` untuk menghitung jumlah bilangan genap dari 2 sampai 20.
 3. Buat program dengan `do-until` untuk menampilkan bilangan dari 10 turun ke 1.
 4. Buat program yang menampilkan bilangan 1 sampai 20, tetapi melewati bilangan kelipatan 3 menggunakan `continue`.
-5. Buat program yang mencari bilangan pertama antara 1 sampai 100 yang habis dibagi 17 dan gunakan `break` untuk menghentikan loop saat ditemukan.
+5. Buat program yang mencari bilangan pertama antara 1 sampai 100 yang habis dibagi 17 dan gunakan `break`.
+6. Setelah praktik selesai, jawab singkat:
+   - perbedaan utama `for`, `while`, dan `do-until`,
+   - alasan `do-until` berjalan minimal satu kali,
+   - perbedaan `break` dan `continue`,
+   - alasan `while` lebih berisiko menjadi loop tak berhingga,
+   - kapan `for` lebih cocok daripada `while`.
 
 ---
 
 ## 6. Tugas Praktikum
 
-## 7. Judul
+### 6.1 Judul
 **Simulasi Penggunaan Perulangan pada Octave**
 
-## 8. Tujuan
+### 6.2 Tujuan
 Praktikan dapat membuat program yang memanfaatkan `for`, `while`, `do-until`, `break`, dan `continue` dalam satu studi kasus sederhana.
 
-## 9. Deskripsi Tugas
-Buat file bernama `praktikum_perulangan.m` yang memenuhi ketentuan berikut.
+### 6.3 Instruksi
 
-### 9.1 Bagian 1 — Deret bilangan dengan `for`
-Tampilkan bilangan 1 sampai 15 beserta kuadratnya.
+Buat satu file bernama `praktikum_perulangan.m` yang memenuhi ketentuan berikut.
 
-Contoh format output:
+Isi script harus memuat:
+- bilangan 1 sampai 15 beserta kuadratnya dengan `for`,
+- penjumlahan bilangan 1 sampai 50 dengan `while`,
+- menu sederhana berulang dengan `do-until`,
+- contoh `continue` untuk melewati bilangan tertentu,
+- contoh `break` untuk menghentikan pencarian saat kondisi terpenuhi.
+
+Contoh format output bagian `for`:
 
 ```text
 1 -> 1
@@ -480,37 +483,11 @@ Contoh format output:
 ...
 ```
 
-### 9.2 Bagian 2 — Penjumlahan dengan `while`
-Hitung jumlah bilangan dari 1 sampai 50.
+### 6.4 Luaran yang Dikumpulkan
 
-### 9.3 Bagian 3 — Simulasi menu dengan `do-until`
-Buat menu sederhana berikut:
-- 1 = tampilkan pesan,
-- 2 = hitung jumlah 1 sampai 10,
-- 3 = keluar.
-
-Menu harus terus berulang sampai pengguna memilih keluar.
-
-### 9.4 Bagian 4 — `continue`
-Tampilkan bilangan 1 sampai 30, tetapi jangan tampilkan bilangan yang habis dibagi 4.
-
-### 9.5 Bagian 5 — `break`
-Cari bilangan pertama dari 1 sampai 100 yang lebih besar dari 40 dan habis dibagi 9.
-
----
-
-## 10. Format Pengumpulan
-
-Praktikan mengumpulkan:
-
-1. file `praktikum_perulangan.m`,
-2. tangkapan layar hasil eksekusi,
-3. ringkasan singkat berisi:
-   - penggunaan `for`,
-   - penggunaan `while`,
-   - penggunaan `do-until`,
-   - contoh `break`,
-   - contoh `continue`.
+1. `praktikum_perulangan.m`
+2. tangkapan layar hasil eksekusi
+3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

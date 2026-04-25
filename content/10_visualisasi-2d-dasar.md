@@ -367,69 +367,33 @@ pada interval `[-3, 3]`.
 Mahasiswa mampu membuat beberapa jenis grafik 2D dan menyajikannya secara informatif.
 
 ### 6.3 Instruksi
-Buat folder kerja bernama:
+Buat **satu file script saja** bernama `praktikum_visualisasi2d_dasar.m`.
 
-```text
-praktikum_visualisasi_2d
-```
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-Di dalam folder tersebut, buat file berikut.
+Isi script harus memuat:
+- grafik `sin(x)` dan `cos(x)` dalam satu axes,
+- tiga subplot fungsi sederhana,
+- data diskret yang ditampilkan dengan `bar`, `stem`, dan `stairs`,
+- contoh `fplot` untuk minimal dua fungsi,
+- penyimpanan salah satu hasil figure ke file gambar.
 
-### 6.4 File `grafik_fungsi_dasar.m`
-Buat skrip yang:
-1. Membuat vektor `x = 0:0.1:2*pi`
-2. Menghitung:
-   - `y1 = sin(x)`
-   - `y2 = cos(x)`
-3. Menampilkan kedua grafik dalam satu axes
-4. Menambahkan:
-   - judul
-   - label sumbu-x
-   - label sumbu-y
-   - legenda
-   - grid
-5. Menyimpan grafik sebagai `grafik_fungsi_dasar.png`
+Contoh target hasil:
+- satu figure untuk `sin(x)` dan `cos(x)`,
+- satu figure untuk subplot fungsi,
+- satu figure untuk data diskret,
+- satu figure untuk `fplot`,
+- satu file gambar misalnya `praktikum_visualisasi2d_dasar.png`.
 
-### 6.5 File `subplot_fungsi.m`
-Buat skrip yang menampilkan tiga subplot:
-1. `sin(x)`
-2. `cos(x)`
-3. `sin(x).*cos(x)`
+### 6.4 Luaran yang Dikumpulkan
 
-Setiap subplot harus memiliki judul masing-masing.
-
-### 6.6 File `grafik_diskret.m`
-Buat skrip yang menampilkan data diskret yang sama dalam tiga bentuk:
-- `bar`
-- `stem`
-- `stairs`
-
-Gunakan `subplot`.
-
-### 6.7 File `plot_fungsi_handle.m`
-Buat skrip yang menggunakan `fplot` untuk menampilkan dua fungsi:
-- `f(x) = x.^2`
-- `g(x) = x.^3 - 2*x`
-
-Tampilkan dalam dua subplot berbeda.
-
-### 6.8 Dokumentasi singkat
-Buat file markdown singkat bernama `catatan_visualisasi.md` yang berisi:
-- fungsi-fungsi plotting yang digunakan,
-- perbedaan `plot`, `fplot`, `bar`, `stem`, dan `stairs`,
-- kendala yang ditemui saat praktikum.
-
----
-
-## 7. Format Laporan Singkat
-
-Setiap mahasiswa menuliskan:
-
-1. **Tujuan praktikum**
-2. **Cuplikan kode utama**
-3. **Hasil grafik**
-4. **Analisis singkat**
-5. **Kesimpulan**
+1. `praktikum_visualisasi2d_dasar.m`
+2. satu file gambar hasil plot
+3. tangkapan layar hasil eksekusi
+4. catatan singkat hasil praktikum bila diminta pengampu
 
 ---
 

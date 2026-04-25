@@ -324,17 +324,7 @@ Jalankan script tersebut dari editor atau dari Command Window dengan menuliskan 
 
 ## 5. Tugas Latihan
 
-### 5.1 A. Soal Konsep
-
-Jawab pertanyaan berikut.
-
-1. Apa perbedaan string dan numerik pada Octave?
-2. Mengapa dokumentasi Octave menyarankan penggunaan tanda kutip ganda untuk string?
-3. Apa perbedaan `input("...")` dan `input("...", "s")`?
-4. Apa perbedaan `disp` dan `printf`?
-5. Mengapa script berguna dibanding mengetik perintah satu per satu di Command Window?
-
-### 5.2 B. Soal Praktik
+### 5.1 Tugas Latihan
 
 Kerjakan perintah berikut di Octave.
 
@@ -343,6 +333,12 @@ Kerjakan perintah berikut di Octave.
 3. Minta input satu angka, lalu tampilkan kuadratnya.
 4. Minta input string, lalu tampilkan kembali dengan awalan teks keterangan.
 5. Gunakan `sprintf` untuk membentuk kalimat hasil perhitungan.
+6. Setelah praktik selesai, jawab singkat:
+   - perbedaan string dan numerik,
+   - alasan penggunaan tanda kutip ganda untuk string,
+   - perbedaan `input("...")` dan `input("...", "s")`,
+   - perbedaan `disp` dan `printf`,
+   - alasan script berguna dibanding mengetik perintah satu per satu.
 
 Contoh target pengerjaan nomor 3:
 
@@ -383,6 +379,11 @@ Isi program harus memenuhi syarat berikut:
 3. Menghitung total nilai.
 4. Menampilkan hasil dengan format yang rapi.
 5. Menampilkan pesan penutup.
+6. Tambahkan minimal dua pengembangan berikut:
+   - menampilkan hasil dalam kalimat lengkap menggunakan `sprintf`,
+   - meminta satu input string tambahan,
+   - menghitung diskon atau bonus sederhana,
+   - menyimpan output ke file teks menggunakan `fprintf`.
 
 ### 6.4 Contoh Kerangka Program
 
@@ -407,19 +408,11 @@ printf("Total        : %g\n", total)
 disp("Program selesai dijalankan.")
 ```
 
-### 6.5 Pengembangan Tugas
-Tambahkan minimal dua fitur berikut:
-
-- menampilkan hasil dalam kalimat lengkap menggunakan `sprintf`,
-- meminta satu input string tambahan,
-- menghitung diskon atau bonus sederhana,
-- menyimpan output ke file teks menggunakan `fprintf`.
-
-### 6.6 Luaran yang Dikumpulkan
+### 6.5 Luaran yang Dikumpulkan
 
 1. File `praktikum_string_io.m`
 2. Tangkapan layar hasil program saat dijalankan
-3. Ringkasan singkat fungsi-fungsi yang dipakai (`input`, `disp`, `printf`, `sprintf`)
+3. Ringkasan singkat fungsi-fungsi yang dipakai bila diminta pengampu (`input`, `disp`, `printf`, `sprintf`)
 
 ---
 

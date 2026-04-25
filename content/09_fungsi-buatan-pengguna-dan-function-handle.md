@@ -605,20 +605,7 @@ Kerjakan langkah berikut:
 
 ## 7. Tugas Latihan
 
-### 7.1 A. Latihan Pemahaman
-
-Jawab pertanyaan berikut:
-
-1. Apa manfaat penggunaan fungsi dibanding menulis semua perintah dalam satu script?
-2. Apa perbedaan function file dan script file?
-3. Mengapa `nargin` penting dalam fungsi buatan pengguna?
-4. Apa perbedaan antara banyak output dan output berupa satu vektor?
-5. Apa fungsi dari symbol `@` pada function handle?
-6. Apa perbedaan function handle biasa dan anonymous function?
-7. Mengapa `return` pada Octave tidak dipakai untuk mengirim nilai seperti pada bahasa C?
-8. Apa yang dimaksud dengan **base case** pada fungsi rekursif?
-
-### 7.2 B. Latihan Kode
+### 7.1 Tugas Latihan
 
 1. Buat fungsi `volume_balok(p, l, t)`.
 2. Buat fungsi `stat_dua_bilangan(a, b)` yang mengembalikan jumlah, selisih, kali, dan bagi.
@@ -626,6 +613,12 @@ Jawab pertanyaan berikut:
 4. Buat function handle `@sqrt` dan evaluasi untuk 16, 25, dan 49.
 5. Buat fungsi yang menerima function handle dan vektor, lalu mengembalikan hasil evaluasi fungsi pada setiap elemen vektor.
 6. Buat fungsi rekursif `pangkat_rekursif(a, n)` untuk menghitung `a^n` dengan `n` bilangan bulat nonnegatif.
+7. Setelah praktik selesai, jawab singkat:
+   - manfaat fungsi dibanding semua perintah ditulis langsung,
+   - perbedaan function file dan script file,
+   - fungsi `nargin`,
+   - perbedaan function handle dan anonymous function,
+   - arti **base case** pada rekursi.
 
 Contoh salah satu latihan:
 
@@ -660,7 +653,7 @@ endfunction
 
 ### 8.2 Tujuan
 Mahasiswa mampu:
-- membuat beberapa file fungsi,
+- membuat fungsi buatan pengguna,
 - menggunakan banyak output,
 - memakai `nargin` untuk validasi input,
 - menggunakan function handle dan anonymous function,
@@ -668,27 +661,47 @@ Mahasiswa mampu:
 - menulis script pengujian.
 
 ### 8.3 Instruksi
-Buat folder:
+Buat **satu file script saja** bernama `praktikum_fungsi_dan_handle.m`.
 
-```text
-praktikum_octave_fungsi_lanjut
-```
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- script utama diletakkan di bagian atas file,
+- semua fungsi buatan pengguna diletakkan di bagian bawah file yang sama.
 
-Di dalam folder tersebut buat file-file berikut.
+Isi file harus memuat:
+- pengujian fungsi `hitung_balok`,
+- pengujian fungsi `konversi_nilai`,
+- anonymous function untuk `x^2 + 1`,
+- fungsi `terapkan_ke_vektor` untuk menerapkan function handle pada sebuah vektor,
+- satu contoh fungsi rekursif sederhana.
 
-#### 1. File `hitung_balok.m`
-Spesifikasi:
-- input: panjang, lebar, tinggi
-- output: volume dan luas permukaan
-- harus memeriksa jumlah input dengan `nargin`
-- tampilkan pesan error jika ada input kurang dari atau sama dengan nol
-
-Kerangka:
+Contoh kerangka:
 
 ```octave
-function [V, LP] = hitung_balok(p, l, t)
-  % HITUNG_BALOK Menghitung volume dan luas permukaan balok.
+clc;
+clear;
 
+disp("=== PRAKTIKUM 9: FUNGSI DAN FUNCTION HANDLE ===");
+
+[V, LP] = hitung_balok(4, 3, 2);
+disp(["Volume balok   = ", num2str(V)]);
+disp(["Luas permukaan = ", num2str(LP)]);
+
+[mutu, status] = konversi_nilai(78);
+disp(["Huruf mutu     = ", mutu]);
+disp(["Status         = ", status]);
+
+f = @(x) x^2 + 1;
+v = [1 2 3 4 5];
+hasil = terapkan_ke_vektor(f, v);
+disp("Hasil transformasi = ");
+disp(hasil);
+
+pangkat = pangkat_rekursif(2, 5);
+disp(["2^5 = ", num2str(pangkat)]);
+
+function [V, LP] = hitung_balok(p, l, t)
   if (nargin != 3)
     usage("hitung_balok(p, l, t)");
   endif
@@ -700,81 +713,45 @@ function [V, LP] = hitung_balok(p, l, t)
   V = p * l * t;
   LP = 2 * (p*l + p*t + l*t);
 endfunction
-```
 
-#### 2. File `konversi_nilai.m`
-Spesifikasi:
-- input: nilai angka 0–100
-- output: huruf mutu dan status kelulusan
-- gunakan percabangan `if`
-- output 1: huruf mutu
-- output 2: status (`"Lulus"` atau `"Tidak Lulus"`)
+function [mutu, status] = konversi_nilai(nilai)
+  if (nilai >= 85)
+    mutu = "A";
+  elseif (nilai >= 75)
+    mutu = "B";
+  elseif (nilai >= 65)
+    mutu = "C";
+  else
+    mutu = "D";
+  endif
 
-#### 3. File `terapkan_ke_vektor.m`
-Spesifikasi:
-- input: function handle `f` dan sebuah vektor `v`
-- output: vektor hasil penerapan `f` pada setiap elemen `v`
-- gunakan perulangan untuk menerapkan fungsi ke seluruh elemen
+  if (nilai >= 65)
+    status = "Lulus";
+  else
+    status = "Tidak Lulus";
+  endif
+endfunction
 
-Contoh ide:
-
-```octave
 function hasil = terapkan_ke_vektor(f, v)
   hasil = zeros(size(v));
   for i = 1:length(v)
     hasil(i) = f(v(i));
   endfor
 endfunction
-```
 
-#### 4. File `uji_semua.m`
-Isi file harus:
-- menguji `hitung_balok`
-- menguji `konversi_nilai`
-- membuat anonymous function untuk `x^2 + 1`
-- memanggil `terapkan_ke_vektor` pada vektor `[1 2 3 4 5]`
-- menampilkan seluruh hasil dengan `disp` atau `printf`
-
-Contoh kerangka:
-
-```octave
-clc;
-disp("=== UJI FUNGSI PRAKTIKUM ===");
-
-[V, LP] = hitung_balok(4, 3, 2);
-disp(["Volume balok        = ", num2str(V)]);
-disp(["Luas permukaan      = ", num2str(LP)]);
-
-[mutu, status] = konversi_nilai(78);
-disp(["Huruf mutu          = ", mutu]);
-disp(["Status              = ", status]);
-
-f = @(x) x^2 + 1;
-v = [1 2 3 4 5];
-hasil = terapkan_ke_vektor(f, v);
-disp("Hasil transformasi  = ");
-disp(hasil);
-```
-
-#### 5. Dokumentasi dan Log
-Lakukan:
-
-```octave
-diary log_praktikum_fungsi.txt
-help hitung_balok
-help konversi_nilai
-help terapkan_ke_vektor
-uji_semua
-diary off
+function hasil = pangkat_rekursif(a, n)
+  if (n == 0)
+    hasil = 1;
+  else
+    hasil = a * pangkat_rekursif(a, n - 1);
+  endif
+endfunction
 ```
 
 ### 8.4 Luaran yang Dikumpulkan
-1. `hitung_balok.m`
-2. `konversi_nilai.m`
-3. `terapkan_ke_vektor.m`
-4. `uji_semua.m`
-5. `log_praktikum_fungsi.txt`
-6. tangkapan layar hasil eksekusi
+1. `praktikum_fungsi_dan_handle.m`
+2. tangkapan layar hasil eksekusi
+3. ringkasan singkat hasil praktikum bila diminta pengampu
 
 ---
 

@@ -404,19 +404,9 @@ numel (A)
 
 ## 6. Tugas Latihan
 
-### 6.1 A. Soal Konsep
+### 6.1 Tugas Latihan
 
-Jawab pertanyaan berikut:
-
-1. Apa perbedaan vektor baris dan vektor kolom?
-2. Apa fungsi range dalam Octave?
-3. Apa perbedaan penulisan `1:5` dan `1:2:5`?
-4. Bagaimana cara mengambil semua elemen pada kolom ketiga suatu matriks?
-5. Apa fungsi `size`, `rows`, `columns`, dan `numel`?
-
-### 6.2 B. Soal Praktik
-
-Kerjakan di Octave:
+Kerjakan langsung di Octave. Untuk latihan, tidak perlu membuat banyak file.
 
 1. Buat vektor baris berisi `5, 10, 15, 20, 25`.
 2. Buat vektor kolom berisi `7, 14, 21, 28`.
@@ -428,6 +418,11 @@ Kerjakan di Octave:
 8. Buat matriks nol ukuran 2 x 4.
 9. Tampilkan jumlah seluruh elemen dari matriks `[1, 2; 3, 4; 5, 6]`.
 10. Ambil elemen terakhir dari vektor `[4, 8, 12, 16, 20]`.
+11. Setelah praktik selesai, jawab singkat:
+    - perbedaan vektor baris dan vektor kolom,
+    - fungsi range,
+    - perbedaan `1:5` dan `1:2:5`,
+    - fungsi `size`, `rows`, `columns`, dan `numel`.
 
 ---
 
@@ -440,137 +435,94 @@ Kerjakan di Octave:
 Praktikan mampu membuat dan memanipulasi data berbentuk vektor dan matriks secara benar.
 
 ### 7.3 Instruksi
-Buat folder kerja dan simpan tiga file berikut.
+Buat **satu file script saja** bernama `praktikum_vektor_matriks_dasar.m`.
 
----
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-### 7.4 File 1 — `vektor_dan_range.m`
-
-Isi file ini dengan program yang:
-- membuat satu vektor baris,
-- membuat satu vektor kolom,
-- membuat tiga buah range,
-- menampilkan semua hasil ke layar.
+Isi script harus memuat:
+- pembuatan vektor baris, vektor kolom, dan beberapa range,
+- pembuatan matriks manual, matriks nol, matriks satu, dan matriks identitas,
+- contoh akses elemen, satu baris, satu kolom, semua elemen sebagai satu kolom, dan penggunaan `end`,
+- tampilan ukuran matriks dengan `size`,
+- output yang rapi dan mudah dibaca.
 
 Contoh kerangka:
 
 ```octave
 clc;
-disp("=== VEKTOR DAN RANGE ===");
+clear;
+
+disp("=== PRAKTIKUM 4: VEKTOR, RANGE, DAN MATRIKS DASAR ===");
 
 v1 = [2, 4, 6, 8, 10];
 v2 = [3; 6; 9; 12; 15];
-
 r1 = 1:5;
 r2 = 2:2:12;
 r3 = 15:-3:0;
 
+disp("=== VEKTOR DAN RANGE ===");
 disp("Vektor baris:");
 disp(v1);
-
 disp("Vektor kolom:");
 disp(v2);
-
 disp("Range 1:");
 disp(r1);
-
 disp("Range 2:");
 disp(r2);
-
 disp("Range 3:");
 disp(r3);
-```
-
----
-
-### 7.5 File 2 — `matriks_dasar.m`
-
-Isi file ini dengan program yang:
-- membuat satu matriks manual ukuran 3 x 3,
-- membuat matriks nol,
-- membuat matriks satu,
-- membuat matriks identitas,
-- menampilkan ukuran setiap matriks.
-
-Contoh kerangka:
-
-```octave
-clc;
-disp("=== MATRIKS DASAR ===");
+disp(" ");
 
 A = [1, 2, 3; 4, 5, 6; 7, 8, 9];
-B = zeros (2, 3);
-C = ones (3, 2);
-D = eye (4);
+B = zeros(2, 3);
+C = ones(3, 2);
+D = eye(4);
 
+disp("=== MATRIKS DASAR ===");
 disp("Matriks A:");
 disp(A);
 disp(size(A));
-
 disp("Matriks B:");
 disp(B);
 disp(size(B));
-
 disp("Matriks C:");
 disp(C);
 disp(size(C));
-
 disp("Matriks D:");
 disp(D);
 disp(size(D));
-```
+disp(" ");
 
----
-
-### 7.6 File 3 — `akses_matriks.m`
-
-Isi file ini dengan program yang:
-- membuat matriks 4 x 4,
-- mengambil elemen tertentu,
-- mengambil satu baris,
-- mengambil satu kolom,
-- mengambil seluruh elemen menjadi satu kolom,
-- menggunakan `end` untuk mengambil elemen terakhir.
-
-Contoh kerangka:
-
-```octave
-clc;
-disp("=== AKSES MATRIKS ===");
-
-A = [11, 12, 13, 14;
+M = [11, 12, 13, 14;
      21, 22, 23, 24;
      31, 32, 33, 34;
      41, 42, 43, 44];
 
-disp("Matriks A:");
-disp(A);
-
+disp("=== AKSES MATRIKS ===");
+disp("Matriks M:");
+disp(M);
 disp("Elemen baris 3 kolom 2:");
-disp(A(3,2));
-
+disp(M(3,2));
 disp("Baris ke-2:");
-disp(A(2,:));
-
+disp(M(2,:));
 disp("Kolom ke-4:");
-disp(A(:,4));
-
+disp(M(:,4));
 disp("Semua elemen sebagai satu kolom:");
-disp(A(:));
-
+disp(M(:));
 disp("Elemen terakhir dari baris pertama:");
-disp(A(1,end));
+disp(M(1,end));
 ```
 
 ---
 
 ### 7.7 Output yang Dikumpulkan
 
-1. file `vektor_dan_range.m`
-2. file `matriks_dasar.m`
-3. file `akses_matriks.m`
-4. tangkapan layar hasil eksekusi
-5. ringkasan singkat hasil pengamatan praktikan
+1. file `praktikum_vektor_matriks_dasar.m`
+2. tangkapan layar hasil eksekusi
+3. ringkasan singkat hasil pengamatan praktikan bila diminta pengampu
 
 ---
 

@@ -415,56 +415,34 @@ Buat satu grafik dan beri anotasi teks pada dua posisi berbeda menggunakan `text
 
 ## 14. Tugas Praktikum
 
-## 15. Judul Tugas
+### 14.1 Judul Tugas
 **Membuat Dashboard Grafik Sederhana di GNU Octave**
 
-### 15.1 Tujuan
+### 14.2 Tujuan
 Mahasiswa mampu menyusun satu figure yang berisi beberapa jenis visualisasi 2D dan interaksi sederhana.
 
-### 15.2 Instruksi
+### 14.3 Instruksi
+
 Buat file skrip bernama:
 
 ```text
 praktikum_visualisasi2d_lanjut.m
 ```
 
-Isi skrip harus memenuhi ketentuan berikut.
+Isi skrip harus memenuhi ketentuan berikut:
 
-### 15.3 Bagian 1 — Figure dengan 4 Subplot
-Buat satu figure dengan 4 subplot:
-
-1. grafik fungsi `sin(x)`
-2. grafik fungsi `cos(x)`
-3. grafik fungsi `sin(x) + cos(x)`
-4. histogram dari 500 data acak normal
-
-Ketentuan:
-- gunakan `x = 0:0.1:2*pi`,
-- setiap subplot harus memiliki judul,
-- beri label sumbu jika relevan,
-- aktifkan `grid on`.
-
-### 15.4 Bagian 2 — Interaksi Titik
-Pada subplot fungsi `sin(x) + cos(x)`:
-- mintalah pengguna memilih satu titik dengan `ginput (1)`,
-- tandai titik tersebut dengan marker merah,
-- tampilkan koordinat titik di dekat marker.
-
-### 15.5 Bagian 3 — Ringkasan Statistik Histogram
-Dari data histogram, hitung:
-- nilai minimum,
-- nilai maksimum,
-- nilai rata-rata,
-- simpangan baku.
-
-Tampilkan ringkasan tersebut di Command Window.
-
-### 15.6 Bagian 4 — Penyimpanan Gambar
-Simpan figure hasil akhir ke file gambar bernama:
-
-```text
-hasil_visualisasi2d_lanjut.png
-```
+1. Membuat satu figure dengan 4 subplot:
+   - grafik fungsi `sin(x)`
+   - grafik fungsi `cos(x)`
+   - grafik fungsi `sin(x) + cos(x)`
+   - histogram dari 500 data acak normal
+2. Menggunakan `x = 0:0.1:2*pi`.
+3. Menambahkan judul, label sumbu bila relevan, dan `grid on`.
+4. Meminta pengguna memilih satu titik pada subplot `sin(x) + cos(x)` dengan `ginput (1)`.
+5. Menandai titik yang dipilih dan menampilkan koordinatnya.
+6. Menghitung nilai minimum, maksimum, rata-rata, dan simpangan baku dari data histogram.
+7. Menampilkan ringkasan statistik tersebut di Command Window.
+8. Menyimpan figure hasil akhir ke file `hasil_visualisasi2d_lanjut.png`.
 
 Petunjuk penyimpanan:
 
@@ -472,17 +450,12 @@ Petunjuk penyimpanan:
 print ("hasil_visualisasi2d_lanjut.png", "-dpng")
 ```
 
----
+### 14.4 Luaran yang Dikumpulkan
 
-## 16. Format Laporan Singkat
-
-Mahasiswa diminta menyusun laporan ringkas yang memuat:
-
-1. tujuan praktikum,
-2. potongan kode utama,
-3. hasil tampilan figure,
-4. penjelasan fungsi `subplot`, `hist`, dan `ginput`,
-5. kesimpulan singkat.
+1. `praktikum_visualisasi2d_lanjut.m`
+2. file gambar `hasil_visualisasi2d_lanjut.png`
+3. tangkapan layar hasil eksekusi
+4. catatan singkat hasil praktikum bila diminta pengampu
 
 ---
 

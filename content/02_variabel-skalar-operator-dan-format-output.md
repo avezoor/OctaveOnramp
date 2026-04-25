@@ -421,41 +421,51 @@ disp(teks_skor)
 
 ## 5. Tugas Latihan
 
-### 5.1 A. Latihan Pemahaman
+### 5.1 Tugas Latihan
 
-Jawab pertanyaan berikut:
+Kerjakan langsung di **Command Window Octave**. Untuk materi awal ini, latihan tidak perlu dibuat menjadi banyak file dan tidak perlu membuat folder baru.
 
-1. Apa perbedaan variabel dan skalar?
-2. Mengapa `nilai` dan `Nilai` dianggap berbeda?
-3. Apa fungsi variabel `ans`?
-4. Apa perbedaan `*` dan `.*`?
-5. Mengapa `format` tidak mengubah nilai sebenarnya?
-6. Apa perbedaan `disp`, `printf`, dan `sprintf`?
-7. Kapan `num2str` lebih berguna daripada langsung menampilkan angka?
+1. Buat variabel `a = 20;` dan `b = 6;`.
+2. Hitung `jumlah`, `selisih`, `hasil_kali`, `hasil_bagi`, dan `sisa_bagi` dengan `rem(a, b)`.
+3. Buat tiga ekspresi perbandingan yang menghasilkan nilai benar.
+4. Buat dua ekspresi logika yang menggunakan `&` dan `|`.
+5. Tampilkan `pi` dengan `format short`, `format long`, dan `format rat`.
+6. Tampilkan teks `Hasil perhitungan = 123.46` menggunakan `printf`.
+7. Simpan teks `Nilai akhir praktikum = 87.5` ke variabel string dengan `sprintf`, lalu tampilkan hasilnya.
 
-### 5.2 B. Latihan Kode
+Contoh alur pengerjaan:
 
-Kerjakan di Octave:
+```octave
+a = 20;
+b = 6;
 
-1. Buat dua variabel skalar `a = 20` dan `b = 6`, lalu hitung:
-   - jumlah,
-   - selisih,
-   - hasil kali,
-   - hasil bagi,
-   - sisa bagi menggunakan `rem(a,b)`.
-2. Buat tiga ekspresi perbandingan yang menghasilkan benar.
-3. Buat dua ekspresi logika yang menggabungkan operator `&` dan `|`.
-4. Tampilkan nilai `pi` dengan `format short`, `format long`, dan `format rat`.
-5. Tampilkan kalimat berikut dengan `printf`:
+jumlah = a + b
+selisih = a - b
+hasil_kali = a * b
+hasil_bagi = a / b
+sisa_bagi = rem(a, b)
 
-```text
-Hasil perhitungan = 123.46
-```
+a > b
+a != b
+jumlah >= b
 
-6. Simpan teks berikut ke variabel string dengan `sprintf`:
+(a > b) & (b < 10)
+(a < b) | (b < 10)
 
-```text
-Nilai akhir praktikum = 87.5
+format short
+pi
+
+format long
+pi
+
+format rat
+pi
+
+format default
+printf("Hasil perhitungan = %.2f\n", 123.456)
+
+teks = sprintf("Nilai akhir praktikum = %.1f", 87.5);
+disp(teks)
 ```
 
 ---
@@ -473,21 +483,42 @@ Praktikan mampu:
 
 ### 6.3 Instruksi
 
-Buat tiga file berikut.
+Buat **satu file script saja** bernama `praktikum_variabel_operator.m`.
+
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
+
+Isi script harus memuat:
+- judul praktikum dan identitas singkat,
+- minimal 5 variabel skalar numerik,
+- perhitungan jumlah, rata-rata, maksimum, dan minimum,
+- contoh operator aritmetika, perbandingan, dan logika,
+- dua matriks kecil `A` dan `B`, lalu tampilkan `A * B` dan `A .* B`,
+- demonstrasi `format short`, `format long`, dan `format bank`,
+- output dengan `disp`, `printf`, `sprintf`, dan `num2str`.
 
 ---
 
-### 6.4 File `hitung_data_skalar.m`
-
-Isi file ini dengan kode untuk:
-- membuat minimal 5 variabel skalar numerik,
-- menghitung jumlah, rata-rata, nilai maksimum, dan nilai minimum,
-- menampilkan semua hasil menggunakan `disp`.
+### 6.4 File `praktikum_variabel_operator.m`
 
 Contoh kerangka:
 
 ```octave
 clc;
+format default;
+
+disp("=== PRAKTIKUM 2: VARIABEL, SKALAR, OPERATOR, DAN FORMAT OUTPUT ===");
+
+nama = "mahasiswa";
+nim = "00000000";
+kelas = "kelas_praktikum";
+
+disp(["Nama  : ", nama]);
+disp(["NIM   : ", nim]);
+disp(["Kelas : ", kelas]);
+disp(" ");
 
 n1 = 78;
 n2 = 85;
@@ -500,33 +531,15 @@ rata = jumlah / 5;
 nilai_maks = max([n1 n2 n3 n4 n5]);
 nilai_min = min([n1 n2 n3 n4 n5]);
 
-disp("=== HASIL PENGOLAHAN DATA SKALAR ===");
-disp(["Jumlah      = ", num2str(jumlah)]);
-disp(["Rata-rata   = ", num2str(rata)]);
-disp(["Maksimum    = ", num2str(nilai_maks)]);
-disp(["Minimum     = ", num2str(nilai_min)]);
-```
-
----
-
-### 6.5 File `uji_operator.m`
-
-Isi file ini dengan contoh penggunaan:
-- operator aritmetika,
-- operator perbandingan,
-- operator logika,
-- operator elemen-per-elemen pada dua matriks kecil.
-
-Contoh kerangka:
-
-```octave
-clc;
+disp("=== DATA SKALAR ===");
+disp(["Jumlah    = ", num2str(jumlah)]);
+disp(["Rata-rata = ", num2str(rata)]);
+disp(["Maksimum  = ", num2str(nilai_maks)]);
+disp(["Minimum   = ", num2str(nilai_min)]);
+disp(" ");
 
 a = 12;
 b = 4;
-
-A = [1 2; 3 4];
-B = [2 2; 5 1];
 
 disp("=== OPERATOR ARITMETIKA ===");
 printf("a + b = %d\n", a + b);
@@ -536,81 +549,52 @@ printf("a / b = %.2f\n", a / b);
 printf("a ^ b = %d\n", a ^ b);
 
 disp(" ");
-disp("=== OPERATOR PERBANDINGAN ===");
-printf("a > b  = %d\n", a > b);
+disp("=== OPERATOR PERBANDINGAN DAN LOGIKA ===");
+printf("a > b = %d\n", a > b);
 printf("a == b = %d\n", a == b);
 printf("a != b = %d\n", a != b);
-
-disp(" ");
-disp("=== OPERATOR LOGIKA ===");
 printf("(a > b) & (b < 10) = %d\n", (a > b) & (b < 10));
 printf("(a < b) | (b < 10) = %d\n", (a < b) | (b < 10));
-printf("!(a == b) = %d\n", !(a == b));
 
 disp(" ");
+A = [1 2; 3 4];
+B = [2 2; 5 1];
 disp("=== MATRIKS ===");
 disp("A * B = ");
 disp(A * B);
 disp("A .* B = ");
 disp(A .* B);
-```
 
----
-
-### 6.6 File `format_output_demo.m`
-
-Isi file ini dengan demonstrasi:
-- `format short`,
-- `format long`,
-- `format bank`,
-- `disp`,
-- `printf`,
-- `sprintf`.
-
-Contoh kerangka:
-
-```octave
-clc;
-
-x = pi;
-nilai = 1234.56789;
-
+disp(" ");
 format short
 disp("=== FORMAT SHORT ===");
-disp(x);
+disp(pi);
 
-disp(" ");
 format long
 disp("=== FORMAT LONG ===");
-disp(x);
+disp(pi);
 
-disp(" ");
 format bank
 disp("=== FORMAT BANK ===");
-disp(nilai);
+disp(1234.56789);
 
-disp(" ");
 format default
-disp("=== DISP ===");
-disp(nilai);
-
 disp(" ");
-printf("=== PRINTF ===\n");
-printf("Nilai = %.3f\n", nilai);
-
-teks = sprintf("=== SPRINTF === Nilai = %.2f", nilai);
-disp(teks);
+disp("=== OUTPUT TERFORMAT ===");
+printf("Rata-rata data = %.2f\n", rata);
+pesan = sprintf("Nilai akhir praktikum = %.1f", rata);
+disp(pesan);
 ```
+
+Script boleh dikembangkan sesuai kebutuhan, tetapi seluruh hasil harus keluar dari satu file tersebut saat dijalankan.
 
 ---
 
-### 6.7 Luaran yang Dikumpulkan
+### 6.5 Luaran yang Dikumpulkan
 
-1. `hitung_data_skalar.m`
-2. `uji_operator.m`
-3. `format_output_demo.m`
-4. tangkapan layar hasil eksekusi
-5. file log praktikum bila diminta pengampu
+1. `praktikum_variabel_operator.m`
+2. tangkapan layar hasil eksekusi script
+3. file log praktikum bila diminta pengampu
 
 ---
 

@@ -491,167 +491,97 @@ Kerjakan secara mandiri.
 Mahasiswa mampu melakukan analisis statistik deskriptif pada data numerik serta menyimpan dan memuat hasil analisis menggunakan file.
 
 ### 8.3 Instruksi
+Buat **satu file script saja** bernama `praktikum_analisis_data.m`.
 
-Buat folder kerja dengan nama:
+Ketentuan:
+- tidak perlu membuat folder baru,
+- tidak perlu memecah program menjadi beberapa file script,
+- seluruh bagian dikerjakan dalam satu script yang bisa langsung dijalankan.
 
-```text
-praktikum_octave_analisis_data
-```
-
-Di dalam folder tersebut, buat file berikut.
-
-### 8.4 File `data_praktikum.m`
-
-Isi file ini dengan sebuah matriks data berukuran minimal `5 x 4`.
+Isi script harus memuat:
+- sebuah matriks data minimal `5 x 4`,
+- perhitungan mean, median, mode, minimum, maksimum, range, `std`, dan `var`,
+- tampilan hasil analisis di Command Window,
+- penyimpanan hasil ke file `hasil_analisis.mat`,
+- penulisan ringkasan ke file `laporan_hasil.txt`,
+- pembuatan file teks numerik, pembacaan ulang, dan perhitungan mean hasil pembacaan.
 
 Contoh kerangka:
 
 ```octave
+clear;
+clc;
+
+disp("=== PRAKTIKUM 13: ANALISIS DATA DESKRIPTIF DAN FILE I/O ===");
+
 data = [72 80 65 90;
         75 78 70 88;
         80 82 68 91;
         70 76 72 85;
         85 90 75 95];
-```
 
-### 8.5 File `analisis_deskriptif.m`
+mean_kolom = mean(data);
+median_kolom = median(data);
+mode_kolom = mode(data);
+[min_kolom, max_kolom] = bounds(data);
+range_kolom = range(data);
+std_kolom = std(data);
+var_kolom = var(data);
 
-File ini harus:
-
-1. memanggil atau memuat data,
-2. menghitung:
-   - mean tiap kolom,
-   - median tiap kolom,
-   - mode tiap kolom,
-   - minimum dan maksimum tiap kolom,
-   - range tiap kolom,
-   - std tiap kolom,
-   - var tiap kolom,
-3. menampilkan hasil di Command Window,
-4. menyimpan variabel hasil ke file `hasil_analisis.mat`.
-
-Contoh kerangka:
-
-```octave
-clear;
-clc;
-
-run ("data_praktikum.m");
-
-mean_kolom = mean (data);
-median_kolom = median (data);
-mode_kolom = mode (data);
-[min_kolom, max_kolom] = bounds (data);
-range_kolom = range (data);
-std_kolom = std (data);
-var_kolom = var (data);
-
-mean_kolom
-median_kolom
-mode_kolom
-min_kolom
-max_kolom
-range_kolom
-std_kolom
-var_kolom
+disp("Mean per kolom:");
+disp(mean_kolom);
+disp("Median per kolom:");
+disp(median_kolom);
+disp("Mode per kolom:");
+disp(mode_kolom);
+disp("Minimum per kolom:");
+disp(min_kolom);
+disp("Maksimum per kolom:");
+disp(max_kolom);
+disp("Range per kolom:");
+disp(range_kolom);
+disp("Std per kolom:");
+disp(std_kolom);
+disp("Var per kolom:");
+disp(var_kolom);
 
 save hasil_analisis.mat data mean_kolom median_kolom mode_kolom min_kolom max_kolom range_kolom std_kolom var_kolom
+
+fid = fopen("laporan_hasil.txt", "w");
+fprintf(fid, "LAPORAN ANALISIS DATA\n");
+fprintf(fid, "=====================\n\n");
+fprintf(fid, "Mean per kolom   : ");
+fprintf(fid, "%.2f ", mean_kolom);
+fprintf(fid, "\nMedian per kolom : ");
+fprintf(fid, "%.2f ", median_kolom);
+fprintf(fid, "\nMode per kolom   : ");
+fprintf(fid, "%.2f ", mode_kolom);
+fprintf(fid, "\n");
+fclose(fid);
+
+fid = fopen("angka_uji.txt", "w");
+fprintf(fid, "5 10 15\n20 25 30\n35 40 45\n");
+fclose(fid);
+
+fid = fopen("angka_uji.txt", "r");
+B = fscanf(fid, "%f", [3, 3])';
+fclose(fid);
+
+disp("Data hasil pembacaan file teks:");
+disp(B);
+mean_B = mean(B);
+disp("Mean data file teks:");
+disp(mean_B);
 ```
 
-### 8.6 File `buat_laporan.m`
-
-File ini harus:
-
-1. memuat file `hasil_analisis.mat`,
-2. membuat file teks bernama `laporan_hasil.txt`,
-3. menuliskan ringkasan hasil analisis ke file tersebut.
-
-Contoh kerangka:
-
-```octave
-clear;
-clc;
-
-load hasil_analisis.mat
-
-fid = fopen ("laporan_hasil.txt", "w");
-
-fprintf (fid, "LAPORAN ANALISIS DATA\n");
-fprintf (fid, "=====================\n\n");
-
-fprintf (fid, "Mean per kolom   : ");
-fprintf (fid, "%.2f ", mean_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Median per kolom : ");
-fprintf (fid, "%.2f ", median_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Mode per kolom   : ");
-fprintf (fid, "%.2f ", mode_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Minimum per kolom: ");
-fprintf (fid, "%.2f ", min_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Maksimum per kolom: ");
-fprintf (fid, "%.2f ", max_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Range per kolom  : ");
-fprintf (fid, "%.2f ", range_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Std per kolom    : ");
-fprintf (fid, "%.2f ", std_kolom);
-fprintf (fid, "\n");
-
-fprintf (fid, "Var per kolom    : ");
-fprintf (fid, "%.2f ", var_kolom);
-fprintf (fid, "\n");
-
-fclose (fid);
-```
-
-### 8.7 File `baca_file_teks.m`
-
-File ini harus:
-
-1. membuat file teks berisi data numerik,
-2. membaca kembali data dari file,
-3. menampilkan data hasil pembacaan,
-4. menghitung mean data hasil pembacaan.
-
-Contoh kerangka:
-
-```octave
-clear;
-clc;
-
-fid = fopen ("angka_uji.txt", "w");
-fprintf (fid, "5 10 15\n20 25 30\n35 40 45\n");
-fclose (fid);
-
-fid = fopen ("angka_uji.txt", "r");
-B = fscanf (fid, "%f", [3, 3])';
-fclose (fid);
-
-B
-mean_B = mean (B)
-```
-
-### 8.8 Luaran yang Dikumpulkan
+### 8.4 Luaran yang Dikumpulkan
 
 Mahasiswa mengumpulkan:
 
-1. `data_praktikum.m`
-2. `analisis_deskriptif.m`
-3. `buat_laporan.m`
-4. `baca_file_teks.m`
-5. `hasil_analisis.mat`
-6. `laporan_hasil.txt`
-7. tangkapan layar hasil eksekusi
+1. `praktikum_analisis_data.m`
+2. file hasil `hasil_analisis.mat`
+3. file hasil `laporan_hasil.txt`
+4. tangkapan layar hasil eksekusi
 
 ---
 
