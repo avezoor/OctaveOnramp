@@ -304,6 +304,12 @@ Kerjakan langsung di **Command Window Octave**. Untuk materi paling awal ini, la
 3. Buat tiga variabel angka, lalu hitung rata-ratanya.
 4. Tampilkan daftar variabel dengan `who` dan detailnya dengan `whos`.
 5. Aktifkan `diary`, jalankan beberapa perintah latihan, lalu matikan kembali dengan `diary off`.
+6. Setelah praktik selesai, tulis jawaban singkat tentang:
+   - perbedaan GUI dan CLI,
+   - fungsi `pwd` dan `cd`,
+   - perbedaan `who` dan `whos`,
+   - kegunaan `help` atau `doc`,
+   - kegunaan `diary`.
 
 Contoh alur pengerjaan:
 
@@ -396,9 +402,7 @@ disp("Praktikum selesai dijalankan.");
 ### 8.4 Luaran yang Dikumpulkan
 Mahasiswa mengumpulkan:
 1. file `praktikum_pengantar_octave.m`
-2. tangkapan layar hasil eksekusi
-
----
+ lengkap atau tidak dapat dijalankan.
 
 ---
 
